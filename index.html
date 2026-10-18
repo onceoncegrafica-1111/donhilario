@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BLACK CENTER® | Executive Car Care & Detailing</title>
+    <meta name="description" content="Servicios de estética vehicular ejecutiva, lavado artesanal, descontaminado de tapizados y preparación para venta. Av. Elcano 3325, CABA.">
+
+    <!-- PRELOAD PRIORITARIO DE LOGOS OFICIALES (CARGA INSTANTÁNEA) -->
+    <link rel="preload" as="image" href="./Team_Professional_Products_logo_4K_transparente.webp">
+    <link rel="preload" as="image" href="./CALAMA_logo_4K_transparente.webp">
+
+    <!-- TIPOGRAFÍAS MOTORSPORT & GT HUD -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,600;0,700;0,800;1,700;1,800;1,900&family=JetBrains+Mono:wght@600;700;800&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           ADN CROMÁTICO: GRAN TURISMO / SWISS MOTORSPORT LUXURY
+           ========================================================= */
+        :root {
+            --bg-deep: #080A0E;
+            --bg-asphalt: #10131A;
+            --card-titanium: #161A23;
+            --card-titanium-hover: #1E2330;
+
+            --volt-gold: #FFC700;
+            --volt-gold-glow: rgba(255, 199, 0, 0.45);
+            --apex-red: #E5383B;
+            --calama-cyan: #0EA5E9;
+
+            --metal-pure: #FFFFFF;
+            --metal-silver: #E2E8F0;
+            --metal-subtle: #94A3B8;
+            --metal-lead: #64748B;
+
+            --border-hud: rgba(255, 255, 255, 0.12);
+            --border-active: rgba(255, 199, 0, 0.7);
+
+            --font-display: 'Chakra Petch', sans-serif;
+            --font-ui: 'Rajdhani', sans-serif;
+            --font-telemetry: 'JetBrains Mono', monospace;
+        }
+
+        body.preload * {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            background-color: var(--bg-deep);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-ui);
+            background: transparent;
+            color: var(--metal-pure);
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 16px 14px 44px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* =========================================================
+           INTRO DE BIENVENIDA A CLIENTES
+           ========================================================= */
+        #gtWelcomeScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #06070A;
+            z-index: 999999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            pointer-events: none;
+            transition: opacity 0.55s ease, visibility 0.55s ease;
+        }
+
+        #gtWelcomeScreen.done {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .welcome-title-top {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 800;
+            font-style: italic;
+            color: var(--metal-pure);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .welcome-title-sub {
+            font-family: var(--font-telemetry);
+            font-size: 0.7rem;
+            color: var(--volt-gold);
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+
+        .welcome-bar {
+            width: 190px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-bar-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: var(--volt-gold);
+            box-shadow: 0 0 12px var(--volt-gold);
+            animation: welcomeAnim 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes welcomeAnim {
+            0% { width: 0%; }
+            50% { width: 60%; }
+            100% { width: 100%; }
+        }
+
+        /* =========================================================
+           CANVAS DE FONDO: PISTA DINÁMICA
+           ========================================================= */
+        .gt-bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            background: radial-gradient(circle at 50% 12%, #181E29 0%, #0E1017 55%, #050608 100%);
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .tarmac-grain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.22;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 0);
+            background-size: 15px 15px;
+        }
+
+        #speedTrackCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .parallax-livery {
+            position: absolute;
+            top: -25%;
+            left: -35%;
+            width: 170%;
+            height: 150%;
+            transform: rotate(-26deg);
+            opacity: 0.12;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 140px,
+                var(--volt-gold) 140px,
+                var(--volt-gold) 152px,
+                transparent 152px,
+                transparent 180px,
+                var(--apex-red) 180px,
+                var(--apex-red) 200px,
+                transparent 200px,
+                transparent 380px
+            );
+            will-change: transform;
+            transition: transform 0.1s linear;
+        }
+
+        .ambient-spotlight-top {
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse at 50% 30%, rgba(255, 199, 0, 0.14) 0%, rgba(229, 56, 59, 0.05) 50%, transparent 75%);
+            filter: blur(85px);
+        }
+
+        .hud-grid-edge {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            top: 0;
+            background: linear-gradient(180deg, transparent, rgba(255, 199, 0, 0.3) 30%, rgba(255, 255, 255, 0.1) 70%, transparent);
+        }
+        .hud-left { left: 10px; }
+        .hud-right { right: 10px; }
+
+        /* =========================================================
+           CONTENEDOR CENTRAL
+           ========================================================= */
+        .hub-container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+            z-index: 2;
+        }
+
+        /* BARRA MÚSICA BLACKCENTER */
+        .top-audio-bar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100%;
+            padding: 0 4px;
+        }
+
+        .audio-toggle-btn {
+            font-family: var(--font-telemetry);
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 6px;
+            background: rgba(22, 26, 35, 0.9);
+            border: 1px solid var(--border-hud);
+            color: var(--volt-gold);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .audio-toggle-btn:hover {
+            border-color: var(--volt-gold);
+            box-shadow: 0 0 12px var(--volt-gold-glow);
+        }
+
+        /* =========================================================
+           HEADER: LOGOS 4K TRANSPARENTES + BLACK CENTER MASIVO
+           ========================================================= */
+        .brand-header {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 2px;
+        }
+
+        /* SPONSORS CON RUTA LOCAL DE GITHUB PAGES (CARGA AL INSTANTE) */
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 4px;
+        }
+
+        .sponsor-box {
+            background: linear-gradient(145deg, #181C26 0%, #10121A 100%);
+            border: 1px solid var(--border-hud);
+            border-radius: 8px;
+            padding: 8px 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+            cursor: pointer;
+        }
+
+        .sponsor-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3.5px;
+            height: 100%;
+        }
+
+        .sponsor-box.m111::before { background: var(--volt-gold); }
+        .sponsor-box.calama::before { background: var(--calama-cyan); }
+
+        .sponsor-img-wrap {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sponsor-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+        }
+
+        .sponsor-meta {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.15;
+        }
+
+        .sponsor-title {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 0.88rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .sponsor-box.m111 .sponsor-title { color: var(--volt-gold); }
+        .sponsor-box.calama .sponsor-title { color: var(--calama-cyan); }
+
+        .sponsor-sub {
+            font-family: var(--font-telemetry);
+            font-size: 0.58rem;
+            font-weight: 700;
+            color: var(--metal-subtle);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+
+        /* TÍTULO BLACK CENTER GIGANTE */
+        .brand-title-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 0 2px;
+        }
+
+        .brand-title-massive {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 9.5vw, 3.1rem);
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 0.92;
+            color: var(--metal-pure);
+            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9);
+        }
+
+        .brand-title-massive span {
+            color: var(--volt-gold);
+            text-shadow: 0 0 24px var(--volt-gold-glow);
+        }
+
+        .brand-telemetry-tag {
+            font-family: var(--font-telemetry);
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--metal-subtle);
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-telemetry-tag span.dot {
+            width: 5px;
+            height: 5px;
+            background: var(--volt-gold);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .brand-bio {
+            font-size: 0.95rem;
+            line-height: 1.45;
+            color: var(--metal-subtle);
+            font-weight: 600;
+            max-width: 96%;
+            text-align: center;
+        }
+
+        .brand-bio strong {
+            color: var(--metal-silver);
+            font-weight: 800;
+        }
+
+        /* ACCESOS RÁPIDOS */
+        .social-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 2px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: var(--card-titanium);
+            border: 1.5px solid var(--border-hud);
+            color: var(--metal-silver);
+            text-decoration: none;
+            clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+            transition: all 0.25s ease;
+        }
+
+        .social-btn:hover {
+            border-color: var(--volt-gold);
+            color: var(--volt-gold);
+            background: #232836;
+            box-shadow: 0 0 18px var(--volt-gold-glow);
+            transform: translateY(-2px);
+        }
+
+        .social-btn svg { width: 19px; height: 19px; }
+
+        /* =========================================================
+           BOTONES MASTER (CHAMFERED CORNERS & GT4 SOUND)
+           ========================================================= */
+        .btn-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 16px 18px;
+            background: var(--card-titanium);
+            border: 1.5px solid var(--border-hud);
+            border-left: 5px solid var(--volt-gold);
+            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+            text-decoration: none;
+            color: var(--metal-pure);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .btn-card:hover {
+            background: var(--card-titanium-hover);
+            border-color: var(--border-active);
+            border-left-color: var(--volt-gold);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 199, 0, 0.25);
+            transform: translateX(3px);
+        }
+
+        /* HERO CARD (LAUNCH CONTROL // WHATSAPP) */
+        .btn-hero {
+            background: linear-gradient(135deg, #24291B 0%, #151912 100%);
+            border: 2px solid var(--volt-gold);
+            border-left: 6px solid var(--apex-red);
+            padding: 18px 20px;
+            overflow: hidden;
+            box-shadow: 0 14px 36px rgba(255, 199, 0, 0.28);
+        }
+
+        .btn-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -130%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 199, 0, 0.3) 45%, rgba(255, 255, 255, 0.75) 50%, rgba(255, 199, 0, 0.3) 55%, transparent 100%);
+            transform: skewX(-25deg);
+            animation: gtBeamSweep 5s infinite ease-in-out;
+        }
+
+        @keyframes gtBeamSweep {
+            0%, 50% { left: -130%; }
+            85%, 100% { left: 190%; }
+        }
+
+        .btn-hero:hover {
+            border-color: #FFF;
+            box-shadow: 0 16px 44px rgba(255, 199, 0, 0.45);
+        }
+
+        .icon-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: #11141C;
+            border: 1px solid var(--border-hud);
+            color: var(--volt-gold);
+            clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+            transition: all 0.25s ease;
+        }
+
+        .btn-card:hover .icon-box {
+            background: var(--volt-gold);
+            color: #0A0C10;
+        }
+
+        .icon-box.hero-gold {
+            background: var(--volt-gold);
+            color: #0A0C10;
+            border: 1.5px solid #FFF;
+            box-shadow: 0 0 18px var(--volt-gold-glow);
+        }
+
+        .icon-box svg { width: 23px; height: 23px; display: block; }
+        .icon-box.hero-gold svg { width: 26px; height: 26px; }
+
+        .btn-info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 0;
+            gap: 2px;
+        }
+
+        .btn-title-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-title {
+            font-family: var(--font-display);
+            font-size: 1.24rem;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            color: var(--metal-pure);
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .hud-badge {
+            font-family: var(--font-telemetry);
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: rgba(255, 199, 0, 0.15);
+            color: var(--volt-gold);
+            border: 1px solid var(--volt-gold);
+        }
+
+        .hud-badge.red {
+            background: rgba(229, 56, 59, 0.2);
+            color: var(--apex-red);
+            border-color: var(--apex-red);
+        }
+
+        .hud-badge.cyan {
+            background: rgba(14, 165, 233, 0.18);
+            color: var(--calama-cyan);
+            border-color: var(--calama-cyan);
+        }
+
+        .btn-desc {
+            font-size: 0.9rem;
+            color: var(--metal-subtle);
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .hud-arrow-box {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--volt-gold);
+            transition: transform 0.2s;
+        }
+
+        .btn-card:hover .hud-arrow-box {
+            transform: translateX(4px);
+        }
+
+        /* =========================================================
+           GALERÍA EXECUTIVE: DIAPOSITIVA TOUCH & LIGHTBOX (FOTOS 100% OPERATIVAS)
+           ========================================================= */
+        .gallery-card {
+            background: var(--card-titanium);
+            border: 1.5px solid var(--border-hud);
+            border-top: 3px solid var(--volt-gold);
+            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+        }
+
+        .gallery-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .gallery-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            color: var(--metal-pure);
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            padding: 4px 2px 6px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .gallery-track::-webkit-scrollbar { display: none; }
+
+        .gallery-item {
+            flex: 0 0 155px;
+            height: 195px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            scroll-snap-align: start;
+            border: 1.5px solid var(--border-hud);
+            clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+            background: #0E1017;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--volt-gold);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 8px 8px;
+            background: linear-gradient(0deg, rgba(8, 10, 14, 0.95) 0%, transparent 100%);
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: var(--volt-gold);
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        /* =========================================================
+           MODAL LIGHTBOX DIAPOSITIVA (CON CONTROLES)
+           ========================================================= */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(8, 10, 14, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 9999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            user-select: none;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-modal-card {
+            position: relative;
+            max-width: 480px;
+            width: 100%;
+            background: #12151D;
+            border: 2px solid var(--volt-gold);
+            clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px var(--volt-gold-glow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lightbox-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 18px;
+            background: #181C26;
+            border-bottom: 1px solid var(--border-hud);
+        }
+
+        .lightbox-counter {
+            font-family: var(--font-telemetry);
+            font-size: 0.8rem;
+            color: var(--volt-gold);
+            font-weight: 800;
+            letter-spacing: 0.1em;
+        }
+
+        .btn-close-lb {
+            width: 32px;
+            height: 32px;
+            background: #0E1017;
+            color: #FFF;
+            border: 1px solid var(--border-hud);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 800;
+        }
+
+        .btn-close-lb:hover {
+            background: var(--apex-red);
+            border-color: var(--apex-red);
+        }
+
+        .lightbox-viewport {
+            width: 100%;
+            height: 60vh;
+            max-height: 480px;
+            background: #06070A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lightbox-viewport img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .lb-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: rgba(16, 20, 28, 0.85);
+            border: 1.5px solid var(--volt-gold);
+            color: #FFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 900;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .lb-nav-btn:hover {
+            background: var(--volt-gold);
+            color: #0A0D12;
+        }
+
+        .lb-prev { left: 10px; }
+        .lb-next { right: 10px; }
+
+        /* =========================================================
+           TARJETA HORARIO DE TELEMETRÍA EN VIVO
+           ========================================================= */
+        .hours-card {
+            background: var(--card-titanium);
+            border: 1.5px solid var(--border-hud);
+            border-left: 5px solid var(--apex-red);
+            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        .hours-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hours-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            color: var(--metal-pure);
+        }
+
+        .hours-table {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding-top: 4px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.12);
+        }
+
+        .hours-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            color: var(--metal-subtle);
+            font-weight: 700;
+        }
+
+        .hours-row.active-day { color: var(--volt-gold); }
+        .hours-row span.time { font-family: var(--font-telemetry); font-size: 0.85rem; }
+
+        /* =========================================================
+           MAPA GOOGLE EN CABINA TÉCNICA
+           ========================================================= */
+        .map-card {
+            background: var(--card-titanium);
+            border: 1.5px solid var(--border-hud);
+            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        .map-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .map-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            color: var(--metal-pure);
+        }
+
+        .map-box {
+            width: 100%;
+            height: 230px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: #111;
+        }
+
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        /* =========================================================
+           MEDIOS DE PAGO
+           ========================================================= */
+        .btn-card-pay {
+            cursor: default;
+            border-left-color: #0EA5E9;
+        }
+
+        /* =========================================================
+           MODAL DE SERVICIOS
+           ========================================================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(8, 10, 14, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+
+        .modal-card {
+            background: #141822;
+            border: 2px solid var(--volt-gold);
+            clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+            width: 100%;
+            max-width: 460px;
+            max-height: 85vh;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px var(--volt-gold-glow);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: scale(0.95);
+            transition: transform 0.25s ease;
+        }
+
+        .modal-overlay.active .modal-card { transform: scale(1); }
+
+        .modal-header {
+            padding: 16px 20px;
+            background: #1B202C;
+            border-bottom: 2px solid var(--apex-red);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 900;
+            font-style: italic;
+            color: var(--metal-pure);
+            text-transform: uppercase;
+        }
+
+        .btn-close-modal {
+            background: #10131B;
+            border: 1px solid var(--border-hud);
+            color: var(--metal-pure);
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .btn-close-modal:hover {
+            background: var(--apex-red);
+            border-color: var(--apex-red);
+        }
+
+        .modal-body {
+            padding: 18px 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .service-detail-item {
+            background: #1A1F2B;
+            border: 1.5px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--volt-gold);
+            padding: 15px 17px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .service-detail-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .service-detail-head h4 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--volt-gold);
+            text-transform: uppercase;
+        }
+
+        .service-detail-desc {
+            font-size: 0.92rem;
+            color: var(--metal-silver);
+            line-height: 1.45;
+            font-weight: 600;
+        }
+
+        .service-btn-book {
+            margin-top: 6px;
+            align-self: flex-start;
+            background: var(--volt-gold);
+            color: #080A0E;
+            text-decoration: none;
+            padding: 7px 16px;
+            font-family: var(--font-display);
+            font-size: 0.88rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+            transition: all 0.2s;
+        }
+
+        .service-btn-book:hover {
+            background: #FFF;
+            box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+        }
+
+        /* FOOTER */
+        .hub-footer {
+            margin-top: 24px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-telemetry);
+            font-size: 0.76rem;
+            font-weight: 800;
+            color: var(--metal-pure);
+            background: #171B24;
+            padding: 6px 18px;
+            border: 1px solid var(--border-hud);
+            border-left: 3px solid var(--volt-gold);
+            border-right: 3px solid var(--apex-red);
+        }
+
+        .footer-legal {
+            font-family: var(--font-telemetry);
+            font-size: 0.72rem;
+            color: var(--metal-lead);
+            font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            .btn-title { font-size: 1.15rem; }
+            .btn-card { padding: 15px 16px; }
+            .gallery-item { flex: 0 0 145px; height: 185px; }
+        }
+    </style>
+</head>
+<body class="preload">
+
+    <!-- INTRO DE BIENVENIDA -->
+    <div id="gtWelcomeScreen">
+        <span class="welcome-title-top">BIENVENIDOS A BLACK CENTER</span>
+        <span class="welcome-title-sub">ESTÉTICA & DETAILING AUTOMOTRIZ</span>
+        <div class="welcome-bar"><div class="welcome-bar-fill"></div></div>
+    </div>
+
+    <!-- CANVAS DE FONDO REACTIVO AL SCROLL CON AUTOS EN PISTA -->
+    <div class="gt-bg-canvas">
+        <div class="ambient-spotlight-top"></div>
+        <div class="tarmac-grain"></div>
+        <div class="parallax-livery" id="parallaxLivery"></div>
+        <!-- RUTA DE CARRERAS ANIMADA -->
+        <canvas id="speedTrackCanvas"></canvas>
+        <div class="hud-grid-edge hud-left"></div>
+        <div class="hud-grid-edge hud-right"></div>
+    </div>
+
+    <!-- CONTENEDOR MAESTRO -->
+    <main class="hub-container">
+
+        <!-- BARRA MÚSICA BLACKCENTER -->
+        <div class="top-audio-bar">
+            <button class="audio-toggle-btn" id="bgMusicBtn" onclick="toggleMusic()">
+                <span id="bgMusicIcon">🔈</span> <span id="bgMusicLabel">MÚSICA BLACKCENTER</span>
+            </button>
+        </div>
+
+        <!-- CABECERA & SPONSORS HOMOLOGADOS -->
+        <header class="brand-header">
+            
+            <!-- PARRILLA DE HOMOLOGACIÓN CON RUTA LOCAL DE GITHUB PAGES (CARGA AL INSTANTE) -->
+            <div class="sponsors-grid">
+                
+                <!-- 1. SPONSOR TEAM M111 OFICIAL (GITHUB) -->
+                <div class="sponsor-box m111" onclick="playGtMenuSound()">
+                    <div class="sponsor-img-wrap">
+                        <img 
+                            src="./Team_Professional_Products_logo_4K_transparente.webp" 
+                            alt="Team Professional Products M111" 
+                            loading="eager"
+                            onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/onceoncegrafica-1111/blackcenter/main/Team_Professional_Products_logo_4K_transparente.webp';"
+                        />
+                    </div>
+                    <div class="sponsor-meta">
+                        <span class="sponsor-title">Team M111®</span>
+                        <span class="sponsor-sub">Proveedor Exclusivo</span>
+                    </div>
+                </div>
+
+                <!-- 2. SPONSOR C.A.L.A.M.A. OFICIAL (GITHUB) -->
+                <div class="sponsor-box calama" onclick="playGtMenuSound()">
+                    <div class="sponsor-img-wrap">
+                        <img 
+                            src="./CALAMA_logo_4K_transparente.webp" 
+                            alt="Logo CALAMA Habilitados" 
+                            loading="eager"
+                            onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/onceoncegrafica-1111/blackcenter/main/CALAMA_logo_4K_transparente.webp';"
+                        />
+                    </div>
+                    <div class="sponsor-meta">
+                        <span class="sponsor-title">C.A.L.A.M.A.</span>
+                        <span class="sponsor-sub">Lavadero Habilitado</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- TÍTULO BLACK CENTER GIGANTE -->
+            <div class="brand-title-wrap">
+                <h1 class="brand-title-massive">BLACK <span>CENTER</span></h1>
+                <div class="brand-telemetry-tag">
+                    <span>EXECUTIVE DETAILING</span>
+                    <span class="dot"></span>
+                    <span>BELGRANO CABA</span>
+                </div>
+            </div>
+
+            <div class="brand-bio">
+                <span>Cuidado artesanal para vehículos ejecutivos con <strong>química oficial M111®</strong>.</span>
+                <span>Desinfección con Ozono, detallado de tapizados y preparación para venta.</span>
+            </div>
+
+            <!-- ACCESOS RÁPIDOS -->
+            <div class="social-bar">
+                <a href="https://wa.me/5491133501614?text=Hola%20Gustavo%20de%20Black%20Center!%20Quisiera%20consultar%20por%20un%20servicio%20para%20mi%20auto." target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp" onclick="playGtMenuSound()">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+                <a href="tel:+5491133501614" class="social-btn" aria-label="Llamar" onclick="playGtMenuSound()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </a>
+                <a href="https://maps.google.com/?q=Av.+Elcano+3325,+CABA" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Ubicación" onclick="playGtMenuSound()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </a>
+            </div>
+        </header>
+
+        <!-- BOTÓN 1 (HERO): PEDIR TURNO GT4 MENU SOUND -->
+        <a href="https://wa.me/5491133501614?text=Hola%20Gustavo%20de%20Black%20Center!%20Quisiera%20consultar%20un%20turno%20y%20presupuesto%20para%20un%20servicio%20est%C3%A9tico." target="_blank" rel="noopener noreferrer" class="btn-card btn-hero" onclick="playGtMenuSound()">
+            <div class="icon-box hero-gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 8h11l3 4h4v3h-4l-3-2H9v7H6V11L3 8z"/>
+                    <circle cx="14" cy="10" r="1"/>
+                </svg>
+            </div>
+            <div class="btn-info">
+                <div class="btn-title-row">
+                    <span class="btn-title">Pedir Turno por WhatsApp</span>
+                    <span class="hud-badge red">Prioridad</span>
+                </div>
+                <span class="btn-desc">+54 9 11 3350-1614 · Atención Gustavo</span>
+            </div>
+            <div class="hud-arrow-box">▶</div>
+        </a>
+
+        <!-- BOTÓN 2: CARTA DE SERVICIOS -->
+        <div class="btn-card" onclick="openServicesModal(); playGtMenuSound();">
+            <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v3M4.93 4.93l2.12 2.12M2 12h3M19.07 4.93l-2.12 2.12M22 12h-3"/>
+                    <path d="M12 7a5 5 0 0 0-5 5c0 1.9.98 3.58 2.47 4.47L12 12l4.5 1.5"/>
+                    <path d="M12 17a5 5 0 0 0 5-5"/>
+                </svg>
+            </div>
+            <div class="btn-info">
+                <div class="btn-title-row">
+                    <span class="btn-title">Servicios & Detallado</span>
+                    <span class="hud-badge">Carta GT</span>
+                </div>
+                <span class="btn-desc">Sport, Black Intensivo, Venta y Ozono O3</span>
+            </div>
+            <div class="hud-arrow-box">▶</div>
+        </div>
+
+        <!-- =========================================================
+           GALERÍA EXECUTIVE: DIAPOSITIVA TOUCH & LIGHTBOX (FOTOS 100% OPERATIVAS)
+           ========================================================= -->
+        <div class="gallery-card">
+            <div class="gallery-header">
+                <div class="gallery-title-wrap">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFC700" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span>Paddock & Galería</span>
+                </div>
+                <span class="hud-badge">Ver Fotos</span>
+            </div>
+
+            <div class="gallery-track" id="galleryTrack">
+                <!-- 1. VEHÍCULO EJECUTIVO EN BAÑO DE ESPUMA -->
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img 
+                        src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=800&q=80" 
+                        alt="Lavado artesanal con espuma pH neutro" 
+                        loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80';"
+                    >
+                    <div class="gallery-caption">Espuma Activa pH</div>
+                </div>
+
+                <!-- 2. HABITÁCULO EJECUTIVO DE CUERO POLISH -->
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img 
+                        src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" 
+                        alt="Tapizados y tratamiento de cuero" 
+                        loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80';"
+                    >
+                    <div class="gallery-caption">Tratamiento Cuero</div>
+                </div>
+
+                <!-- 3. SEDÁN ALEMÁN ACABADO REFLEJO -->
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img 
+                        src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80" 
+                        alt="Cera rápida y sellado artesanal" 
+                        loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=800&q=80';"
+                    >
+                    <div class="gallery-caption">Sellado M111®</div>
+                </div>
+
+                <!-- 4. LIMPIEZA DE VANO MOTOR (FOTO NUEVA 100% COMPROBADA) -->
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img 
+                        src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" 
+                        alt="Vano motor y chasis reluciente" 
+                        loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80';"
+                    >
+                    <div class="gallery-caption">Vano Motor</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TARJETA: TELEMETRÍA DE HORARIO EN VIVO -->
+        <div class="hours-card" onclick="playGtMenuSound()">
+            <div class="hours-header">
+                <div class="hours-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Horario de Taller</span>
+                </div>
+                <span class="hud-badge" id="statusBadge">Comprobando...</span>
+            </div>
+            <div class="hours-table">
+                <div class="hours-row" id="row-week">
+                    <span>Lunes a Viernes</span>
+                    <span class="time">08:30 h - 18:30 h</span>
+                </div>
+                <div class="hours-row" id="row-sat">
+                    <span>Sábados</span>
+                    <span class="time">08:30 h - 17:00 h</span>
+                </div>
+                <div class="hours-row" style="opacity: 0.45;">
+                    <span>Domingos</span>
+                    <span class="time">Cerrado</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTÓN: LLAMADA DIRECTA -->
+        <a href="tel:+5491133501614" class="btn-card" onclick="playGtMenuSound()">
+            <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="btn-info">
+                <span class="btn-title">Llamar Directo al Taller</span>
+                <span class="btn-desc">Línea Gustavo: 11 3350-1614</span>
+            </div>
+            <div class="hud-arrow-box">▶</div>
+        </a>
+
+        <!-- MAPA GOOGLE MAPS COCKPIT -->
+        <div class="map-card" onclick="playGtMenuSound()">
+            <div class="map-header">
+                <div class="map-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC700" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Ubicación en Colegiales</span>
+                </div>
+                <span class="hud-badge">Av. Elcano 3325</span>
+            </div>
+            <div class="map-box">
+                <iframe 
+                    src="https://maps.google.com/maps?q=Av.+Elcano+3325,+CABA,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- MEDIOS DE PAGO -->
+        <div class="btn-card btn-card-pay" onclick="playGtMenuSound()">
+            <div class="icon-box" style="color: #0EA5E9; border-color: rgba(14, 165, 233, 0.4);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <div class="btn-info">
+                <span class="btn-title">Todos los Medios de Pago</span>
+                <span class="btn-desc">Efectivo · Mercado Pago · Transferencia · Débito</span>
+            </div>
+            <span class="hud-badge cyan">Habilitado</span>
+        </div>
+
+        <!-- FOOTER INSTITUCIONAL -->
+        <footer class="hub-footer">
+            <div class="footer-badge">
+                <span>BLACK CENTER CARS®</span>
+                <span style="color: var(--volt-gold);">///</span>
+                <span>BUENOS AIRES</span>
+            </div>
+            <span class="footer-legal">AV. ELCANO 3325 · CABA · PROVEEDOR EXCLUSIVO M111®</span>
+        </footer>
+
+    </main>
+
+    <!-- MODAL DIAPOSITIVA (LIGHTBOX) -->
+    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox(event)">
+        <button class="lb-nav-btn lb-prev" onclick="event.stopPropagation(); navLightbox(-1); playGtMenuSound();">◀</button>
+        <button class="lb-nav-btn lb-next" onclick="event.stopPropagation(); navLightbox(1); playGtMenuSound();">▶</button>
+
+        <div class="lightbox-modal-card" onclick="event.stopPropagation()">
+            <div class="lightbox-topbar">
+                <span class="lightbox-counter" id="lbCounter">1 / 4</span>
+                <button class="btn-close-lb" onclick="closeLightbox(event)">✕</button>
+            </div>
+            <div class="lightbox-viewport" id="lbViewport">
+                <img id="lbImg" src="" alt="Black Center Detailing">
+            </div>
+        </div>
+    </div>
+
+    <!-- DRAWER / MODAL ESPECIFICACIONES DE SERVICIOS -->
+    <div class="modal-overlay" id="servicesModal" onclick="closeServicesModal(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>// Especificaciones de Detallado</h3>
+                <button class="btn-close-modal" onclick="closeServicesModal(event)">✕</button>
+            </div>
+            <div class="modal-body">
+
+                <!-- 1. SERVICIO SPORT -->
+                <div class="service-detail-item">
+                    <div class="service-detail-head">
+                        <h4>01 // Servicio Sport (Base)</h4>
+                        <span class="hud-badge">Stage 1</span>
+                    </div>
+                    <p class="service-detail-desc">
+                        Pre-lavado y baño de espuma activa con pH neutro. Lavado exterior detallado + secado artesanal con microfibra de alta densidad y sellador de brillo rápido M111®. Aspirado profundo de cabina y baúl, acondicionamiento de neumáticos, molduras y siliconado protector de paneles.
+                    </p>
+                    <a href="https://wa.me/5491133501614?text=Hola%20Gustavo!%20Quisiera%20consultar%20por%20el%20Servicio%20Sport." target="_blank" class="service-btn-book" onclick="playGtMenuSound()">Consultar Servicio Sport ▶</a>
+                </div>
+
+                <!-- 2. LAVADO BLACK INTENSIVO -->
+                <div class="service-detail-item" style="border-left-color: var(--apex-red);">
+                    <div class="service-detail-head">
+                        <h4 style="color: #FF5A62;">02 // Lavado Black Intensivo</h4>
+                        <span class="hud-badge red">Stage 2</span>
+                    </div>
+                    <p class="service-detail-desc">
+                        Todo el <strong>Servicio Sport</strong> + limpieza profunda de tapizados (cuero o tela), paneles de puertas, torpedo, consola central y acondicionador mate no grasoso para interiores.
+                    </p>
+                    <a href="https://wa.me/5491133501614?text=Hola%20Gustavo!%20Quisiera%20pedir%20presupuesto%20para%20el%20Lavado%20Black%20Intensivo." target="_blank" class="service-btn-book" onclick="playGtMenuSound()">Consultar Black Intensivo ▶</a>
+                </div>
+
+                <!-- 3. PREPARACIÓN PARA VENTA -->
+                <div class="service-detail-item" style="border-left-color: var(--calama-cyan);">
+                    <div class="service-detail-head">
+                        <h4 style="color: var(--calama-cyan);">03 // Preparación para Venta</h4>
+                        <span class="hud-badge cyan">Full Pack</span>
+                    </div>
+                    <p class="service-detail-desc">
+                        El tratamiento definitivo para valorizar tu coche: Lavado Black + Limpieza integral de tapizados al detalle + Lavado de Motor + <strong>Desinfección de cabina con Ozono (O3)</strong> para eliminar ácaros, bacterias y olores residuales.
+                    </p>
+                    <a href="https://wa.me/5491133501614?text=Hola%20Gustavo!%20Me%20interesa%20el%20servicio%20de%20Preparaci%C3%B3n%20para%20Venta%20para%20mi%20auto." target="_blank" class="service-btn-book" onclick="playGtMenuSound()">Cotizar Preparación para Venta ▶</a>
+                </div>
+
+                <!-- 4. SERVICIOS ESPECIALES -->
+                <div class="service-detail-item">
+                    <div class="service-detail-head">
+                        <h4>04 // Servicios Especiales</h4>
+                        <span class="hud-badge">Taller</span>
+                    </div>
+                    <p class="service-detail-desc">
+                        • Limpieza de Vano Motor y Desbarrado de Chasis<br>
+                        • Lavado especializado de Motos<br>
+                        • Tratamiento y recuperación de inundados y alfombras de piso<br>
+                        • Descontaminado de manchas orgánicas y pelos de mascotas
+                    </p>
+                    <a href="https://wa.me/5491133501614?text=Hola%20Gustavo!%20Quisiera%20consultar%20por%20un%20servicio%20especial%20(motor/mascotas/chasis)." target="_blank" class="service-btn-book" onclick="playGtMenuSound()">Consultar Servicio Especial ▶</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MOTORES JAVASCRIPT: AUDIOS OFICIALES, FADE OUT & PISTA ORGÁNICA -->
+    <script>
+        // =========================================================
+        // 1. AUDIO OFICIAL DE GITHUB: BOTÓN GT4 Y MÚSICA DRIVING MISSIONS
+        // =========================================================
+        const gtMenuAudio = new Audio("./gran_turismo_4_menu.mp3");
+        gtMenuAudio.volume = 0.5;
+
+        const bgMusic = new Audio("./08.%20Driving%20Missions.mp3");
+        bgMusic.loop = true;
+        const DEFAULT_BG_VOL = 0.22;
+        bgMusic.volume = DEFAULT_BG_VOL;
+
+        let isMusicPlaying = false;
+        let fadeInterval = null;
+
+        // Sonido de botón oficial único
+        function playGtMenuSound() {
+            try {
+                const clickSound = gtMenuAudio.cloneNode();
+                clickSound.volume = 0.5;
+                clickSound.play().catch(() => {});
+            } catch (e) {}
+        }
+
+        // FADE OUT SUAVE DE MÚSICA AL SALIR (WHATSAPP, LLAMADA, MAPAS O CAMBIO DE PESTAÑA)
+        function fadeOutMusic(duration = 750) {
+            if (!isMusicPlaying || bgMusic.paused) return;
+            if (fadeInterval) clearInterval(fadeInterval);
+
+            const steps = 15;
+            const stepTime = duration / steps;
+            const startVol = bgMusic.volume;
+            const volStep = startVol / steps;
+
+            fadeInterval = setInterval(() => {
+                if (bgMusic.volume > volStep) {
+                    bgMusic.volume -= volStep;
+                } else {
+                    bgMusic.volume = 0;
+                    bgMusic.pause();
+                    clearInterval(fadeInterval);
+                    fadeInterval = null;
+                    isMusicPlaying = false;
+
+                    const btnLabel = document.getElementById('bgMusicLabel');
+                    const btnIcon = document.getElementById('bgMusicIcon');
+                    if (btnLabel) btnLabel.innerText = "MÚSICA BLACKCENTER: OFF";
+                    if (btnIcon) btnIcon.innerText = "🔈";
+
+                    // Restaura el volumen base para cuando el usuario decida encenderla de nuevo
+                    bgMusic.volume = DEFAULT_BG_VOL;
+                }
+            }, stepTime);
+        }
+
+        // Toggle para la música ambiental Driving Missions
+        function toggleMusic() {
+            playGtMenuSound();
+            const btnLabel = document.getElementById('bgMusicLabel');
+            const btnIcon = document.getElementById('bgMusicIcon');
+
+            if (!isMusicPlaying) {
+                if (fadeInterval) { clearInterval(fadeInterval); fadeInterval = null; }
+                bgMusic.volume = DEFAULT_BG_VOL;
+                bgMusic.play().then(() => {
+                    isMusicPlaying = true;
+                    btnLabel.innerText = "MÚSICA BLACKCENTER: ON";
+                    btnIcon.innerText = "🔊";
+                }).catch(() => {});
+            } else {
+                fadeOutMusic(500);
+            }
+        }
+
+        // DISPARADORES DE FADE OUT AL SALIR DEL LINK O IR A WHATSAPP
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (link && (link.href.includes('wa.me') || link.href.includes('tel:') || link.href.includes('maps') || link.target === '_blank')) {
+                fadeOutMusic(700);
+            }
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && isMusicPlaying) {
+                fadeOutMusic(500);
+            }
+        });
+
+        window.addEventListener('pagehide', () => {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+            }
+        });
+
+        // =========================================================
+        // 2. SIMULADOR DE PISTA ORGÁNICA (PELOTONES Y SOLITARIOS SILENCIOSOS)
+        // =========================================================
+        const trackCanvas = document.getElementById('speedTrackCanvas');
+        const trackCtx = trackCanvas.getContext('2d');
+
+        function resizeTrackCanvas() {
+            trackCanvas.width = window.innerWidth;
+            trackCanvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeTrackCanvas);
+        resizeTrackCanvas();
+
+        let activeRaceCars = [];
+        let nextSpawnTime = Date.now() + 800;
+
+        const CAR_MODELS = [
+            { id: 'f1', length: 78, width: 26, bodyColor: '#FFC700', wingColor: '#0E1017' },
+            { id: 'tc', length: 82, width: 30, bodyColor: '#E5383B', wingColor: '#E5383B' },
+            { id: 'rally', length: 64, width: 28, bodyColor: '#0EA5E9', wingColor: '#FFFFFF' },
+            { id: 'gt3', length: 76, width: 29, bodyColor: '#FFFFFF', wingColor: '#1B202C' }
+        ];
+
+        function spawnOrganicPack() {
+            const isPack = Math.random() > 0.55;
+            const count = isPack ? (Math.random() > 0.45 ? 3 : 4) : 1;
+
+            const baseAngle = (Math.random() * 16 + 56) * (Math.PI / 180);
+            const baseSpeed = isPack ? (Math.random() * 14 + 30) : (Math.random() * 20 + 38);
+            const startX = Math.random() * (trackCanvas.width + 120) - 60;
+
+            for (let i = 0; i < count; i++) {
+                const model = CAR_MODELS[Math.floor(Math.random() * CAR_MODELS.length)];
+                const gap = i * (Math.random() * 75 + 65);
+
+                activeRaceCars.push({
+                    x: startX - Math.cos(baseAngle) * gap,
+                    y: -120 - Math.sin(baseAngle) * gap,
+                    baseSpeed: baseSpeed,
+                    angle: baseAngle,
+                    model: model,
+                    isPack: isPack,
+                    weaveFreq: Math.random() * 0.05 + 0.03,
+                    weaveAmp: isPack ? (Math.random() * 22 + 8) : 0,
+                    weavePhase: Math.random() * Math.PI * 2,
+                    step: 0
+                });
+            }
+
+            nextSpawnTime = Date.now() + (Math.random() * 4000 + 2000);
+        }
+
+        function drawSpeedCar(car) {
+            trackCtx.save();
+            trackCtx.translate(car.x, car.y);
+            trackCtx.rotate(car.angle);
+
+            const m = car.model;
+
+            // Haz de luces de xenón
+            const lightGrad = trackCtx.createLinearGradient(0, 0, 150, 0);
+            lightGrad.addColorStop(0, 'rgba(255, 255, 255, 0.4)');
+            lightGrad.addColorStop(1, 'transparent');
+            trackCtx.fillStyle = lightGrad;
+            trackCtx.beginPath();
+            trackCtx.moveTo(m.length / 2, -m.width / 2.6);
+            trackCtx.lineTo(m.length / 2 + 140, -m.width * 1.4);
+            trackCtx.lineTo(m.length / 2 + 140, m.width * 1.4);
+            trackCtx.lineTo(m.length / 2, m.width / 2.6);
+            trackCtx.closePath();
+            trackCtx.fill();
+
+            // Estela de rebufo
+            const trailGrad = trackCtx.createLinearGradient(-m.length * 2.4, 0, 0, 0);
+            trailGrad.addColorStop(0, 'transparent');
+            trailGrad.addColorStop(1, 'rgba(255, 199, 0, 0.2)');
+            trackCtx.fillStyle = trailGrad;
+            trackCtx.fillRect(-m.length * 2.4, -m.width / 2, m.length * 2.4, m.width);
+
+            // Carrocería
+            if (m.id === 'f1') {
+                trackCtx.fillStyle = '#111';
+                trackCtx.fillRect(-m.length / 2 - 8, -m.width / 2, 8, m.width);
+                trackCtx.fillStyle = m.bodyColor;
+                trackCtx.fillRect(-m.length / 2 - 2, -m.width / 2, 3, m.width);
+
+                trackCtx.beginPath();
+                trackCtx.moveTo(-m.length / 4, -m.width / 2);
+                trackCtx.lineTo(m.length / 2, 0);
+                trackCtx.lineTo(-m.length / 4, m.width / 2);
+                trackCtx.closePath();
+                trackCtx.fillStyle = m.bodyColor;
+                trackCtx.fill();
+                trackCtx.strokeStyle = '#FFFFFF';
+                trackCtx.lineWidth = 1.2;
+                trackCtx.stroke();
+
+                const wheels = [
+                    { x: -m.length / 3, y: -m.width / 1.7 },
+                    { x: -m.length / 3, y: m.width / 1.7 - 7 },
+                    { x: m.length / 4, y: -m.width / 1.7 },
+                    { x: m.length / 4, y: m.width / 1.7 - 7 }
+                ];
+                wheels.forEach(w => {
+                    trackCtx.fillStyle = '#060709';
+                    trackCtx.fillRect(w.x, w.y, 16, 7);
+                    trackCtx.fillStyle = '#FFE600';
+                    trackCtx.fillRect(w.x + 6, w.y, 4, 7);
+                });
+
+                trackCtx.fillStyle = '#FF1E27';
+                trackCtx.fillRect(-m.length / 2 - 9, -2, 4, 4);
+            } else {
+                trackCtx.fillStyle = '#10131B';
+                trackCtx.strokeStyle = m.bodyColor;
+                trackCtx.lineWidth = 2;
+                trackCtx.beginPath();
+                trackCtx.roundRect(-m.length / 2, -m.width / 2, m.length, m.width, 5);
+                trackCtx.fill();
+                trackCtx.stroke();
+
+                trackCtx.fillStyle = '#1F2432';
+                trackCtx.fillRect(-m.length / 6, -m.width / 2.6, m.length / 2.5, m.width / 1.3);
+
+                trackCtx.fillStyle = m.wingColor;
+                trackCtx.fillRect(-m.length / 2 - 6, -m.width / 1.9, 7, m.width * 1.05);
+
+                trackCtx.fillStyle = '#FF1E27';
+                trackCtx.fillRect(-m.length / 2 - 1, -m.width / 2.5, 2, 6);
+                trackCtx.fillRect(-m.length / 2 - 1, m.width / 2.5 - 6, 2, 6);
+            }
+
+            trackCtx.restore();
+        }
+
+        function animateTrack() {
+            trackCtx.clearRect(0, 0, trackCanvas.width, trackCanvas.height);
+
+            const now = Date.now();
+            if (now >= nextSpawnTime) {
+                spawnOrganicPack();
+            }
+
+            for (let i = activeRaceCars.length - 1; i >= 0; i--) {
+                const car = activeRaceCars[i];
+                car.step++;
+
+                const lateralDrift = Math.sin(car.step * car.weaveFreq + car.weavePhase) * car.weaveAmp * 0.05;
+
+                car.x += Math.cos(car.angle) * car.baseSpeed - Math.sin(car.angle) * lateralDrift;
+                car.y += Math.sin(car.angle) * car.baseSpeed + Math.cos(car.angle) * lateralDrift;
+
+                drawSpeedCar(car);
+
+                if (car.y > trackCanvas.height + 250 || car.x > trackCanvas.width + 250) {
+                    activeRaceCars.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(animateTrack);
+        }
+        requestAnimationFrame(animateTrack);
+
+        // =========================================================
+        // 3. PARALLAX DINÁMICO EN SCROLL
+        // =========================================================
+        const liveryEl = document.getElementById('parallaxLivery');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            if (liveryEl) {
+                liveryEl.style.transform = `rotate(-26deg) translateY(${scrollY * 0.28}px)`;
+            }
+        }, { passive: true });
+
+        // =========================================================
+        // 4. CONTROL DEL MODAL DE SERVICIOS
+        // =========================================================
+        const modal = document.getElementById('servicesModal');
+        function openServicesModal() { modal.classList.add('active'); }
+        function closeServicesModal(e) {
+            modal.classList.remove('active');
+            playGtMenuSound();
+        }
+
+        // =========================================================
+        // 5. DIAPOSITIVA / LIGHTBOX DE FOTOS
+        // =========================================================
+        const fotosGaleria = [
+            "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1200&q=85",
+            "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85",
+            "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=85",
+            "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=85"
+        ];
+
+        let currentPhotoIdx = 0;
+        const lbOverlay = document.getElementById('lightboxOverlay');
+        const lbImg = document.getElementById('lbImg');
+        const lbCounter = document.getElementById('lbCounter');
+
+        function openLightbox(idx) {
+            currentPhotoIdx = idx;
+            lbImg.src = fotosGaleria[currentPhotoIdx];
+            lbCounter.innerText = `${currentPhotoIdx + 1} / ${fotosGaleria.length}`;
+            lbOverlay.classList.add('active');
+            playGtMenuSound();
+        }
+
+        function closeLightbox(e) {
+            lbOverlay.classList.remove('active');
+            playGtMenuSound();
+        }
+
+        function navLightbox(direction) {
+            currentPhotoIdx = (currentPhotoIdx + direction + fotosGaleria.length) % fotosGaleria.length;
+            lbImg.src = fotosGaleria[currentPhotoIdx];
+            lbCounter.innerText = `${currentPhotoIdx + 1} / ${fotosGaleria.length}`;
+        }
+
+        // Deslizamiento táctil en Lightbox
+        let touchStartX = 0;
+        const lbViewport = document.getElementById('lbViewport');
+        lbViewport.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+
+        lbViewport.addEventListener('touchend', e => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const diff = touchEndX - touchStartX;
+            if (Math.abs(diff) > 40) {
+                if (diff < 0) navLightbox(1);
+                else navLightbox(-1);
+                playGtMenuSound();
+            }
+        });
+
+        // =========================================================
+        // 6. ESTADO EN VIVO PARA BUENOS AIRES (UTC-3)
+        // =========================================================
+        function updateStoreStatus() {
+            const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const argDate = new Date(utc - (3600000 * 3));
+
+            const day = argDate.getDay();
+            const hour = argDate.getHours();
+            const min = argDate.getMinutes();
+            const timeVal = hour + min / 60;
+
+            const badge = document.getElementById('statusBadge');
+            let isOpen = false;
+
+            if (day >= 1 && day <= 5) {
+                document.getElementById('row-week').classList.add('active-day');
+                if (timeVal >= 8.5 && timeVal < 18.5) isOpen = true;
+            } else if (day === 6) {
+                document.getElementById('row-sat').classList.add('active-day');
+                if (timeVal >= 8.5 && timeVal < 17.0) isOpen = true;
+            }
+
+            if (isOpen) {
+                badge.innerText = "Abierto Ahora";
+                badge.style.color = "#4ADE80";
+                badge.style.borderColor = "#4ADE80";
+                badge.style.background = "rgba(74, 222, 128, 0.16)";
+            } else {
+                badge.innerText = "Cerrado";
+                badge.style.color = "var(--metal-lead)";
+                badge.style.borderColor = "var(--border-hud)";
+                badge.style.background = "rgba(255, 255, 255, 0.05)";
+            }
+        }
+
+        // INICIALIZACIÓN
+        window.addEventListener('DOMContentLoaded', () => {
+            if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+            updateStoreStatus();
+
+            setTimeout(() => {
+                const welcome = document.getElementById('gtWelcomeScreen');
+                if (welcome) welcome.classList.add('done');
+                document.body.classList.remove('preload');
+            }, 750);
+        });
+    </script>
+</body>
+</html>

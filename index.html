@@ -3,49 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>BLACK CENTER® | Executive Car Care & Detailing</title>
-    <meta name="description" content="Servicios de estética vehicular ejecutiva, lavado artesanal, descontaminado de tapizados y preparación para venta. Av. Elcano 3325, CABA.">
+    <title>DON HILARIO · Restaurante & Parrilla | Recoleta</title>
+    <meta name="description" content="Alta parrilla argentina y cocina árabe tradicional en Recoleta. Cortes de exportación, pastas artesanales y tradición familiar. Peña 2475, CABA.">
 
-    <!-- PRELOAD PRIORITARIO DE LOGOS OFICIALES (CARGA INSTANTÁNEA) -->
-    <link rel="preload" as="image" href="./Team_Professional_Products_logo_4K_transparente.webp">
-    <link rel="preload" as="image" href="./CALAMA_logo_4K_transparente.webp">
+    <!-- PRELOAD PRIORITARIO DE ESCENOGRAFÍA THEED -->
+    <link rel="preload" as="image" href="./Palace-Courtyard---original.webp">
 
-    <!-- TIPOGRAFÍAS MOTORSPORT & GT HUD -->
+    <!-- TIPOGRAFÍAS NOBLES: CINZEL + CORMORANT GARAMOND + SPACE GROTESK + JETBRAINS MONO -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,600;0,700;0,800;1,700;1,800;1,900&family=JetBrains+Mono:wght@600;700;800&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=JetBrains+Mono:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================================================
-           ADN CROMÁTICO: GRAN TURISMO / SWISS MOTORSPORT LUXURY
-           ========================================================= */
+        /* ==========================================================================
+           1. SISTEMA CROMÁTICO: ALABASTRO TRASLÚCIDO + ORO CHAMPÁN CAPILAR
+           ========================================================================== */
         :root {
-            --bg-deep: #080A0E;
-            --bg-asphalt: #10131A;
-            --card-titanium: #161A23;
-            --card-titanium-hover: #1E2330;
+            --surface-porcelain: rgba(255, 255, 255, 0.88);
+            --surface-porcelain-subtle: rgba(253, 251, 247, 0.82);
+            --surface-elevated: #FFFFFF;
 
-            --volt-gold: #FFC700;
-            --volt-gold-glow: rgba(255, 199, 0, 0.45);
-            --apex-red: #E5383B;
-            --calama-cyan: #0EA5E9;
+            --gold-champagne: #C49A45;
+            --gold-burnished: #9B782D;
+            --gold-soft-glow: rgba(196, 154, 69, 0.18);
+            --gold-hairline: rgba(196, 154, 69, 0.32);
 
-            --metal-pure: #FFFFFF;
-            --metal-silver: #E2E8F0;
-            --metal-subtle: #94A3B8;
-            --metal-lead: #64748B;
+            --text-primary: #221C18;
+            --text-title: #1C1613;
+            --text-body: #544A42;
+            --text-muted: #82766B;
 
-            --border-hud: rgba(255, 255, 255, 0.12);
-            --border-active: rgba(255, 199, 0, 0.7);
+            --accent-terracotta-fine: #8C341E;
+            --accent-green-fine: #245A42;
 
-            --font-display: 'Chakra Petch', sans-serif;
-            --font-ui: 'Rajdhani', sans-serif;
+            --border-card-delicate: rgba(196, 154, 69, 0.28);
+            --border-card-hover: rgba(196, 154, 69, 0.75);
+
+            --font-monument: 'Cinzel', Georgia, serif;
+            --font-court: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Space Grotesk', -apple-system, sans-serif;
             --font-telemetry: 'JetBrains Mono', monospace;
-        }
 
-        body.preload * {
-            transition: none !important;
-            animation: none !important;
+            --shadow-porcelain: 0 16px 40px rgba(45, 30, 20, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+            --shadow-porcelain-hover: 0 22px 50px rgba(45, 30, 20, 0.14), 0 4px 14px rgba(196, 154, 69, 0.2);
         }
 
         * {
@@ -56,1790 +56,1456 @@
         }
 
         html {
-            background-color: var(--bg-deep);
+            background-color: #F5EFE6;
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: var(--font-ui);
-            background: transparent;
-            color: var(--metal-pure);
+            font-family: var(--font-sans);
+            color: var(--text-body);
             min-height: 100vh;
             min-height: 100dvh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            padding: 16px 14px 44px;
+            padding: clamp(14px, 3.5vw, 28px) clamp(12px, 3vw, 20px) 68px;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* =========================================================
-           INTRO DE BIENVENIDA A CLIENTES
-           ========================================================= */
-        #gtWelcomeScreen {
+        /* ==========================================================================
+           2. FONDO PICTÓRICO (MATTE PAINTING THEED / BLOOM CINEMATOGRÁFICO)
+           ========================================================================== */
+        .scenic-theed-backdrop {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: #06070A;
-            z-index: 999999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            pointer-events: none;
-            transition: opacity 0.55s ease, visibility 0.55s ease;
-        }
-
-        #gtWelcomeScreen.done {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .welcome-title-top {
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            font-weight: 800;
-            font-style: italic;
-            color: var(--metal-pure);
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-        }
-
-        .welcome-title-sub {
-            font-family: var(--font-telemetry);
-            font-size: 0.7rem;
-            color: var(--volt-gold);
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-        }
-
-        .welcome-bar {
-            width: 190px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .welcome-bar-fill {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 0%;
-            background: var(--volt-gold);
-            box-shadow: 0 0 12px var(--volt-gold);
-            animation: welcomeAnim 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes welcomeAnim {
-            0% { width: 0%; }
-            50% { width: 60%; }
-            100% { width: 100%; }
-        }
-
-        /* =========================================================
-           CANVAS DE FONDO: PISTA DINÁMICA
-           ========================================================= */
-        .gt-bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            inset: 0;
             z-index: -2;
-            background: radial-gradient(circle at 50% 12%, #181E29 0%, #0E1017 55%, #050608 100%);
-            overflow: hidden;
+            background-image: url('./Palace-Courtyard---original.webp');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center 38%;
+            filter: brightness(1.06) saturate(1.15) contrast(1.04) blur(0.4px);
+            transform: scale(1.02);
             pointer-events: none;
         }
 
-        .tarmac-grain {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.22;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 0);
-            background-size: 15px 15px;
-        }
-
-        #speedTrackCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        /* Difusión de luz cinematográfica antigua (Bloom / Halation suave) */
+        .scenic-bloom-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
             pointer-events: none;
-            z-index: 1;
+            background: 
+                radial-gradient(circle at 50% 20%, rgba(255, 235, 195, 0.35) 0%, rgba(255, 245, 230, 0.15) 45%, rgba(245, 235, 220, 0.75) 100%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(247, 242, 234, 0.72) 40%, rgba(243, 235, 222, 0.94) 100%);
+            mix-blend-mode: normal;
         }
 
-        .parallax-livery {
-            position: absolute;
-            top: -25%;
-            left: -35%;
-            width: 170%;
-            height: 150%;
-            transform: rotate(-26deg);
-            opacity: 0.12;
-            background: repeating-linear-gradient(
-                90deg,
-                transparent,
-                transparent 140px,
-                var(--volt-gold) 140px,
-                var(--volt-gold) 152px,
-                transparent 152px,
-                transparent 180px,
-                var(--apex-red) 180px,
-                var(--apex-red) 200px,
-                transparent 200px,
-                transparent 380px
-            );
-            will-change: transform;
-            transition: transform 0.1s linear;
+        /* Calibración de recorte vertical para teléfonos móviles */
+        @media (max-width: 680px) {
+            .scenic-theed-backdrop {
+                background-position: 54% 42%;
+                background-size: cover;
+            }
+            .scenic-bloom-overlay {
+                background: 
+                    radial-gradient(circle at 50% 15%, rgba(255, 235, 195, 0.4) 0%, rgba(255, 245, 230, 0.2) 50%, rgba(247, 241, 232, 0.82) 100%),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(247, 242, 234, 0.76) 38%, rgba(243, 235, 222, 0.96) 100%);
+            }
         }
 
-        .ambient-spotlight-top {
-            position: absolute;
-            top: -120px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 600px;
-            background: radial-gradient(ellipse at 50% 30%, rgba(255, 199, 0, 0.14) 0%, rgba(229, 56, 59, 0.05) 50%, transparent 75%);
-            filter: blur(85px);
-        }
-
-        .hud-grid-edge {
-            position: absolute;
-            width: 1px;
-            height: 100%;
-            top: 0;
-            background: linear-gradient(180deg, transparent, rgba(255, 199, 0, 0.3) 30%, rgba(255, 255, 255, 0.1) 70%, transparent);
-        }
-        .hud-left { left: 10px; }
-        .hud-right { right: 10px; }
-
-        /* =========================================================
-           CONTENEDOR CENTRAL
-           ========================================================= */
-        .hub-container {
+        /* ==========================================================================
+           3. SHELL PRINCIPAL CON ENCUADRE AIROSO
+           ========================================================================== */
+        .palace-hub-shell {
             width: 100%;
-            max-width: 480px;
+            max-width: 490px;
             display: flex;
             flex-direction: column;
-            gap: 13px;
+            gap: 16px;
             z-index: 2;
+            position: relative;
         }
 
-        /* BARRA MÚSICA BLACKCENTER */
-        .top-audio-bar {
+        /* ==========================================================================
+           4. BARRA SUPERIOR: GUÍA Y REPRODUCTOR QUEEN AMIDALA
+           ========================================================================== */
+        .top-pavilion-bar {
+            width: 100%;
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            width: 100%;
-            padding: 0 4px;
+            justify-content: space-between;
+            padding: 2px 4px;
         }
 
-        .audio-toggle-btn {
+        .rating-porcelain-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--surface-porcelain);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-card-delicate);
+            padding: 6px 14px;
+            border-radius: 999px;
+            box-shadow: 0 4px 14px rgba(45, 30, 20, 0.05);
             font-family: var(--font-telemetry);
             font-size: 0.68rem;
             font-weight: 800;
+            color: var(--text-title);
+            letter-spacing: 0.04em;
             text-transform: uppercase;
-            padding: 5px 12px;
-            border-radius: 6px;
-            background: rgba(22, 26, 35, 0.9);
-            border: 1px solid var(--border-hud);
-            color: var(--volt-gold);
-            cursor: pointer;
+        }
+
+        .rating-porcelain-pill .gold-star {
+            color: var(--gold-champagne);
+            font-size: 0.85rem;
+        }
+
+        .audio-toggle-pill {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            transition: all 0.2s ease;
+            gap: 8px;
+            background: var(--surface-porcelain);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1.5px solid var(--gold-champagne);
+            padding: 6px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(196, 154, 69, 0.18);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            color: var(--text-title);
+            font-family: var(--font-telemetry);
+            font-size: 0.66rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
         }
 
-        .audio-toggle-btn:hover {
-            border-color: var(--volt-gold);
-            box-shadow: 0 0 12px var(--volt-gold-glow);
+        .audio-toggle-pill:hover {
+            transform: translateY(-2px);
+            background: #FFFFFF;
+            border-color: var(--gold-burnished);
+            box-shadow: 0 8px 24px rgba(196, 154, 69, 0.3);
+            color: var(--accent-terracotta-fine);
         }
 
-        /* =========================================================
-           HEADER: LOGOS 4K TRANSPARENTES + BLACK CENTER MASIVO
-           ========================================================= */
-        .brand-header {
-            text-align: center;
+        /* ==========================================================================
+           5. PABELLÓN DE MARCA: CRISTAL DE ALABASTRO + LOGO ARISTOCRÁTICO
+           ========================================================================== */
+        .brand-palace-monument {
+            background: var(--surface-porcelain);
+            backdrop-filter: blur(20px) saturate(130%);
+            -webkit-backdrop-filter: blur(20px) saturate(130%);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            outline: 1px solid var(--border-card-delicate);
+            border-radius: 40px 40px 22px 22px;
+            padding: 28px 22px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 2px;
-        }
-
-        /* SPONSORS CON RUTA LOCAL DE GITHUB PAGES (CARGA AL INSTANTE) */
-        .sponsors-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            width: 100%;
-            margin-bottom: 4px;
-        }
-
-        .sponsor-box {
-            background: linear-gradient(145deg, #181C26 0%, #10121A 100%);
-            border: 1px solid var(--border-hud);
-            border-radius: 8px;
-            padding: 8px 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            text-align: center;
+            gap: 11px;
+            box-shadow: var(--shadow-porcelain);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
-            cursor: pointer;
         }
 
-        .sponsor-box::before {
+        .brand-palace-monument::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            width: 3.5px;
-            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 130px;
+            height: 2.5px;
+            background: linear-gradient(90deg, transparent, var(--gold-champagne), transparent);
         }
 
-        .sponsor-box.m111::before { background: var(--volt-gold); }
-        .sponsor-box.calama::before { background: var(--calama-cyan); }
-
-        .sponsor-img-wrap {
-            width: 44px;
-            height: 44px;
-            min-width: 44px;
+        .logo-emblem-frame {
+            width: 100%;
+            max-width: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .sponsor-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
-        }
-
-        .sponsor-meta {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            line-height: 1.15;
-        }
-
-        .sponsor-title {
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 0.88rem;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-        }
-
-        .sponsor-box.m111 .sponsor-title { color: var(--volt-gold); }
-        .sponsor-box.calama .sponsor-title { color: var(--calama-cyan); }
-
-        .sponsor-sub {
-            font-family: var(--font-telemetry);
-            font-size: 0.58rem;
-            font-weight: 700;
-            color: var(--metal-subtle);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 2px;
-        }
-
-        /* TÍTULO BLACK CENTER GIGANTE */
-        .brand-title-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
             padding: 4px 0 2px;
         }
 
-        .brand-title-massive {
-            font-family: var(--font-display);
-            font-size: clamp(2.4rem, 9.5vw, 3.1rem);
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            line-height: 0.92;
-            color: var(--metal-pure);
-            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9);
+        /* LOGO SVG VECTORIAL EN CARBÓN CÁLIDO CON MOVIMIENTO DE RESPIRACIÓN SOFISTICADO */
+        .logo-hilario-svg {
+            width: 100%;
+            height: auto;
+            max-height: 104px;
+            filter: drop-shadow(0 4px 10px rgba(34, 28, 24, 0.12));
+            animation: slowAristocraticBreath 9.5s ease-in-out infinite;
+            transform-origin: center center;
+            transition: transform 0.35s ease;
         }
 
-        .brand-title-massive span {
-            color: var(--volt-gold);
-            text-shadow: 0 0 24px var(--volt-gold-glow);
+        .logo-hilario-svg path {
+            fill: var(--text-title) !important;
+            transition: fill 0.3s ease;
+        }
+
+        .brand-palace-monument:hover .logo-hilario-svg {
+            transform: scale(1.025);
+        }
+
+        .brand-palace-monument:hover .logo-hilario-svg path {
+            fill: var(--accent-terracotta-fine) !important;
+        }
+
+        @keyframes slowAristocraticBreath {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-3.5px) scale(1.015); filter: drop-shadow(0 8px 18px rgba(196, 154, 69, 0.28)); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+
+        .brand-subline-italic {
+            font-family: var(--font-court);
+            font-size: 1.32rem;
+            font-style: italic;
+            font-weight: 700;
+            color: var(--accent-terracotta-fine);
+            letter-spacing: 0.02em;
+            line-height: 1.1;
         }
 
         .brand-telemetry-tag {
             font-family: var(--font-telemetry);
-            font-size: 0.72rem;
+            font-size: 0.67rem;
             font-weight: 800;
-            color: var(--metal-subtle);
-            letter-spacing: 0.22em;
+            color: var(--text-muted);
+            letter-spacing: 0.16em;
             text-transform: uppercase;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .brand-telemetry-tag span.dot {
-            width: 5px;
-            height: 5px;
-            background: var(--volt-gold);
-            border-radius: 50%;
-            display: inline-block;
+        .gem-diamond {
+            width: 4.5px;
+            height: 4.5px;
+            background: var(--gold-champagne);
+            transform: rotate(45deg);
         }
 
-        .brand-bio {
-            font-size: 0.95rem;
-            line-height: 1.45;
-            color: var(--metal-subtle);
-            font-weight: 600;
-            max-width: 96%;
-            text-align: center;
+        .brand-lead-text {
+            font-size: 0.88rem;
+            color: var(--text-body);
+            line-height: 1.55;
+            max-width: 95%;
+            font-weight: 500;
         }
 
-        .brand-bio strong {
-            color: var(--metal-silver);
-            font-weight: 800;
-        }
-
-        /* ACCESOS RÁPIDOS */
-        .social-bar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 2px;
-        }
-
-        .social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            background: var(--card-titanium);
-            border: 1.5px solid var(--border-hud);
-            color: var(--metal-silver);
-            text-decoration: none;
-            clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
-            transition: all 0.25s ease;
-        }
-
-        .social-btn:hover {
-            border-color: var(--volt-gold);
-            color: var(--volt-gold);
-            background: #232836;
-            box-shadow: 0 0 18px var(--volt-gold-glow);
-            transform: translateY(-2px);
-        }
-
-        .social-btn svg { width: 19px; height: 19px; }
-
-        /* =========================================================
-           BOTONES MASTER (CHAMFERED CORNERS & GT4 SOUND)
-           ========================================================= */
-        .btn-card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 14px;
-            padding: 16px 18px;
-            background: var(--card-titanium);
-            border: 1.5px solid var(--border-hud);
-            border-left: 5px solid var(--volt-gold);
-            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-            text-decoration: none;
-            color: var(--metal-pure);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .btn-card:hover {
-            background: var(--card-titanium-hover);
-            border-color: var(--border-active);
-            border-left-color: var(--volt-gold);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 199, 0, 0.25);
-            transform: translateX(3px);
-        }
-
-        /* HERO CARD (LAUNCH CONTROL // WHATSAPP) */
-        .btn-hero {
-            background: linear-gradient(135deg, #24291B 0%, #151912 100%);
-            border: 2px solid var(--volt-gold);
-            border-left: 6px solid var(--apex-red);
-            padding: 18px 20px;
-            overflow: hidden;
-            box-shadow: 0 14px 36px rgba(255, 199, 0, 0.28);
-        }
-
-        .btn-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -130%;
-            width: 70%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent 0%, rgba(255, 199, 0, 0.3) 45%, rgba(255, 255, 255, 0.75) 50%, rgba(255, 199, 0, 0.3) 55%, transparent 100%);
-            transform: skewX(-25deg);
-            animation: gtBeamSweep 5s infinite ease-in-out;
-        }
-
-        @keyframes gtBeamSweep {
-            0%, 50% { left: -130%; }
-            85%, 100% { left: 190%; }
-        }
-
-        .btn-hero:hover {
-            border-color: #FFF;
-            box-shadow: 0 16px 44px rgba(255, 199, 0, 0.45);
-        }
-
-        .icon-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            min-width: 48px;
-            background: #11141C;
-            border: 1px solid var(--border-hud);
-            color: var(--volt-gold);
-            clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
-            transition: all 0.25s ease;
-        }
-
-        .btn-card:hover .icon-box {
-            background: var(--volt-gold);
-            color: #0A0C10;
-        }
-
-        .icon-box.hero-gold {
-            background: var(--volt-gold);
-            color: #0A0C10;
-            border: 1.5px solid #FFF;
-            box-shadow: 0 0 18px var(--volt-gold-glow);
-        }
-
-        .icon-box svg { width: 23px; height: 23px; display: block; }
-        .icon-box.hero-gold svg { width: 26px; height: 26px; }
-
-        .btn-info {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            min-width: 0;
-            gap: 2px;
-        }
-
-        .btn-title-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .btn-title {
-            font-family: var(--font-display);
-            font-size: 1.24rem;
-            font-weight: 800;
-            letter-spacing: 0.02em;
-            color: var(--metal-pure);
-            line-height: 1.1;
-            text-transform: uppercase;
-        }
-
-        .hud-badge {
-            font-family: var(--font-telemetry);
-            font-size: 0.65rem;
-            font-weight: 800;
-            padding: 2px 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            background: rgba(255, 199, 0, 0.15);
-            color: var(--volt-gold);
-            border: 1px solid var(--volt-gold);
-        }
-
-        .hud-badge.red {
-            background: rgba(229, 56, 59, 0.2);
-            color: var(--apex-red);
-            border-color: var(--apex-red);
-        }
-
-        .hud-badge.cyan {
-            background: rgba(14, 165, 233, 0.18);
-            color: var(--calama-cyan);
-            border-color: var(--calama-cyan);
-        }
-
-        .btn-desc {
-            font-size: 0.9rem;
-            color: var(--metal-subtle);
-            font-weight: 600;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .hud-arrow-box {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 900;
-            color: var(--volt-gold);
-            transition: transform 0.2s;
-        }
-
-        .btn-card:hover .hud-arrow-box {
-            transform: translateX(4px);
-        }
-
-        /* =========================================================
-           GALERÍA EXECUTIVE: DIAPOSITIVA TOUCH & LIGHTBOX (FOTOS 100% OPERATIVAS)
-           ========================================================= */
-        .gallery-card {
-            background: var(--card-titanium);
-            border: 1.5px solid var(--border-hud);
-            border-top: 3px solid var(--volt-gold);
-            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
-        }
-
-        .gallery-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .gallery-title-wrap {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 1.15rem;
-            text-transform: uppercase;
-            color: var(--metal-pure);
-        }
-
-        .gallery-track {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scroll-snap-type: x mandatory;
-            padding: 4px 2px 6px;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-
-        .gallery-track::-webkit-scrollbar { display: none; }
-
-        .gallery-item {
-            flex: 0 0 155px;
-            height: 195px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-            scroll-snap-align: start;
-            border: 1.5px solid var(--border-hud);
-            clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
-            background: #0E1017;
-            transition: transform 0.25s ease, border-color 0.25s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-3px);
-            border-color: var(--volt-gold);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 24px 8px 8px;
-            background: linear-gradient(0deg, rgba(8, 10, 14, 0.95) 0%, transparent 100%);
-            font-family: var(--font-display);
-            font-size: 0.82rem;
-            font-weight: 800;
-            color: var(--volt-gold);
-            text-transform: uppercase;
-            text-align: center;
-        }
-
-        /* =========================================================
-           MODAL LIGHTBOX DIAPOSITIVA (CON CONTROLES)
-           ========================================================= */
-        .lightbox-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(8, 10, 14, 0.95);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            z-index: 9999999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.25s ease;
-            user-select: none;
-        }
-
-        .lightbox-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .lightbox-modal-card {
-            position: relative;
-            max-width: 480px;
-            width: 100%;
-            background: #12151D;
-            border: 2px solid var(--volt-gold);
-            clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px var(--volt-gold-glow);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .lightbox-topbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 18px;
-            background: #181C26;
-            border-bottom: 1px solid var(--border-hud);
-        }
-
-        .lightbox-counter {
-            font-family: var(--font-telemetry);
-            font-size: 0.8rem;
-            color: var(--volt-gold);
-            font-weight: 800;
-            letter-spacing: 0.1em;
-        }
-
-        .btn-close-lb {
-            width: 32px;
-            height: 32px;
-            background: #0E1017;
-            color: #FFF;
-            border: 1px solid var(--border-hud);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-weight: 800;
-        }
-
-        .btn-close-lb:hover {
-            background: var(--apex-red);
-            border-color: var(--apex-red);
-        }
-
-        .lightbox-viewport {
-            width: 100%;
-            height: 60vh;
-            max-height: 480px;
-            background: #06070A;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .lightbox-viewport img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .lb-nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 44px;
-            height: 44px;
-            background: rgba(16, 20, 28, 0.85);
-            border: 1.5px solid var(--volt-gold);
-            color: #FFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            font-weight: 900;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .lb-nav-btn:hover {
-            background: var(--volt-gold);
-            color: #0A0D12;
-        }
-
-        .lb-prev { left: 10px; }
-        .lb-next { right: 10px; }
-
-        /* =========================================================
-           TARJETA HORARIO DE TELEMETRÍA EN VIVO
-           ========================================================= */
-        .hours-card {
-            background: var(--card-titanium);
-            border: 1.5px solid var(--border-hud);
-            border-left: 5px solid var(--apex-red);
-            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-            padding: 16px 18px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-        }
-
-        .hours-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .hours-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: 1.15rem;
-            text-transform: uppercase;
-            color: var(--metal-pure);
-        }
-
-        .hours-table {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            padding-top: 4px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.12);
-        }
-
-        .hours-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 0.95rem;
-            color: var(--metal-subtle);
+        .brand-lead-text strong {
+            color: var(--text-title);
             font-weight: 700;
         }
 
-        .hours-row.active-day { color: var(--volt-gold); }
-        .hours-row span.time { font-family: var(--font-telemetry); font-size: 0.85rem; }
-
-        /* =========================================================
-           MAPA GOOGLE EN CABINA TÉCNICA
-           ========================================================= */
-        .map-card {
-            background: var(--card-titanium);
-            border: 1.5px solid var(--border-hud);
-            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-            padding: 15px;
+        /* ACCESOS RÁPIDOS CIRCULARES EN PORCELANA */
+        .palace-actions-strip {
             display: flex;
-            flex-direction: column;
-            gap: 9px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 4px;
         }
 
-        .map-header {
+        .action-circle-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 1px solid var(--border-card-delicate);
+            color: var(--text-title);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(45, 30, 20, 0.05);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .action-circle-btn:hover {
+            background: #FFFFFF;
+            color: var(--accent-terracotta-fine);
+            border-color: var(--gold-champagne);
+            transform: translateY(-3px) scale(1.06);
+            box-shadow: 0 8px 20px rgba(196, 154, 69, 0.22);
+        }
+
+        .action-circle-btn svg {
+            width: 19px;
+            height: 19px;
+            fill: currentColor;
+        }
+
+        /* ==========================================================================
+           6. HERO CARD: RESERVAS DE SALÓN POR WHATSAPP (CONSERJERÍA REAL)
+           ========================================================================== */
+        .hero-booking-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(252, 248, 242, 0.92) 100%);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1.5px solid var(--gold-champagne);
+            border-left: 5px solid #25D366;
+            border-radius: 20px;
+            padding: 20px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            text-decoration: none;
+            color: var(--text-title);
+            box-shadow: var(--shadow-porcelain);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-booking-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -140%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transform: skewX(-25deg);
+            animation: delicateGleam 6.5s infinite ease-in-out;
+        }
+
+        @keyframes delicateGleam {
+            0%, 50% { left: -140%; }
+            85%, 100% { left: 190%; }
+        }
+
+        .hero-booking-card:hover {
+            transform: translateY(-3px);
+            background: #FFFFFF;
+            border-color: var(--gold-burnished);
+            box-shadow: var(--shadow-porcelain-hover);
+        }
+
+        .hero-left-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-telemetry);
+            font-size: 0.66rem;
+            font-weight: 800;
+            color: var(--accent-green-fine);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .hero-headline {
+            font-family: var(--font-monument);
+            font-size: 1.28rem;
+            font-weight: 800;
+            letter-spacing: 0.01em;
+            line-height: 1.15;
+            color: var(--text-title);
+        }
+
+        .hero-subtext {
+            font-family: var(--font-court);
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--accent-terracotta-fine);
+            margin-top: 1px;
+        }
+
+        .hero-whatsapp-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+            transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hero-booking-card:hover .hero-whatsapp-btn {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .hero-whatsapp-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: #FFFFFF;
+        }
+
+        /* ==========================================================================
+           7. GRILLA BENTO: ARCOS Y DIVERSIDAD MORFOLÓGICA CON AIRE VISUAL
+           ========================================================================== */
+        .bento-porcelain-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .bento-plate {
+            background: var(--surface-porcelain);
+            backdrop-filter: blur(18px) saturate(130%);
+            -webkit-backdrop-filter: blur(18px) saturate(130%);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            outline: 1px solid var(--border-card-delicate);
+            border-radius: 18px;
+            padding: 18px 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 136px;
+            text-decoration: none;
+            color: var(--text-title);
+            box-shadow: var(--shadow-porcelain);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .bento-plate:hover {
+            transform: translateY(-4px);
+            background: #FFFFFF;
+            outline-color: var(--border-card-hover);
+            box-shadow: var(--shadow-porcelain-hover);
+        }
+
+        /* 1. LA CARTA: ARCO DE MEDIO PUNTO SEÑORIAL */
+        .bento-plate.card-arch-left {
+            border-radius: 38px 18px 18px 18px;
+            border-top: 2.5px solid var(--gold-champagne);
+        }
+
+        /* 2. COCINA ÁRABE: ARCO DERECHO EQUILIBRADO */
+        .bento-plate.card-arch-right {
+            border-radius: 18px 38px 18px 18px;
+            border-top: 2.5px solid var(--accent-terracotta-fine);
+        }
+
+        /* 3. RAPPI DELIVERY: FULL SPAN ELEGANTE */
+        .bento-plate.card-full-span {
+            grid-column: span 2;
+            min-height: auto;
+            flex-direction: row;
+            align-items: center;
+            padding: 20px 22px;
+            border-radius: 20px;
+            border-left: 4px solid var(--gold-champagne);
+        }
+
+        /* 4. INSTAGRAM: CORTE INFERIOR SUAVE */
+        .bento-plate.card-arch-bottom-left {
+            border-radius: 18px 18px 18px 38px;
+            border-bottom: 2px solid rgba(225, 48, 108, 0.4);
+        }
+
+        /* 5. CÓMO LLEGAR: CORTE INFERIOR DERECHO */
+        .bento-plate.card-arch-bottom-right {
+            border-radius: 18px 18px 38px 18px;
+            border-bottom: 2px solid rgba(14, 61, 121, 0.4);
+        }
+
+        .plate-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .plate-index-tag {
+            font-family: var(--font-telemetry);
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--gold-burnished);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .plate-arrow-icon {
+            font-family: var(--font-monument);
+            font-size: 0.95rem;
+            color: var(--gold-champagne);
+            transition: transform 0.25s ease, color 0.25s ease;
+        }
+
+        .bento-plate:hover .plate-arrow-icon {
+            transform: translateX(4px);
+            color: var(--accent-terracotta-fine);
+        }
+
+        .plate-title {
+            font-family: var(--font-monument);
+            font-size: 1.14rem;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--text-title);
+            letter-spacing: 0.01em;
+        }
+
+        .plate-sub-italic {
+            font-family: var(--font-court);
+            font-size: 1.02rem;
+            font-style: italic;
+            font-weight: 700;
+            color: var(--accent-terracotta-fine);
+            margin-top: 2px;
+            line-height: 1.2;
+            display: block;
+        }
+
+        .plate-desc {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           8. SHOWCASE GASTRONÓMICO: CORTES DE PARRILLA Y ESPECIALIDADES
+           ========================================================================== */
+        .dish-strip-module {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .module-head-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: 0 4px;
+        }
+
+        .module-title-cinzel {
+            font-family: var(--font-monument);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-title);
+            letter-spacing: 0.01em;
+        }
+
+        .module-sub-seville {
+            font-family: var(--font-court);
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--accent-terracotta-fine);
+            font-weight: 700;
+        }
+
+        .dishes-horizontal-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 4px 2px 14px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .dishes-horizontal-scroll::-webkit-scrollbar { display: none; }
+
+        .dish-card-porcelain {
+            flex: 0 0 190px;
+            scroll-snap-align: start;
+            background: var(--surface-porcelain);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--border-card-delicate);
+            border-radius: 16px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: var(--shadow-porcelain);
+            transition: all 0.28s ease;
+            text-decoration: none;
+            color: var(--text-title);
+            cursor: pointer;
+        }
+
+        .dish-card-porcelain:hover {
+            transform: translateY(-4px);
+            background: #FFFFFF;
+            border-color: var(--gold-champagne);
+            box-shadow: var(--shadow-porcelain-hover);
+        }
+
+        .dish-frame-wrap {
+            width: 100%;
+            height: 130px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #EAE3D5;
+            position: relative;
+        }
+
+        .dish-frame-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .dish-card-porcelain:hover .dish-frame-wrap img {
+            transform: scale(1.08);
+        }
+
+        .dish-seal-pill {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            font-family: var(--font-telemetry);
+            font-size: 0.58rem;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 999px;
+            background: rgba(34, 28, 24, 0.88);
+            color: #FFFFFF;
+            border: 1px solid var(--gold-champagne);
+            backdrop-filter: blur(4px);
+        }
+
+        .dish-title-text {
+            font-family: var(--font-monument);
+            font-size: 0.94rem;
+            font-weight: 800;
+            color: var(--text-title);
+            line-height: 1.2;
+        }
+
+        .dish-subtext-notes {
+            font-family: var(--font-court);
+            font-size: 0.92rem;
+            font-style: italic;
+            color: var(--accent-terracotta-fine);
+            line-height: 1.25;
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           9. TELEMETRÍA EN VIVO: HORARIO DE RECOLETA (BUENOS AIRES UTC-3)
+           ========================================================================== */
+        .hours-schedule-box {
+            background: var(--surface-porcelain);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--border-card-delicate);
+            border-radius: 20px;
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: var(--shadow-porcelain);
+        }
+
+        .hours-box-head {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .map-title {
+        .hours-box-title {
+            font-family: var(--font-monument);
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: var(--text-title);
+        }
+
+        .status-indicator-badge {
+            font-family: var(--font-telemetry);
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            border: 1px solid var(--border-card-delicate);
+            background: #FFFFFF;
+            color: var(--text-title);
+        }
+
+        .hours-rows-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(196, 154, 69, 0.25);
+        }
+
+        .hours-item-row {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-family: var(--font-display);
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-body);
+        }
+
+        .hours-item-row.is-active-slot {
+            color: var(--text-title);
+            font-weight: 700;
+        }
+
+        .hours-item-row .time-stamp {
+            font-family: var(--font-telemetry);
+            font-size: 0.78rem;
+            color: var(--gold-burnished);
+        }
+
+        /* ==========================================================================
+           10. MAPA ENMARCADO: PEÑA 2475
+           ========================================================================== */
+        .map-enclosure-card {
+            background: var(--surface-porcelain);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--border-card-delicate);
+            border-radius: 20px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: var(--shadow-porcelain);
+        }
+
+        .map-head-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4px;
+        }
+
+        .map-head-title {
+            font-family: var(--font-monument);
+            font-size: 1.12rem;
             font-weight: 800;
-            font-size: 1.15rem;
-            text-transform: uppercase;
-            color: var(--metal-pure);
+            color: var(--text-title);
         }
 
-        .map-box {
+        .map-frame-box {
             width: 100%;
-            height: 230px;
+            height: 215px;
+            border-radius: 14px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            background: #111;
+            border: 1px solid rgba(196, 154, 69, 0.2);
+            background: #EAE3D5;
         }
 
-        .map-box iframe {
+        .map-frame-box iframe {
             width: 100%;
             height: 100%;
             border: 0;
             display: block;
         }
 
-        /* =========================================================
-           MEDIOS DE PAGO
-           ========================================================= */
-        .btn-card-pay {
-            cursor: default;
-            border-left-color: #0EA5E9;
-        }
-
-        /* =========================================================
-           MODAL DE SERVICIOS
-           ========================================================= */
-        .modal-overlay {
+        /* ==========================================================================
+           11. MODAL CARTA: MENÚ EN PORCELANA & PERGAMINO NOBLE
+           ========================================================================== */
+        .modal-overlay-palace {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(8, 10, 14, 0.92);
+            inset: 0;
+            background: rgba(28, 22, 18, 0.65);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            z-index: 9999;
+            z-index: 999999;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 16px;
+            padding: 18px;
             opacity: 0;
             visibility: hidden;
             transition: all 0.25s ease;
         }
 
-        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-overlay-palace.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
-        .modal-card {
-            background: #141822;
-            border: 2px solid var(--volt-gold);
-            clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+        .modal-card-porcelain {
+            background: #FDFBF8;
+            border: 1.5px solid var(--gold-champagne);
+            border-radius: 26px;
             width: 100%;
-            max-width: 460px;
-            max-height: 85vh;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px var(--volt-gold-glow);
+            max-width: 475px;
+            max-height: 86vh;
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
             transform: scale(0.95);
             transition: transform 0.25s ease;
         }
 
-        .modal-overlay.active .modal-card { transform: scale(1); }
+        .modal-overlay-palace.active .modal-card-porcelain {
+            transform: scale(1);
+        }
 
-        .modal-header {
-            padding: 16px 20px;
-            background: #1B202C;
-            border-bottom: 2px solid var(--apex-red);
+        .modal-head-bar {
+            padding: 18px 22px;
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--border-card-delicate);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .modal-header h3 {
-            font-family: var(--font-display);
-            font-size: 1.35rem;
-            font-weight: 900;
-            font-style: italic;
-            color: var(--metal-pure);
-            text-transform: uppercase;
+        .modal-head-bar h3 {
+            font-family: var(--font-monument);
+            font-size: 1.25rem;
+            color: var(--text-title);
+            letter-spacing: 0.02em;
         }
 
         .btn-close-modal {
-            background: #10131B;
-            border: 1px solid var(--border-hud);
-            color: var(--metal-pure);
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-card-delicate);
+            color: var(--text-title);
             width: 32px;
             height: 32px;
+            border-radius: 50%;
+            font-size: 1rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: bold;
-        }
-
-        .btn-close-modal:hover {
-            background: var(--apex-red);
-            border-color: var(--apex-red);
-        }
-
-        .modal-body {
-            padding: 18px 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .service-detail-item {
-            background: #1A1F2B;
-            border: 1.5px solid rgba(255, 255, 255, 0.1);
-            border-left: 4px solid var(--volt-gold);
-            padding: 15px 17px;
-            display: flex;
-            flex-direction: column;
-            gap: 7px;
-        }
-
-        .service-detail-head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .service-detail-head h4 {
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--volt-gold);
-            text-transform: uppercase;
-        }
-
-        .service-detail-desc {
-            font-size: 0.92rem;
-            color: var(--metal-silver);
-            line-height: 1.45;
-            font-weight: 600;
-        }
-
-        .service-btn-book {
-            margin-top: 6px;
-            align-self: flex-start;
-            background: var(--volt-gold);
-            color: #080A0E;
-            text-decoration: none;
-            padding: 7px 16px;
-            font-family: var(--font-display);
-            font-size: 0.88rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
             transition: all 0.2s;
         }
 
-        .service-btn-book:hover {
-            background: #FFF;
-            box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+        .btn-close-modal:hover {
+            background: var(--accent-terracotta-fine);
+            color: #FFFFFF;
+            border-color: var(--accent-terracotta-fine);
         }
 
-        /* FOOTER */
-        .hub-footer {
-            margin-top: 24px;
+        .modal-scroll-body {
+            padding: 20px 22px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .menu-category-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .category-frieze-title {
+            font-family: var(--font-telemetry);
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: var(--gold-burnished);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            border-bottom: 1px dashed var(--border-card-delicate);
+            padding-bottom: 4px;
+        }
+
+        .dish-entry-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .dish-entry-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .dish-entry-name {
+            font-family: var(--font-monument);
+            font-size: 1.04rem;
+            font-weight: 800;
+            color: var(--text-title);
+        }
+
+        .dish-entry-badge {
+            font-family: var(--font-telemetry);
+            font-size: 0.6rem;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 999px;
+            background: rgba(196, 154, 69, 0.12);
+            color: var(--accent-terracotta-fine);
+            border: 1px solid rgba(196, 154, 69, 0.3);
+        }
+
+        .dish-entry-desc {
+            font-family: var(--font-court);
+            font-size: 0.98rem;
+            font-style: italic;
+            color: var(--text-body);
+            line-height: 1.35;
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           12. FOOTER NOBLE
+           ========================================================================== */
+        .palace-footer-strip {
+            margin-top: 10px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-card-delicate);
         }
 
-        .footer-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .footer-noble-title {
+            font-family: var(--font-monument);
+            font-size: 1.3rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            color: var(--text-title);
+        }
+
+        .footer-noble-sub {
             font-family: var(--font-telemetry);
-            font-size: 0.76rem;
-            font-weight: 800;
-            color: var(--metal-pure);
-            background: #171B24;
-            padding: 6px 18px;
-            border: 1px solid var(--border-hud);
-            border-left: 3px solid var(--volt-gold);
-            border-right: 3px solid var(--apex-red);
-        }
-
-        .footer-legal {
-            font-family: var(--font-telemetry);
-            font-size: 0.72rem;
-            color: var(--metal-lead);
-            font-weight: 600;
-        }
-
-        @media (max-width: 480px) {
-            .btn-title { font-size: 1.15rem; }
-            .btn-card { padding: 15px 16px; }
-            .gallery-item { flex: 0 0 145px; height: 185px; }
+            font-size: 0.64rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
     </style>
 </head>
-<body class="preload">
+<body>
 
-    <!-- INTRO DE BIENVENIDA -->
-    <div id="gtWelcomeScreen">
-        <span class="welcome-title-top">BIENVENIDOS A BLACK CENTER</span>
-        <span class="welcome-title-sub">ESTÉTICA & DETAILING AUTOMOTRIZ</span>
-        <div class="welcome-bar"><div class="welcome-bar-fill"></div></div>
-    </div>
+    <!-- MATTE PAINTING NABOO + HALATION CINEMATOGRÁFICO DE FONDO -->
+    <div class="scenic-theed-backdrop" aria-hidden="true"></div>
+    <div class="scenic-bloom-overlay" aria-hidden="true"></div>
 
-    <!-- CANVAS DE FONDO REACTIVO AL SCROLL CON AUTOS EN PISTA -->
-    <div class="gt-bg-canvas">
-        <div class="ambient-spotlight-top"></div>
-        <div class="tarmac-grain"></div>
-        <div class="parallax-livery" id="parallaxLivery"></div>
-        <!-- RUTA DE CARRERAS ANIMADA -->
-        <canvas id="speedTrackCanvas"></canvas>
-        <div class="hud-grid-edge hud-left"></div>
-        <div class="hud-grid-edge hud-right"></div>
-    </div>
+    <main class="palace-hub-shell">
 
-    <!-- CONTENEDOR MAESTRO -->
-    <main class="hub-container">
+        <!-- ==========================================================================
+             BARRA SUPERIOR: GUÍA GOOGLE + REPRODUCTOR QUEEN AMIDALA
+             ========================================================================== -->
+        <header class="top-pavilion-bar">
+            <div class="rating-porcelain-pill">
+                <span class="gold-star">★</span>
+                <span>4.7 (2.1K+ Opiniones)</span>
+                <span style="opacity: 0.35;">|</span>
+                <span style="color: var(--accent-terracotta-fine); font-weight: 800;">Recoleta</span>
+            </div>
 
-        <!-- BARRA MÚSICA BLACKCENTER -->
-        <div class="top-audio-bar">
-            <button class="audio-toggle-btn" id="bgMusicBtn" onclick="toggleMusic()">
-                <span id="bgMusicIcon">🔈</span> <span id="bgMusicLabel">MÚSICA BLACKCENTER</span>
+            <button class="audio-toggle-pill" id="bgMusicBtn" onclick="togglePalaceMusic()" aria-label="Música Queen Amidala">
+                <span id="bgMusicIcon">🔈</span>
+                <span id="bgMusicLabel">Queen Amidala</span>
             </button>
-        </div>
-
-        <!-- CABECERA & SPONSORS HOMOLOGADOS -->
-        <header class="brand-header">
-            
-            <!-- PARRILLA DE HOMOLOGACIÓN CON RUTA LOCAL DE GITHUB PAGES (CARGA AL INSTANTE) -->
-            <div class="sponsors-grid">
-                
-                <!-- 1. SPONSOR TEAM M111 OFICIAL (GITHUB) -->
-                <div class="sponsor-box m111" onclick="playGtMenuSound()">
-                    <div class="sponsor-img-wrap">
-                        <img 
-                            src="./Team_Professional_Products_logo_4K_transparente.webp" 
-                            alt="Team Professional Products M111" 
-                            loading="eager"
-                            onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/onceoncegrafica-1111/blackcenter/main/Team_Professional_Products_logo_4K_transparente.webp';"
-                        />
-                    </div>
-                    <div class="sponsor-meta">
-                        <span class="sponsor-title">Team M111®</span>
-                        <span class="sponsor-sub">Proveedor Exclusivo</span>
-                    </div>
-                </div>
-
-                <!-- 2. SPONSOR C.A.L.A.M.A. OFICIAL (GITHUB) -->
-                <div class="sponsor-box calama" onclick="playGtMenuSound()">
-                    <div class="sponsor-img-wrap">
-                        <img 
-                            src="./CALAMA_logo_4K_transparente.webp" 
-                            alt="Logo CALAMA Habilitados" 
-                            loading="eager"
-                            onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/onceoncegrafica-1111/blackcenter/main/CALAMA_logo_4K_transparente.webp';"
-                        />
-                    </div>
-                    <div class="sponsor-meta">
-                        <span class="sponsor-title">C.A.L.A.M.A.</span>
-                        <span class="sponsor-sub">Lavadero Habilitado</span>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- TÍTULO BLACK CENTER GIGANTE -->
-            <div class="brand-title-wrap">
-                <h1 class="brand-title-massive">BLACK <span>CENTER</span></h1>
-                <div class="brand-telemetry-tag">
-                    <span>EXECUTIVE DETAILING</span>
-                    <span class="dot"></span>
-                    <span>BELGRANO CABA</span>
-                </div>
-            </div>
-
-            <div class="brand-bio">
-                <span>Cuidado artesanal para vehículos ejecutivos con <strong>química oficial M111®</strong>.</span>
-                <span>Desinfección con Ozono, detallado de tapizados y preparación para venta.</span>
-            </div>
-
-            <!-- ACCESOS RÁPIDOS -->
-            <div class="social-bar">
-                <a href="https://wa.me/5491133501614?text=Hola%20Gustavo%20de%20Black%20Center!%20Quisiera%20consultar%20por%20un%20servicio%20para%20mi%20auto." target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp" onclick="playGtMenuSound()">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                </a>
-                <a href="tel:+5491133501614" class="social-btn" aria-label="Llamar" onclick="playGtMenuSound()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                </a>
-                <a href="https://maps.google.com/?q=Av.+Elcano+3325,+CABA" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Ubicación" onclick="playGtMenuSound()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </a>
-            </div>
         </header>
 
-        <!-- BOTÓN 1 (HERO): PEDIR TURNO GT4 MENU SOUND -->
-        <a href="https://wa.me/5491133501614?text=Hola%20Gustavo%20de%20Black%20Center!%20Quisiera%20consultar%20un%20turno%20y%20presupuesto%20para%20un%20servicio%20est%C3%A9tico." target="_blank" rel="noopener noreferrer" class="btn-card btn-hero" onclick="playGtMenuSound()">
-            <div class="icon-box hero-gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 8h11l3 4h4v3h-4l-3-2H9v7H6V11L3 8z"/>
-                    <circle cx="14" cy="10" r="1"/>
+        <!-- ==========================================================================
+             MONUMENTO PRINCIPAL: PORCELANA TRASLÚCIDA + LOGO VECTORIAL
+             ========================================================================== -->
+        <section class="brand-palace-monument">
+            
+            <div class="logo-emblem-frame">
+                <!-- SVG OFICIAL VECTORIZADO EN CARBÓN CÁLIDO -->
+                <svg class="logo-hilario-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1156.4 1020.08" aria-label="Don Hilario Restaurante y Parrilla">
+                    <path d="M764.25,467.26c0,3.12-.03,5.76,0,8.39.52,39.32.96,78.64,1.67,117.95.13,7.13,1.1,14.29,2.18,21.36,1.79,11.76,8.59,19.47,20.24,22.02,7.27,1.59,14.76,2.46,22.19,2.97,11.92.82,18.32,6.74,18.42,17.85.1,11.3-7.37,20.08-18.52,19.99-17.14-.14-34.31-.95-51.42-2.11-44.51-3.02-88.94-1.45-133.37,1.41-6.82.44-13.65.75-20.48.8-11.46.07-18.73-7.06-19.21-18.53-.46-11,5.9-17.71,17.35-19.02,6.59-.75,13.19-1.92,19.61-3.57,11.34-2.92,18.69-10.47,21.03-21.83,2.2-10.73,4.26-21.69,4.52-32.59.9-37.14.98-74.31,1.41-111.46.03-2.48-.32-4.1-3.45-4.09-33.49.13-66.99.17-100.48.24-.31,0-.62.19-1.37.44-.82,7.35-1.35,14.94-2.53,22.43-13.73,87.17-61.84,145.92-145.58,174.53-32.66,11.16-66.67,14.22-101.06,13.7-52.65-.79-105.3-1.86-157.95-2.08-25.98-.11-51.96,1.51-77.95,2.14-14.81.36-23.9-11.34-19.78-25.05,2.31-7.67,7.6-11.71,15.64-12.54,7.44-.77,14.92-1.57,22.24-3.06,13.72-2.79,22.99-10.95,25.26-25,2.23-13.78,4.21-27.72,4.55-41.64.82-33.48.62-66.98.81-100.47,0-.97-.22-1.94-.41-3.46h-51.7v-18.54h1042.56v18.39h-49.4c-.19,1.94-.4,3.08-.39,4.21.7,42.48,1.36,84.96,2.2,127.43.1,5.3.96,10.62,1.79,15.88,1.85,11.75,8.62,19.57,20.15,22.2,8.55,1.95,17.38,3.03,26.15,3.64,12.08.85,18.29,6.01,18.79,16.86.51,11.18-6.58,20.15-17.7,20.78-9.94.56-20,.27-29.94-.5-58.46-4.55-116.88-3.85-175.28.84-3.81.31-7.67.49-11.48.28-10.09-.55-16.82-8.46-16.75-19.35.07-10.7,6.74-17.56,16.82-18.73,8.7-1.01,17.44-2.59,25.85-5,8.33-2.38,14.3-8.5,16.3-16.92,2.57-10.8,5.27-21.86,5.54-32.87.96-38.64.92-77.3,1.24-115.96,0-.64-.18-1.29-.34-2.35h-167.99ZM224.68,467.07c-.15,1.75-.34,2.89-.33,4.03.32,36.16.45,72.32,1.14,108.46.21,10.95,1.65,21.93,3.22,32.79,1.65,11.42,8.82,18.58,19.88,21.23,6.92,1.66,14.09,2.96,21.18,3.08,48.74.82,85.8-21.03,113.14-60.22,22.37-32.06,29.87-68.6,29.95-107.06,0-.76-.37-1.51-.58-2.3h-187.6Z"/>
+                    <path d="M764.58,411.62h167.52c.22-.76.56-1.38.56-2-.24-40.32-.39-80.64-.88-120.96-.07-6.1-1.38-12.24-2.66-18.25-1.97-9.27-7.81-15.56-16.87-18-7.35-1.98-14.95-3.27-22.53-4.08-12.05-1.29-18.51-7.56-18.25-18.68.27-11.64,7.9-19.75,19.58-19.6,14.32.18,28.65.9,42.94,1.88,46.51,3.2,92.94,1.58,139.36-1.74,6.65-.48,13.32-.82,19.98-.85,11.32-.06,18.53,7.3,18.82,18.86.28,11.28-6.95,18.95-18.13,19.64-6.64.41-13.3.96-19.85,2.08-12.04,2.06-19.35,9.36-21.21,21.46-1.24,8.05-2.36,16.21-2.51,24.34-.71,37.82-1.07,75.65-1.55,113.48,0,.65.15,1.29.31,2.53,1.93.1,3.84.29,5.76.29,13.17-.01,26.33.04,39.5-.16,3.47-.05,4.77,1,4.56,4.54-.26,4.46-.06,8.94-.06,13.87H56.29v-18.26c2.02,0,3.97,0,5.92,0,14-.02,28-.09,42,0,2.9.02,4.17-.76,4.16-3.92-.14-42.81,1.76-85.67-2.33-128.4-.38-3.95-1.27-7.91-2.38-11.72-2.31-7.91-7.46-13.68-15.39-15.73-8.81-2.28-17.87-3.86-26.91-4.94-7.26-.86-13.51-2.73-16.68-9.84-3.24-7.28-2.21-14.36,2.23-20.89,3.88-5.72,9.66-7.33,16.18-6.96,18.47,1.04,36.93,2.16,55.4,3.19,40.66,2.27,81.3,1.4,121.93-.73,36.03-1.89,72.01-2.4,107.61,4.62,35.43,6.99,69.57,17.96,99.11,39.4,39.29,28.51,66.69,66.29,82.63,112.1,4.47,12.85,7.39,26.25,10.7,39.48.77,3.09,1.61,4.45,5.06,4.44,33.16-.15,66.33-.18,99.49-.09,3.62,0,4.94-.9,4.91-4.74-.32-35.99-.26-71.99-.79-107.98-.14-9.44-1.53-18.93-3.13-28.26-1.7-9.86-7.86-16.55-17.58-19.14-6.56-1.75-13.34-2.89-20.09-3.69-10.09-1.19-16.18-7.24-16.53-17.22-.37-10.62,6.11-19.71,15.78-20.42,8.59-.63,17.34-.28,25.94.47,48.48,4.22,96.91,2.25,145.35-.76,9.64-.6,19.32-.79,28.98-.83,11.44-.04,18.94,7.71,19.07,19.25.12,11-7.37,18.54-18.74,19.18-6.14.34-12.33.72-18.37,1.78-13.13,2.29-19.72,8.69-21.81,21.9-1.5,9.52-2.47,19.21-2.63,28.84-.62,36.16-.81,72.32-1.15,108.48,0,.8.19,1.6.34,2.75ZM226.39,255.4c-.15,1.6-.31,2.58-.32,3.57-.61,49.62-1.18,99.25-1.89,148.87-.05,3.84,1.68,4.25,4.81,4.24,58.12-.09,116.25-.1,174.37-.15,1.73,0,3.46-.21,5.39-.33-5.07-34.29-15.28-66.05-33.72-94.89-10.81-16.91-24.14-31.32-41.14-42.23-33.09-21.23-69.74-21.77-107.5-19.07Z"/>
+                    <path d="M0,57.91V0h1155.94c.13,1.88.37,3.79.37,5.71.02,15.5-.19,31,.09,46.49.09,4.72-1.46,5.77-5.94,5.76-91.32-.13-182.64-.12-273.96-.11-288.96.01-577.93.03-866.89.05-2.98,0-5.96,0-9.61,0Z"/>
+                    <path d="M1156,964.48v55.61H.06v-55.61h1155.95Z"/>
+                    <path d="M46.52,884.44c16.27-5.27,32.37-11.17,48.84-15.68,45.88-12.55,92.96-18.32,140.28-19.82,62.44-1.98,124.95-1.53,187.43-2.08,5.61-.05,6.77,1.43,6.25,6.88-.5,5.29-.95,10.58-1.47,16.51,2.15.11,3.9.28,5.65.28,91.66,0,183.32-.03,274.98.04,3.48,0,5.84-1.05,8.16-3.62,6.11-6.76,13.76-10.03,23.07-9.97,116.15.83,232.31,1.56,348.46,2.32,7.85.05,8.48.83,8.48,8.69,0,9.5.21,19,.29,28.49.06,7.11-1.17,8.34-8.46,8.39-34.83.24-69.66.47-104.49.67-81.49.49-162.98.96-244.47,1.44-12.6.07-21.42-5.66-26.36-17.54-1.22-2.94-2.8-3.89-5.94-3.89-92.49.12-184.98.18-277.48.08-4.11,0-5.85,1.43-7.17,5.06-4.91,13.45-10.23,26.76-15.12,40.22-1.33,3.66-3.36,5.64-7.18,5.64-72.8.07-145.71,2.81-218.08-8.13-37.8-5.72-75.06-13.79-110.38-28.95-8.67-3.72-16.96-8.36-25.42-12.57.05-.83.1-1.65.15-2.48Z"/>
+                    <path d="M1113.93,759.47c-2.43.46-4.85,1.25-7.29,1.32-70.47,1.78-140.94,3.45-211.41,5.24-26.65.68-53.3,1.65-79.95,2.5-7.46.24-10.27,2.91-10.33,10.37-.07,10.33.01,20.66.25,30.99.16,7.15,3.03,9.74,10.25,9.9,97.3,2.26,194.59,4.51,291.89,6.82,2.25.05,4.48.83,6.73,1.27,0,.68,0,1.36,0,2.05-2.6.58-5.17,1.54-7.8,1.68-39.44,2.1-78.88,4.04-118.32,6.11-59.74,3.13-119.48,6.34-179.22,9.51-1.5.08-2.99.18-4.49.24-27.18,1.05-44-13.57-46.25-40.69-.39-4.76-1.86-5.91-6.52-5.9-122.32.12-244.65.2-366.97-.11-11.84-.03-22.25,1.24-30.45,10.67-7.23,8.31-16.58,9.91-27.38,9.84-90.66-.64-181.32-.79-271.97-1.09-7.1-.02-8.12-1.22-8.04-8.11.12-10.83.03-21.66.04-32.49,0-7.24.76-8.01,7.99-8.1,61.49-.71,122.98-1.41,184.47-2.11,31.66-.36,63.32-.68,94.98-1.18,5.25-.08,9.92.79,13.8,4.46,11.53,10.9,24.97,13.6,40.88,13.51,121.15-.65,242.31-.38,363.47-.27,3.98,0,5.54-.93,5.74-5.12.19-4.11,1.11-8.28,2.35-12.22,6.2-19.7,20.5-29.38,42.31-28.41,30.8,1.38,61.59,2.99,92.37,4.58,69.73,3.59,139.46,7.2,209.19,10.87,3.25.17,6.47,1.02,9.7,1.55,0,.78-.01,1.55-.02,2.33Z"/>
+                    <path d="M95.29,124.55c7.89,4.58,10.28,12.94,14.45,20.02,2.82,4.8,4.44,10.66,11.49,11.28.68.06,1.74,2.4,1.57,3.53-.16,1.08-1.66,2.77-2.62,2.8-7.49.23-15,.33-22.48-.05-1.38-.07-3.14-2.27-3.88-3.87-3.7-8.02-7.09-16.17-10.63-24.26-2.12-4.84-5.38-7.91-11.51-7.14,0,8.21-.15,16.3.07,24.37.1,3.4,2.96,4.12,5.8,4.21,2.63.09,5.12.75,4.17,3.87-.42,1.38-2.93,2.96-4.52,3-10.66.26-21.33.25-31.99-.02-1.57-.04-4-1.65-4.44-3.04-.83-2.61,1.21-3.75,3.81-3.78,4.44-.06,6.25-2.8,6.27-6.8.09-17.66.12-35.32.04-52.98-.02-3.89-2.16-6.15-6.24-6.32-2.42-.1-4.73-1.09-3.81-3.82.47-1.4,2.9-3.01,4.46-3.03,13.83-.18,27.67-.31,41.48.18,5.04.18,10.4,1.26,14.95,3.36,14.02,6.47,15.39,24.49,2.79,33.45-2.68,1.91-5.81,3.19-9.24,5.03ZM71.58,118.72c7.08.64,13.58.14,17.55-6.12,3.46-5.45,3.16-11.56-.29-17.01-4.01-6.33-10.48-5.89-17.27-5.61v28.74Z"/>
                 </svg>
             </div>
-            <div class="btn-info">
-                <div class="btn-title-row">
-                    <span class="btn-title">Pedir Turno por WhatsApp</span>
-                    <span class="hud-badge red">Prioridad</span>
-                </div>
-                <span class="btn-desc">+54 9 11 3350-1614 · Atención Gustavo</span>
+
+            <div class="brand-subline-italic">Alta Parrilla Argentina & Cocina Árabe</div>
+            
+            <div class="brand-telemetry-tag">
+                <span>Peña 2475</span>
+                <span class="gem-diamond"></span>
+                <span>Recoleta · Buenos Aires</span>
             </div>
-            <div class="hud-arrow-box">▶</div>
+
+            <p class="brand-lead-text">
+                Cortes de <strong>exportación al carbón de quebracho</strong>, pastas caseras y recetas árabes milenarias en el corazón señorial porteño.
+            </p>
+
+            <!-- ACCESOS RÁPIDOS CIRCULARES EN PORCELANA -->
+            <div class="palace-actions-strip">
+                <a href="https://wa.me/5491135051212?text=%C2%A1Buenas%20tardes%20Don%20Hilario!%20Quisiera%20hacer%20una%20reserva%20o%20consulta." target="_blank" rel="noopener noreferrer" class="action-circle-btn" aria-label="WhatsApp" onmouseenter="playSfx('hover')" onclick="playSfx('stud')">
+                    <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </a>
+                <a href="tel:+541135051212" class="action-circle-btn" aria-label="Llamar" onmouseenter="playSfx('hover')" onclick="playSfx('select')">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24 11.72 11.72 0 003.68.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.72 11.72 0 00.59 3.68 1 1 0 01-.24 1.02l-2.23 2.09z"/></svg>
+                </a>
+                <a href="https://maps.google.com/?q=Peña+2475,+Recoleta,+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="action-circle-btn" aria-label="Ubicación" onmouseenter="playSfx('hover')" onclick="playSfx('select')">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                </a>
+                <a href="https://instagram.com/donhilariorestaurante" target="_blank" rel="noopener noreferrer" class="action-circle-btn" aria-label="Instagram" onmouseenter="playSfx('hover')" onclick="playSfx('select')">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             HERO: CONSERJERÍA WHATSAPP (ACCESO DIRECTO)
+             ========================================================================== -->
+        <a href="https://wa.me/5491135051212?text=%C2%A1Hola%20Don%20Hilario!%20%F0%9F%A5%A9%20Quisiera%20reservar%20una%20mesa%20en%20el%20sal%C3%B3n." target="_blank" rel="noopener noreferrer" class="hero-booking-card" onmouseenter="playSfx('hover')" onclick="playSfx('stud')">
+            <div class="hero-left-info">
+                <span class="hero-eyebrow">Conserjería de Salón & Pedidos</span>
+                <h2 class="hero-headline">Reservar Mesa por WhatsApp</h2>
+                <span class="hero-subtext">Atención directa en Peña 2475</span>
+            </div>
+            <div class="hero-whatsapp-btn">
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="#FFF" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
         </a>
 
-        <!-- BOTÓN 2: CARTA DE SERVICIOS -->
-        <div class="btn-card" onclick="openServicesModal(); playGtMenuSound();">
-            <div class="icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2v3M4.93 4.93l2.12 2.12M2 12h3M19.07 4.93l-2.12 2.12M22 12h-3"/>
-                    <path d="M12 7a5 5 0 0 0-5 5c0 1.9.98 3.58 2.47 4.47L12 12l4.5 1.5"/>
-                    <path d="M12 17a5 5 0 0 0 5-5"/>
-                </svg>
-            </div>
-            <div class="btn-info">
-                <div class="btn-title-row">
-                    <span class="btn-title">Servicios & Detallado</span>
-                    <span class="hud-badge">Carta GT</span>
-                </div>
-                <span class="btn-desc">Sport, Black Intensivo, Venta y Ozono O3</span>
-            </div>
-            <div class="hud-arrow-box">▶</div>
-        </div>
+        <!-- ==========================================================================
+             BENTO DE PORCELANA TRASLÚCIDA Y ARCOS SEÑORIALES
+             ========================================================================== -->
+        <section class="bento-porcelain-grid">
 
-        <!-- =========================================================
-           GALERÍA EXECUTIVE: DIAPOSITIVA TOUCH & LIGHTBOX (FOTOS 100% OPERATIVAS)
-           ========================================================= -->
-        <div class="gallery-card">
-            <div class="gallery-header">
-                <div class="gallery-title-wrap">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFC700" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    <span>Paddock & Galería</span>
+            <!-- 1. LA CARTA: ARCO SUPERIOR IZQUIERDO -->
+            <div class="bento-plate card-arch-left" onclick="openMenuModal()" onmouseenter="playSfx('hover')">
+                <div class="plate-top-row">
+                    <span class="plate-index-tag">01 / MENÚ</span>
+                    <span class="plate-arrow-icon">↗</span>
                 </div>
-                <span class="hud-badge">Ver Fotos</span>
+                <div>
+                    <h3 class="plate-title">La Carta</h3>
+                    <span class="plate-sub-italic">Parrilla & Bodegón</span>
+                    <p class="plate-desc">Entraña de exportación, bife de chorizo y pastas caseras.</p>
+                </div>
             </div>
 
-            <div class="gallery-track" id="galleryTrack">
-                <!-- 1. VEHÍCULO EJECUTIVO EN BAÑO DE ESPUMA -->
-                <div class="gallery-item" onclick="openLightbox(0)">
-                    <img 
-                        src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=800&q=80" 
-                        alt="Lavado artesanal con espuma pH neutro" 
-                        loading="lazy"
-                        onerror="this.src='https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80';"
-                    >
-                    <div class="gallery-caption">Espuma Activa pH</div>
+            <!-- 2. COCINA ÁRABE: ARCO SUPERIOR DERECHO -->
+            <div class="bento-plate card-arch-right" onclick="openMenuModal()" onmouseenter="playSfx('hover')">
+                <div class="plate-top-row">
+                    <span class="plate-index-tag">02 / HERENCIA</span>
+                    <span class="plate-arrow-icon">↗</span>
                 </div>
-
-                <!-- 2. HABITÁCULO EJECUTIVO DE CUERO POLISH -->
-                <div class="gallery-item" onclick="openLightbox(1)">
-                    <img 
-                        src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" 
-                        alt="Tapizados y tratamiento de cuero" 
-                        loading="lazy"
-                        onerror="this.src='https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80';"
-                    >
-                    <div class="gallery-caption">Tratamiento Cuero</div>
-                </div>
-
-                <!-- 3. SEDÁN ALEMÁN ACABADO REFLEJO -->
-                <div class="gallery-item" onclick="openLightbox(2)">
-                    <img 
-                        src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80" 
-                        alt="Cera rápida y sellado artesanal" 
-                        loading="lazy"
-                        onerror="this.src='https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=800&q=80';"
-                    >
-                    <div class="gallery-caption">Sellado M111®</div>
-                </div>
-
-                <!-- 4. LIMPIEZA DE VANO MOTOR (FOTO NUEVA 100% COMPROBADA) -->
-                <div class="gallery-item" onclick="openLightbox(3)">
-                    <img 
-                        src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" 
-                        alt="Vano motor y chasis reluciente" 
-                        loading="lazy"
-                        onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80';"
-                    >
-                    <div class="gallery-caption">Vano Motor</div>
+                <div>
+                    <h3 class="plate-title">Cocina Árabe</h3>
+                    <span class="plate-sub-italic">Receta Familiar</span>
+                    <p class="plate-desc">Hummus casero, mamul y repostería artesanal de oriente.</p>
                 </div>
             </div>
-        </div>
 
-        <!-- TARJETA: TELEMETRÍA DE HORARIO EN VIVO -->
-        <div class="hours-card" onclick="playGtMenuSound()">
-            <div class="hours-header">
-                <div class="hours-title">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    <span>Horario de Taller</span>
+            <!-- 3. RAPPI DELIVERY (FULL SPAN ELEGANTE) -->
+            <a href="https://www.rappi.com.ar/restaurantes/214941-restaurante-don-hilario" target="_blank" rel="noopener noreferrer" class="bento-plate card-full-span" onmouseenter="playSfx('hover')" onclick="playSfx('select')">
+                <div style="flex:1;">
+                    <div class="plate-top-row" style="margin-bottom: 4px;">
+                        <span class="plate-index-tag">DELIVERY OFICIAL</span>
+                    </div>
+                    <h3 class="plate-title">Pedí a Domicilio por Rappi</h3>
+                    <span class="plate-sub-italic">Porciones abundantes y calientes en Recoleta</span>
                 </div>
-                <span class="hud-badge" id="statusBadge">Comprobando...</span>
-            </div>
-            <div class="hours-table">
-                <div class="hours-row" id="row-week">
-                    <span>Lunes a Viernes</span>
-                    <span class="time">08:30 h - 18:30 h</span>
-                </div>
-                <div class="hours-row" id="row-sat">
-                    <span>Sábados</span>
-                    <span class="time">08:30 h - 17:00 h</span>
-                </div>
-                <div class="hours-row" style="opacity: 0.45;">
-                    <span>Domingos</span>
-                    <span class="time">Cerrado</span>
-                </div>
-            </div>
-        </div>
+                <span class="plate-arrow-icon" style="font-size: 1.35rem;">↗</span>
+            </a>
 
-        <!-- BOTÓN: LLAMADA DIRECTA -->
-        <a href="tel:+5491133501614" class="btn-card" onclick="playGtMenuSound()">
-            <div class="icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div class="btn-info">
-                <span class="btn-title">Llamar Directo al Taller</span>
-                <span class="btn-desc">Línea Gustavo: 11 3350-1614</span>
-            </div>
-            <div class="hud-arrow-box">▶</div>
-        </a>
-
-        <!-- MAPA GOOGLE MAPS COCKPIT -->
-        <div class="map-card" onclick="playGtMenuSound()">
-            <div class="map-header">
-                <div class="map-title">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC700" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <span>Ubicación en Colegiales</span>
+            <!-- 4. COMUNIDAD INSTAGRAM -->
+            <a href="https://instagram.com/donhilariorestaurante" target="_blank" rel="noopener noreferrer" class="bento-plate card-arch-bottom-left" onmouseenter="playSfx('hover')" onclick="playSfx('select')">
+                <div class="plate-top-row">
+                    <span class="plate-index-tag">03 / COMUNIDAD</span>
+                    <span class="plate-arrow-icon">↗</span>
                 </div>
-                <span class="hud-badge">Av. Elcano 3325</span>
+                <div>
+                    <h3 class="plate-title">Instagram</h3>
+                    <span class="plate-sub-italic">@donhilariorestaurante</span>
+                    <p class="plate-desc">La vida del salón, novedades y carnes seleccionadas.</p>
+                </div>
+            </a>
+
+            <!-- 5. GPS CÓMO LLEGAR -->
+            <a href="https://maps.google.com/?q=Peña+2475,+Recoleta,+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="bento-plate card-arch-bottom-right" onmouseenter="playSfx('hover')" onclick="playSfx('select')">
+                <div class="plate-top-row">
+                    <span class="plate-index-tag">04 / GPS</span>
+                    <span class="plate-arrow-icon">↗</span>
+                </div>
+                <div>
+                    <h3 class="plate-title">Cómo Llegar</h3>
+                    <span class="plate-sub-italic">Peña 2475</span>
+                    <p class="plate-desc">A 2 cuadras de Av. Las Heras y Av. Pueyrredón.</p>
+                </div>
+            </a>
+
+        </section>
+
+        <!-- ==========================================================================
+             SHOWCASE DE ESPECIALIDADES GASTRONÓMICAS
+             ========================================================================== -->
+        <section class="dish-strip-module">
+            <div class="module-head-row">
+                <span class="module-title-cinzel">Especialidades del Fuego</span>
+                <span class="module-sub-seville">Selección Don Hilario</span>
             </div>
-            <div class="map-box">
+
+            <div class="dishes-horizontal-scroll">
+
+                <!-- 1. ENTRAÑA -->
+                <div class="dish-card-porcelain" onclick="openMenuModal()" onmouseenter="playSfx('hover')">
+                    <div class="dish-frame-wrap">
+                        <span class="dish-seal-pill">INSIGNIA</span>
+                        <img src="https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=700&q=80" alt="Entraña jugosa a la leña" loading="lazy">
+                    </div>
+                    <span class="dish-title-text">Entraña Jugosa</span>
+                    <span class="dish-subtext-notes">Tierna, asada a punto</span>
+                </div>
+
+                <!-- 2. BIFE DE CHORIZO -->
+                <div class="dish-card-porcelain" onclick="openMenuModal()" onmouseenter="playSfx('hover')">
+                    <div class="dish-frame-wrap">
+                        <span class="dish-seal-pill">EXPORTACIÓN</span>
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80" alt="Cortes de carne Don Hilario" loading="lazy">
+                    </div>
+                    <span class="dish-title-text">Bife de Chorizo</span>
+                    <span class="dish-subtext-notes">400 gramos con guarnición</span>
+                </div>
+
+                <!-- 3. COCINA ÁRABE -->
+                <div class="dish-card-porcelain" onclick="openMenuModal()" onmouseenter="playSfx('hover')">
+                    <div class="dish-frame-wrap">
+                        <span class="dish-seal-pill">ORIENTAL</span>
+                        <img src="https://images.unsplash.com/photo-1541518763669-27fef04b14ea?auto=format&fit=crop&w=700&q=80" alt="Hummus tradicional árabe" loading="lazy">
+                    </div>
+                    <span class="dish-title-text">Hummus Tradicional</span>
+                    <span class="dish-subtext-notes">Con pan árabe tibio</span>
+                </div>
+
+                <!-- 4. MILANESA NAPOLITANA -->
+                <div class="dish-card-porcelain" onclick="openMenuModal()" onmouseenter="playSfx('hover')">
+                    <div class="dish-frame-wrap">
+                        <span class="dish-seal-pill">BODEGÓN</span>
+                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80" alt="Milanesa napolitana de la casa" loading="lazy">
+                    </div>
+                    <span class="dish-title-text">Milanesa Napolitana</span>
+                    <span class="dish-subtext-notes">Gratinada y abundante</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             TELEMETRÍA EN VIVO: HORARIO DE RECOLETA (BUENOS AIRES UTC-3)
+             ========================================================================== -->
+        <article class="hours-schedule-box" onmouseenter="playSfx('hover')">
+            <div class="hours-box-head">
+                <span class="hours-box-title">Horarios de Salón</span>
+                <span class="status-indicator-badge" id="liveStatusBadge">Verificando...</span>
+            </div>
+            <div class="hours-rows-list">
+                <div class="hours-item-row" id="slot-almuerzo">
+                    <span>Turno Almuerzo (Diario)</span>
+                    <span class="time-stamp">12:00 h — 15:30 h</span>
+                </div>
+                <div class="hours-item-row" id="slot-merienda">
+                    <span>Cafetería & Pastelería</span>
+                    <span class="time-stamp">16:00 h — 19:15 h</span>
+                </div>
+                <div class="hours-item-row" id="slot-cena">
+                    <span>Turno Cena & Parrilla</span>
+                    <span class="time-stamp">19:15 h — 23:45 h</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- ==========================================================================
+             MAPA ENMARCADO: PEÑA 2475
+             ========================================================================== -->
+        <section class="map-enclosure-card" onmouseenter="playSfx('hover')">
+            <div class="map-head-bar">
+                <span class="map-head-title">Peña 2475, Recoleta</span>
+                <span class="plate-index-tag">C1119 CABA</span>
+            </div>
+            <div class="map-frame-box">
                 <iframe 
-                    src="https://maps.google.com/maps?q=Av.+Elcano+3325,+CABA,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                    src="https://maps.google.com/maps?q=Peña+2475,+C1119+CABA,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed" 
                     allowfullscreen="" 
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
-        </div>
+        </section>
 
-        <!-- MEDIOS DE PAGO -->
-        <div class="btn-card btn-card-pay" onclick="playGtMenuSound()">
-            <div class="icon-box" style="color: #0EA5E9; border-color: rgba(14, 165, 233, 0.4);">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            </div>
-            <div class="btn-info">
-                <span class="btn-title">Todos los Medios de Pago</span>
-                <span class="btn-desc">Efectivo · Mercado Pago · Transferencia · Débito</span>
-            </div>
-            <span class="hud-badge cyan">Habilitado</span>
-        </div>
-
-        <!-- FOOTER INSTITUCIONAL -->
-        <footer class="hub-footer">
-            <div class="footer-badge">
-                <span>BLACK CENTER CARS®</span>
-                <span style="color: var(--volt-gold);">///</span>
-                <span>BUENOS AIRES</span>
-            </div>
-            <span class="footer-legal">AV. ELCANO 3325 · CABA · PROVEEDOR EXCLUSIVO M111®</span>
+        <!-- ==========================================================================
+             FOOTER NOBLE
+             ========================================================================== -->
+        <footer class="palace-footer-strip">
+            <div class="footer-noble-title">DON HILARIO</div>
+            <p class="footer-noble-sub">PEÑA 2475 · RECOLETA · BUENOS AIRES · PATRIMONIO GASTRONÓMICO</p>
         </footer>
 
     </main>
 
-    <!-- MODAL DIAPOSITIVA (LIGHTBOX) -->
-    <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox(event)">
-        <button class="lb-nav-btn lb-prev" onclick="event.stopPropagation(); navLightbox(-1); playGtMenuSound();">◀</button>
-        <button class="lb-nav-btn lb-next" onclick="event.stopPropagation(); navLightbox(1); playGtMenuSound();">▶</button>
-
-        <div class="lightbox-modal-card" onclick="event.stopPropagation()">
-            <div class="lightbox-topbar">
-                <span class="lightbox-counter" id="lbCounter">1 / 4</span>
-                <button class="btn-close-lb" onclick="closeLightbox(event)">✕</button>
+    <!-- ==========================================================================
+         MODAL INTERACTIVO: CARTA DE DON HILARIO
+         ========================================================================== -->
+    <div class="modal-overlay-palace" id="menuModal" onclick="closeMenuModal(event)">
+        <div class="modal-card-porcelain" onclick="event.stopPropagation()">
+            <div class="modal-head-bar">
+                <h3>// Especialidades Don Hilario</h3>
+                <button class="btn-close-modal" onclick="closeMenuModal(event)">✕</button>
             </div>
-            <div class="lightbox-viewport" id="lbViewport">
-                <img id="lbImg" src="" alt="Black Center Detailing">
+            <div class="modal-scroll-body">
+
+                <!-- 1. PARRILLA -->
+                <div class="menu-category-section">
+                    <span class="category-frieze-title">Parrilla a la Leña de Quebracho</span>
+
+                    <div class="dish-entry-item">
+                        <div class="dish-entry-head">
+                            <span class="dish-entry-name">Entraña Selección Don Hilario</span>
+                            <span class="dish-entry-badge">Insignia</span>
+                        </div>
+                        <p class="dish-entry-desc">El corte más aclamado. Tierno, jugoso y dorado con sal marina.</p>
+                    </div>
+
+                    <div class="dish-entry-item">
+                        <div class="dish-entry-head">
+                            <span class="dish-entry-name">Bife de Chorizo Ancho</span>
+                            <span class="dish-entry-badge">400 grs</span>
+                        </div>
+                        <p class="dish-entry-desc">Calidad de exportación acompañado con papas provenzal o mixta.</p>
+                    </div>
+
+                    <div class="dish-entry-item">
+                        <div class="dish-entry-head">
+                            <span class="dish-entry-name">Provoleta Especial a la Brasa</span>
+                            <span class="dish-entry-badge">Entrada</span>
+                        </div>
+                        <p class="dish-entry-desc">Costra crocante, corazón fundido con orégano fresco y oliva extra virgen.</p>
+                    </div>
+                </div>
+
+                <!-- 2. COCINA ÁRABE -->
+                <div class="menu-category-section">
+                    <span class="category-frieze-title">Cocina Árabe Tradicional</span>
+
+                    <div class="dish-entry-item">
+                        <div class="dish-entry-head">
+                            <span class="dish-entry-name">Hummus Casero con Pan Árabe</span>
+                            <span class="dish-entry-badge">Receta Original</span>
+                        </div>
+                        <p class="dish-entry-desc">Crema de garbanzos elaborada en casa, sésamo tahini puro y pimentón.</p>
+                    </div>
+
+                    <div class="dish-entry-item">
+                        <div class="dish-entry-head">
+                            <span class="dish-entry-name">Berenjenas al Escabeche</span>
+                            <span class="dish-entry-badge">Casero</span>
+                        </div>
+                        <p class="dish-entry-desc">Maceración paciente con especias seleccionadas y textura suave.</p>
+                    </div>
+                </div>
+
+                <!-- 3. BODEGÓN Y MINUTAS -->
+                <div class="menu-category-section">
+                    <span class="category-frieze-title">Bodegón Porteño y Minutas</span>
+
+                    <div class="dish-entry-item">
+                        <div class="dish-entry-head">
+                            <span class="dish-entry-name">Milanesa Napolitana de Ternera</span>
+                            <span class="dish-entry-badge">Abundante</span>
+                        </div>
+                        <p class="dish-entry-desc">Salsa pomodoro casera, jamón cocido seleccionado y mozzarella gratinada.</p>
+                    </div>
+
+                    <div class="dish-entry-item">
+                        <div class="dish-entry-head">
+                            <span class="dish-entry-name">Lomo a la Pimienta con Noisette</span>
+                            <span class="dish-entry-badge">Clásico</span>
+                        </div>
+                        <p class="dish-entry-desc">Medallones suaves con suave reducción de crema y pimienta negra en grano.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
-    <!-- DRAWER / MODAL ESPECIFICACIONES DE SERVICIOS -->
-    <div class="modal-overlay" id="servicesModal" onclick="closeServicesModal(event)">
-        <div class="modal-card" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h3>// Especificaciones de Detallado</h3>
-                <button class="btn-close-modal" onclick="closeServicesModal(event)">✕</button>
-            </div>
-            <div class="modal-body">
-
-                <!-- 1. SERVICIO SPORT -->
-                <div class="service-detail-item">
-                    <div class="service-detail-head">
-                        <h4>01 // Servicio Sport (Base)</h4>
-                        <span class="hud-badge">Stage 1</span>
-                    </div>
-                    <p class="service-detail-desc">
-                        Pre-lavado y baño de espuma activa con pH neutro. Lavado exterior detallado + secado artesanal con microfibra de alta densidad y sellador de brillo rápido M111®. Aspirado profundo de cabina y baúl, acondicionamiento de neumáticos, molduras y siliconado protector de paneles.
-                    </p>
-                    <a href="https://wa.me/5491133501614?text=Hola%20Gustavo!%20Quisiera%20consultar%20por%20el%20Servicio%20Sport." target="_blank" class="service-btn-book" onclick="playGtMenuSound()">Consultar Servicio Sport ▶</a>
-                </div>
-
-                <!-- 2. LAVADO BLACK INTENSIVO -->
-                <div class="service-detail-item" style="border-left-color: var(--apex-red);">
-                    <div class="service-detail-head">
-                        <h4 style="color: #FF5A62;">02 // Lavado Black Intensivo</h4>
-                        <span class="hud-badge red">Stage 2</span>
-                    </div>
-                    <p class="service-detail-desc">
-                        Todo el <strong>Servicio Sport</strong> + limpieza profunda de tapizados (cuero o tela), paneles de puertas, torpedo, consola central y acondicionador mate no grasoso para interiores.
-                    </p>
-                    <a href="https://wa.me/5491133501614?text=Hola%20Gustavo!%20Quisiera%20pedir%20presupuesto%20para%20el%20Lavado%20Black%20Intensivo." target="_blank" class="service-btn-book" onclick="playGtMenuSound()">Consultar Black Intensivo ▶</a>
-                </div>
-
-                <!-- 3. PREPARACIÓN PARA VENTA -->
-                <div class="service-detail-item" style="border-left-color: var(--calama-cyan);">
-                    <div class="service-detail-head">
-                        <h4 style="color: var(--calama-cyan);">03 // Preparación para Venta</h4>
-                        <span class="hud-badge cyan">Full Pack</span>
-                    </div>
-                    <p class="service-detail-desc">
-                        El tratamiento definitivo para valorizar tu coche: Lavado Black + Limpieza integral de tapizados al detalle + Lavado de Motor + <strong>Desinfección de cabina con Ozono (O3)</strong> para eliminar ácaros, bacterias y olores residuales.
-                    </p>
-                    <a href="https://wa.me/5491133501614?text=Hola%20Gustavo!%20Me%20interesa%20el%20servicio%20de%20Preparaci%C3%B3n%20para%20Venta%20para%20mi%20auto." target="_blank" class="service-btn-book" onclick="playGtMenuSound()">Cotizar Preparación para Venta ▶</a>
-                </div>
-
-                <!-- 4. SERVICIOS ESPECIALES -->
-                <div class="service-detail-item">
-                    <div class="service-detail-head">
-                        <h4>04 // Servicios Especiales</h4>
-                        <span class="hud-badge">Taller</span>
-                    </div>
-                    <p class="service-detail-desc">
-                        • Limpieza de Vano Motor y Desbarrado de Chasis<br>
-                        • Lavado especializado de Motos<br>
-                        • Tratamiento y recuperación de inundados y alfombras de piso<br>
-                        • Descontaminado de manchas orgánicas y pelos de mascotas
-                    </p>
-                    <a href="https://wa.me/5491133501614?text=Hola%20Gustavo!%20Quisiera%20consultar%20por%20un%20servicio%20especial%20(motor/mascotas/chasis)." target="_blank" class="service-btn-book" onclick="playGtMenuSound()">Consultar Servicio Especial ▶</a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- MOTORES JAVASCRIPT: AUDIOS OFICIALES, FADE OUT & PISTA ORGÁNICA -->
+    <!-- ==========================================================================
+         CONTROLADOR JS: MÚSICA QUEEN AMIDALA + EFECTOS POLIFÓNICOS STAR WARS
+         ========================================================================== -->
     <script>
-        // =========================================================
-        // 1. AUDIO OFICIAL DE GITHUB: BOTÓN GT4 Y MÚSICA DRIVING MISSIONS
-        // =========================================================
-        const gtMenuAudio = new Audio("./gran_turismo_4_menu.mp3");
-        gtMenuAudio.volume = 0.5;
+        // POOL POLIFÓNICO DE AUDIO (LOCAL REPO GITHUB)
+        const audioSfx = {
+            hover: new Audio('./sfx-hover.wav'),
+            select: new Audio('./sfx-select.wav'),
+            stud: new Audio('./sfx-stud.wav'),
+            saber: new Audio('./sfx-saber.wav'),
+            back: new Audio('./sfx-back.wav'),
+            pause: new Audio('./sfx-pause.wav')
+        };
 
-        const bgMusic = new Audio("./08.%20Driving%20Missions.mp3");
-        bgMusic.loop = true;
-        const DEFAULT_BG_VOL = 0.22;
-        bgMusic.volume = DEFAULT_BG_VOL;
+        // Calibración de volumen táctil suave
+        Object.values(audioSfx).forEach(s => s.volume = 0.40);
 
-        let isMusicPlaying = false;
-        let fadeInterval = null;
-
-        // Sonido de botón oficial único
-        function playGtMenuSound() {
+        function playSfx(type) {
             try {
-                const clickSound = gtMenuAudio.cloneNode();
-                clickSound.volume = 0.5;
-                clickSound.play().catch(() => {});
+                if (audioSfx[type]) {
+                    const soundClone = audioSfx[type].cloneNode();
+                    soundClone.volume = audioSfx[type].volume;
+                    soundClone.play().catch(() => {});
+                }
             } catch (e) {}
         }
 
-        // FADE OUT SUAVE DE MÚSICA AL SALIR (WHATSAPP, LLAMADA, MAPAS O CAMBIO DE PESTAÑA)
-        function fadeOutMusic(duration = 750) {
+        // ==========================================================================
+        // MOTOR DE MÚSICA: QUEEN AMIDALA AND THE NABOO PALACE
+        // ==========================================================================
+        const bgMusic = new Audio('./Queen%20Amidala%20and%20the%20Naboo%20Palace.mp3');
+        bgMusic.onerror = () => {
+            // Respaldo de seguridad por si el nombre de archivo tuviese espacios crudos
+            bgMusic.src = './Queen Amidala and the Naboo Palace.mp3';
+        };
+        bgMusic.loop = true;
+        const BASE_MUSIC_VOL = 0.24;
+        bgMusic.volume = BASE_MUSIC_VOL;
+
+        let isMusicPlaying = false;
+        let fadeOutTimer = null;
+
+        function togglePalaceMusic() {
+            playSfx('pause');
+            const btnLabel = document.getElementById('bgMusicLabel');
+            const btnIcon = document.getElementById('bgMusicIcon');
+
+            if (!isMusicPlaying) {
+                if (fadeOutTimer) { clearInterval(fadeOutTimer); fadeOutTimer = null; }
+                bgMusic.volume = BASE_MUSIC_VOL;
+                bgMusic.play().then(() => {
+                    isMusicPlaying = true;
+                    btnLabel.innerText = "Amidala: ON";
+                    btnIcon.innerText = "🔊";
+                }).catch(() => {});
+            } else {
+                fadeOutPalaceMusic(500);
+            }
+        }
+
+        // FADE OUT SEMIRRÁPIDO AUTOMÁTICO (750 ms)
+        function fadeOutPalaceMusic(duration = 750) {
             if (!isMusicPlaying || bgMusic.paused) return;
-            if (fadeInterval) clearInterval(fadeInterval);
+            if (fadeOutTimer) clearInterval(fadeOutTimer);
 
             const steps = 15;
             const stepTime = duration / steps;
             const startVol = bgMusic.volume;
             const volStep = startVol / steps;
 
-            fadeInterval = setInterval(() => {
+            fadeOutTimer = setInterval(() => {
                 if (bgMusic.volume > volStep) {
                     bgMusic.volume -= volStep;
                 } else {
                     bgMusic.volume = 0;
                     bgMusic.pause();
-                    clearInterval(fadeInterval);
-                    fadeInterval = null;
+                    clearInterval(fadeOutTimer);
+                    fadeOutTimer = null;
                     isMusicPlaying = false;
 
                     const btnLabel = document.getElementById('bgMusicLabel');
                     const btnIcon = document.getElementById('bgMusicIcon');
-                    if (btnLabel) btnLabel.innerText = "MÚSICA BLACKCENTER: OFF";
+                    if (btnLabel) btnLabel.innerText = "Queen Amidala";
                     if (btnIcon) btnIcon.innerText = "🔈";
 
-                    // Restaura el volumen base para cuando el usuario decida encenderla de nuevo
-                    bgMusic.volume = DEFAULT_BG_VOL;
+                    bgMusic.volume = BASE_MUSIC_VOL;
                 }
             }, stepTime);
         }
 
-        // Toggle para la música ambiental Driving Missions
-        function toggleMusic() {
-            playGtMenuSound();
-            const btnLabel = document.getElementById('bgMusicLabel');
-            const btnIcon = document.getElementById('bgMusicIcon');
-
-            if (!isMusicPlaying) {
-                if (fadeInterval) { clearInterval(fadeInterval); fadeInterval = null; }
-                bgMusic.volume = DEFAULT_BG_VOL;
-                bgMusic.play().then(() => {
-                    isMusicPlaying = true;
-                    btnLabel.innerText = "MÚSICA BLACKCENTER: ON";
-                    btnIcon.innerText = "🔊";
-                }).catch(() => {});
-            } else {
-                fadeOutMusic(500);
-            }
-        }
-
-        // DISPARADORES DE FADE OUT AL SALIR DEL LINK O IR A WHATSAPP
+        // DISPARADORES DE SALIDA (WHATSAPP, LLAMADA, MAPAS O PESTAÑA INACTIVA)
         document.addEventListener('click', (e) => {
             const link = e.target.closest('a');
             if (link && (link.href.includes('wa.me') || link.href.includes('tel:') || link.href.includes('maps') || link.target === '_blank')) {
-                fadeOutMusic(700);
+                fadeOutPalaceMusic(700);
             }
         });
 
         document.addEventListener('visibilitychange', () => {
             if (document.hidden && isMusicPlaying) {
-                fadeOutMusic(500);
+                fadeOutPalaceMusic(450);
             }
         });
 
         window.addEventListener('pagehide', () => {
-            if (isMusicPlaying) {
-                bgMusic.pause();
-            }
+            if (isMusicPlaying) bgMusic.pause();
         });
 
-        // =========================================================
-        // 2. SIMULADOR DE PISTA ORGÁNICA (PELOTONES Y SOLITARIOS SILENCIOSOS)
-        // =========================================================
-        const trackCanvas = document.getElementById('speedTrackCanvas');
-        const trackCtx = trackCanvas.getContext('2d');
+        // ==========================================================================
+        // CONTROL DEL MODAL DE LA CARTA
+        // ==========================================================================
+        const menuModal = document.getElementById('menuModal');
 
-        function resizeTrackCanvas() {
-            trackCanvas.width = window.innerWidth;
-            trackCanvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeTrackCanvas);
-        resizeTrackCanvas();
-
-        let activeRaceCars = [];
-        let nextSpawnTime = Date.now() + 800;
-
-        const CAR_MODELS = [
-            { id: 'f1', length: 78, width: 26, bodyColor: '#FFC700', wingColor: '#0E1017' },
-            { id: 'tc', length: 82, width: 30, bodyColor: '#E5383B', wingColor: '#E5383B' },
-            { id: 'rally', length: 64, width: 28, bodyColor: '#0EA5E9', wingColor: '#FFFFFF' },
-            { id: 'gt3', length: 76, width: 29, bodyColor: '#FFFFFF', wingColor: '#1B202C' }
-        ];
-
-        function spawnOrganicPack() {
-            const isPack = Math.random() > 0.55;
-            const count = isPack ? (Math.random() > 0.45 ? 3 : 4) : 1;
-
-            const baseAngle = (Math.random() * 16 + 56) * (Math.PI / 180);
-            const baseSpeed = isPack ? (Math.random() * 14 + 30) : (Math.random() * 20 + 38);
-            const startX = Math.random() * (trackCanvas.width + 120) - 60;
-
-            for (let i = 0; i < count; i++) {
-                const model = CAR_MODELS[Math.floor(Math.random() * CAR_MODELS.length)];
-                const gap = i * (Math.random() * 75 + 65);
-
-                activeRaceCars.push({
-                    x: startX - Math.cos(baseAngle) * gap,
-                    y: -120 - Math.sin(baseAngle) * gap,
-                    baseSpeed: baseSpeed,
-                    angle: baseAngle,
-                    model: model,
-                    isPack: isPack,
-                    weaveFreq: Math.random() * 0.05 + 0.03,
-                    weaveAmp: isPack ? (Math.random() * 22 + 8) : 0,
-                    weavePhase: Math.random() * Math.PI * 2,
-                    step: 0
-                });
-            }
-
-            nextSpawnTime = Date.now() + (Math.random() * 4000 + 2000);
+        function openMenuModal() {
+            playSfx('saber');
+            menuModal.classList.add('active');
         }
 
-        function drawSpeedCar(car) {
-            trackCtx.save();
-            trackCtx.translate(car.x, car.y);
-            trackCtx.rotate(car.angle);
-
-            const m = car.model;
-
-            // Haz de luces de xenón
-            const lightGrad = trackCtx.createLinearGradient(0, 0, 150, 0);
-            lightGrad.addColorStop(0, 'rgba(255, 255, 255, 0.4)');
-            lightGrad.addColorStop(1, 'transparent');
-            trackCtx.fillStyle = lightGrad;
-            trackCtx.beginPath();
-            trackCtx.moveTo(m.length / 2, -m.width / 2.6);
-            trackCtx.lineTo(m.length / 2 + 140, -m.width * 1.4);
-            trackCtx.lineTo(m.length / 2 + 140, m.width * 1.4);
-            trackCtx.lineTo(m.length / 2, m.width / 2.6);
-            trackCtx.closePath();
-            trackCtx.fill();
-
-            // Estela de rebufo
-            const trailGrad = trackCtx.createLinearGradient(-m.length * 2.4, 0, 0, 0);
-            trailGrad.addColorStop(0, 'transparent');
-            trailGrad.addColorStop(1, 'rgba(255, 199, 0, 0.2)');
-            trackCtx.fillStyle = trailGrad;
-            trackCtx.fillRect(-m.length * 2.4, -m.width / 2, m.length * 2.4, m.width);
-
-            // Carrocería
-            if (m.id === 'f1') {
-                trackCtx.fillStyle = '#111';
-                trackCtx.fillRect(-m.length / 2 - 8, -m.width / 2, 8, m.width);
-                trackCtx.fillStyle = m.bodyColor;
-                trackCtx.fillRect(-m.length / 2 - 2, -m.width / 2, 3, m.width);
-
-                trackCtx.beginPath();
-                trackCtx.moveTo(-m.length / 4, -m.width / 2);
-                trackCtx.lineTo(m.length / 2, 0);
-                trackCtx.lineTo(-m.length / 4, m.width / 2);
-                trackCtx.closePath();
-                trackCtx.fillStyle = m.bodyColor;
-                trackCtx.fill();
-                trackCtx.strokeStyle = '#FFFFFF';
-                trackCtx.lineWidth = 1.2;
-                trackCtx.stroke();
-
-                const wheels = [
-                    { x: -m.length / 3, y: -m.width / 1.7 },
-                    { x: -m.length / 3, y: m.width / 1.7 - 7 },
-                    { x: m.length / 4, y: -m.width / 1.7 },
-                    { x: m.length / 4, y: m.width / 1.7 - 7 }
-                ];
-                wheels.forEach(w => {
-                    trackCtx.fillStyle = '#060709';
-                    trackCtx.fillRect(w.x, w.y, 16, 7);
-                    trackCtx.fillStyle = '#FFE600';
-                    trackCtx.fillRect(w.x + 6, w.y, 4, 7);
-                });
-
-                trackCtx.fillStyle = '#FF1E27';
-                trackCtx.fillRect(-m.length / 2 - 9, -2, 4, 4);
-            } else {
-                trackCtx.fillStyle = '#10131B';
-                trackCtx.strokeStyle = m.bodyColor;
-                trackCtx.lineWidth = 2;
-                trackCtx.beginPath();
-                trackCtx.roundRect(-m.length / 2, -m.width / 2, m.length, m.width, 5);
-                trackCtx.fill();
-                trackCtx.stroke();
-
-                trackCtx.fillStyle = '#1F2432';
-                trackCtx.fillRect(-m.length / 6, -m.width / 2.6, m.length / 2.5, m.width / 1.3);
-
-                trackCtx.fillStyle = m.wingColor;
-                trackCtx.fillRect(-m.length / 2 - 6, -m.width / 1.9, 7, m.width * 1.05);
-
-                trackCtx.fillStyle = '#FF1E27';
-                trackCtx.fillRect(-m.length / 2 - 1, -m.width / 2.5, 2, 6);
-                trackCtx.fillRect(-m.length / 2 - 1, m.width / 2.5 - 6, 2, 6);
-            }
-
-            trackCtx.restore();
+        function closeMenuModal(e) {
+            playSfx('back');
+            menuModal.classList.remove('active');
         }
 
-        function animateTrack() {
-            trackCtx.clearRect(0, 0, trackCanvas.width, trackCanvas.height);
-
-            const now = Date.now();
-            if (now >= nextSpawnTime) {
-                spawnOrganicPack();
-            }
-
-            for (let i = activeRaceCars.length - 1; i >= 0; i--) {
-                const car = activeRaceCars[i];
-                car.step++;
-
-                const lateralDrift = Math.sin(car.step * car.weaveFreq + car.weavePhase) * car.weaveAmp * 0.05;
-
-                car.x += Math.cos(car.angle) * car.baseSpeed - Math.sin(car.angle) * lateralDrift;
-                car.y += Math.sin(car.angle) * car.baseSpeed + Math.cos(car.angle) * lateralDrift;
-
-                drawSpeedCar(car);
-
-                if (car.y > trackCanvas.height + 250 || car.x > trackCanvas.width + 250) {
-                    activeRaceCars.splice(i, 1);
-                }
-            }
-
-            requestAnimationFrame(animateTrack);
-        }
-        requestAnimationFrame(animateTrack);
-
-        // =========================================================
-        // 3. PARALLAX DINÁMICO EN SCROLL
-        // =========================================================
-        const liveryEl = document.getElementById('parallaxLivery');
-        window.addEventListener('scroll', () => {
-            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-            if (liveryEl) {
-                liveryEl.style.transform = `rotate(-26deg) translateY(${scrollY * 0.28}px)`;
-            }
-        }, { passive: true });
-
-        // =========================================================
-        // 4. CONTROL DEL MODAL DE SERVICIOS
-        // =========================================================
-        const modal = document.getElementById('servicesModal');
-        function openServicesModal() { modal.classList.add('active'); }
-        function closeServicesModal(e) {
-            modal.classList.remove('active');
-            playGtMenuSound();
-        }
-
-        // =========================================================
-        // 5. DIAPOSITIVA / LIGHTBOX DE FOTOS
-        // =========================================================
-        const fotosGaleria = [
-            "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1200&q=85",
-            "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85",
-            "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=85",
-            "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=85"
-        ];
-
-        let currentPhotoIdx = 0;
-        const lbOverlay = document.getElementById('lightboxOverlay');
-        const lbImg = document.getElementById('lbImg');
-        const lbCounter = document.getElementById('lbCounter');
-
-        function openLightbox(idx) {
-            currentPhotoIdx = idx;
-            lbImg.src = fotosGaleria[currentPhotoIdx];
-            lbCounter.innerText = `${currentPhotoIdx + 1} / ${fotosGaleria.length}`;
-            lbOverlay.classList.add('active');
-            playGtMenuSound();
-        }
-
-        function closeLightbox(e) {
-            lbOverlay.classList.remove('active');
-            playGtMenuSound();
-        }
-
-        function navLightbox(direction) {
-            currentPhotoIdx = (currentPhotoIdx + direction + fotosGaleria.length) % fotosGaleria.length;
-            lbImg.src = fotosGaleria[currentPhotoIdx];
-            lbCounter.innerText = `${currentPhotoIdx + 1} / ${fotosGaleria.length}`;
-        }
-
-        // Deslizamiento táctil en Lightbox
-        let touchStartX = 0;
-        const lbViewport = document.getElementById('lbViewport');
-        lbViewport.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].clientX;
-        }, { passive: true });
-
-        lbViewport.addEventListener('touchend', e => {
-            const touchEndX = e.changedTouches[0].clientX;
-            const diff = touchEndX - touchStartX;
-            if (Math.abs(diff) > 40) {
-                if (diff < 0) navLightbox(1);
-                else navLightbox(-1);
-                playGtMenuSound();
-            }
-        });
-
-        // =========================================================
-        // 6. ESTADO EN VIVO PARA BUENOS AIRES (UTC-3)
-        // =========================================================
-        function updateStoreStatus() {
+        // ==========================================================================
+        // TELEMETRÍA EN VIVO (HORARIO DE BUENOS AIRES UTC-3)
+        // ==========================================================================
+        function updateLiveStatus() {
             const now = new Date();
             const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-            const argDate = new Date(utc - (3600000 * 3));
+            const baDate = new Date(utc - (3600000 * 3));
 
-            const day = argDate.getDay();
-            const hour = argDate.getHours();
-            const min = argDate.getMinutes();
-            const timeVal = hour + min / 60;
+            const hours = baDate.getHours();
+            const minutes = baDate.getMinutes();
+            const timeVal = hours + minutes / 60;
 
-            const badge = document.getElementById('statusBadge');
+            const badge = document.getElementById('liveStatusBadge');
+            const slotAlmuerzo = document.getElementById('slot-almuerzo');
+            const slotMerienda = document.getElementById('slot-merienda');
+            const slotCena = document.getElementById('slot-cena');
+
             let isOpen = false;
 
-            if (day >= 1 && day <= 5) {
-                document.getElementById('row-week').classList.add('active-day');
-                if (timeVal >= 8.5 && timeVal < 18.5) isOpen = true;
-            } else if (day === 6) {
-                document.getElementById('row-sat').classList.add('active-day');
-                if (timeVal >= 8.5 && timeVal < 17.0) isOpen = true;
+            // Almuerzo: 12:00 a 15:30
+            if (timeVal >= 12.0 && timeVal < 15.5) {
+                isOpen = true;
+                slotAlmuerzo.classList.add('is-active-slot');
+            } 
+            // Cafetería: 16:00 a 19:15
+            else if (timeVal >= 16.0 && timeVal < 19.25) {
+                isOpen = true;
+                slotMerienda.classList.add('is-active-slot');
+            }
+            // Cena: 19:15 a 23.75
+            else if (timeVal >= 19.25 && timeVal < 23.75) {
+                isOpen = true;
+                slotCena.classList.add('is-active-slot');
             }
 
             if (isOpen) {
                 badge.innerText = "Abierto Ahora";
-                badge.style.color = "#4ADE80";
-                badge.style.borderColor = "#4ADE80";
-                badge.style.background = "rgba(74, 222, 128, 0.16)";
+                badge.style.color = "#15803D";
+                badge.style.borderColor = "#86EFAC";
+                badge.style.background = "#DCFCE7";
             } else {
-                badge.innerText = "Cerrado";
-                badge.style.color = "var(--metal-lead)";
-                badge.style.borderColor = "var(--border-hud)";
-                badge.style.background = "rgba(255, 255, 255, 0.05)";
+                badge.innerText = "Abre 19:15 h";
+                badge.style.color = "var(--accent-terracotta-fine)";
+                badge.style.borderColor = "var(--border-card-delicate)";
+                badge.style.background = "#FFFFFF";
             }
         }
 
-        // INICIALIZACIÓN
         window.addEventListener('DOMContentLoaded', () => {
-            if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-            updateStoreStatus();
-
-            setTimeout(() => {
-                const welcome = document.getElementById('gtWelcomeScreen');
-                if (welcome) welcome.classList.add('done');
-                document.body.classList.remove('preload');
-            }, 750);
+            updateLiveStatus();
         });
     </script>
 </body>

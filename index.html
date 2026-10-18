@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>DON HILARIO · Restaurante & Parrilla | Recoleta</title>
-    <meta name="description" content="Alta parrilla argentina y cocina árabe tradicional en Recoleta. Cortes de exportación, pastas artesanales y tradición familiar. Peña 2475, CABA.">
+    <title>DON HILARIO · Restaurante & Parrilla | Recoleta Hub Oficial</title>
+    <meta name="description" content="Alta parrilla argentina y cocina árabe tradicional en Recoleta. Cortes de exportación, pastas caseras y tradición familiar. Peña 2475, CABA.">
 
     <!-- PRELOAD PRIORITARIO DE ESCENOGRAFÍA THEED -->
     <link rel="preload" as="image" href="./Palace-Courtyard---original.webp">
@@ -20,13 +20,13 @@
            ========================================================================== */
         :root {
             --surface-porcelain: rgba(255, 255, 255, 0.88);
-            --surface-porcelain-subtle: rgba(253, 251, 247, 0.82);
+            --surface-porcelain-subtle: rgba(253, 251, 247, 0.84);
             --surface-elevated: #FFFFFF;
 
             --gold-champagne: #C49A45;
             --gold-burnished: #9B782D;
-            --gold-soft-glow: rgba(196, 154, 69, 0.18);
-            --gold-hairline: rgba(196, 154, 69, 0.32);
+            --gold-soft-glow: rgba(196, 154, 69, 0.22);
+            --gold-hairline: rgba(196, 154, 69, 0.35);
 
             --text-primary: #221C18;
             --text-title: #1C1613;
@@ -36,16 +36,16 @@
             --accent-terracotta-fine: #8C341E;
             --accent-green-fine: #245A42;
 
-            --border-card-delicate: rgba(196, 154, 69, 0.28);
-            --border-card-hover: rgba(196, 154, 69, 0.75);
+            --border-card-delicate: rgba(196, 154, 69, 0.32);
+            --border-card-hover: rgba(196, 154, 69, 0.85);
 
             --font-monument: 'Cinzel', Georgia, serif;
             --font-court: 'Cormorant Garamond', Georgia, serif;
             --font-sans: 'Space Grotesk', -apple-system, sans-serif;
             --font-telemetry: 'JetBrains Mono', monospace;
 
-            --shadow-porcelain: 0 16px 40px rgba(45, 30, 20, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-            --shadow-porcelain-hover: 0 22px 50px rgba(45, 30, 20, 0.14), 0 4px 14px rgba(196, 154, 69, 0.2);
+            --shadow-porcelain: 0 16px 40px rgba(45, 30, 20, 0.09), 0 2px 6px rgba(0, 0, 0, 0.04);
+            --shadow-porcelain-hover: 0 22px 50px rgba(45, 30, 20, 0.16), 0 4px 14px rgba(196, 154, 69, 0.25);
         }
 
         * {
@@ -56,12 +56,13 @@
         }
 
         html {
-            background-color: #F5EFE6;
+            background-color: #EDE4D3;
             scroll-behavior: smooth;
         }
 
         body {
             font-family: var(--font-sans);
+            background: transparent !important; /* CRÍTICO: Permite proyectar la escena trasera */
             color: var(--text-body);
             min-height: 100vh;
             min-height: 100dvh;
@@ -84,21 +85,23 @@
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center 38%;
-            filter: brightness(1.06) saturate(1.15) contrast(1.04) blur(0.4px);
+            filter: brightness(1.08) saturate(1.22) contrast(1.05);
             transform: scale(1.02);
             pointer-events: none;
         }
 
-        /* Difusión de luz cinematográfica antigua (Bloom / Halation suave) */
+        /* Difusión de luz cinematográfica cálida (Bloom suave sin tapar la arquitectura) */
         .scenic-bloom-overlay {
             position: fixed;
             inset: 0;
             z-index: -1;
             pointer-events: none;
-            background: 
-                radial-gradient(circle at 50% 20%, rgba(255, 235, 195, 0.35) 0%, rgba(255, 245, 230, 0.15) 45%, rgba(245, 235, 220, 0.75) 100%),
-                linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(247, 242, 234, 0.72) 40%, rgba(243, 235, 222, 0.94) 100%);
-            mix-blend-mode: normal;
+            background: linear-gradient(
+                180deg, 
+                rgba(255, 235, 195, 0.22) 0%, 
+                rgba(247, 238, 225, 0.45) 45%, 
+                rgba(242, 230, 215, 0.78) 100%
+            );
         }
 
         /* Calibración de recorte vertical para teléfonos móviles */
@@ -108,14 +111,17 @@
                 background-size: cover;
             }
             .scenic-bloom-overlay {
-                background: 
-                    radial-gradient(circle at 50% 15%, rgba(255, 235, 195, 0.4) 0%, rgba(255, 245, 230, 0.2) 50%, rgba(247, 241, 232, 0.82) 100%),
-                    linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(247, 242, 234, 0.76) 38%, rgba(243, 235, 222, 0.96) 100%);
+                background: linear-gradient(
+                    180deg, 
+                    rgba(255, 235, 195, 0.28) 0%, 
+                    rgba(247, 238, 225, 0.52) 40%, 
+                    rgba(242, 230, 215, 0.84) 100%
+                );
             }
         }
 
         /* ==========================================================================
-           3. SHELL PRINCIPAL CON ENCUADRE AIROSO
+           3. SHELL PRINCIPAL CON ENCUADRE EDITORIAL
            ========================================================================== */
         .palace-hub-shell {
             width: 100%;
@@ -1142,7 +1148,7 @@
         </section>
 
         <!-- ==========================================================================
-             SHOWCASE DE ESPECIALIDADES GASTRONÓMICAS
+             SHOWCASE GASTRONÓMICO: CORTES DE PARRILLA Y ESPECIALIDADES
              ========================================================================== -->
         <section class="dish-strip-module">
             <div class="module-head-row">
@@ -1365,7 +1371,6 @@
         // ==========================================================================
         const bgMusic = new Audio('./Queen%20Amidala%20and%20the%20Naboo%20Palace.mp3');
         bgMusic.onerror = () => {
-            // Respaldo de seguridad por si el nombre de archivo tuviese espacios crudos
             bgMusic.src = './Queen Amidala and the Naboo Palace.mp3';
         };
         bgMusic.loop = true;

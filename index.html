@@ -76,19 +76,19 @@
         }
 
         /* ==========================================================================
-           2. FONDO TEXTURADO ACTIVO: TRAMA ÁRABE/RECOLETA + LINO EDITORIAL
+           2. FONDO TEXTURADO: PATRÓN GASTRONÓMICO NOBLE (SIN CÍRCULOS)
            ========================================================================== */
         .palace-luxury-backdrop {
             position: fixed;
             inset: 0;
-            z-index: 0; /* Ubicado en plano neutro: imposible de tapar por el body */
+            z-index: 0;
             pointer-events: none;
             background-color: #EFE7DA;
             background-image: 
                 /* Foco de iluminación de galería cenital */
                 radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.45) 0%, rgba(239, 231, 218, 0.15) 60%, rgba(215, 200, 180, 0.65) 100%),
-                /* Trama geométrica arabesco & herrería señorial en trazo noble visible */
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M32 0 L64 32 L32 64 L0 32 Z' fill='none' stroke='%239B782D' stroke-width='1.3' stroke-opacity='0.24'/%3E%3Cpath d='M0 0 L64 64 M64 0 L0 64' fill='none' stroke='%23C49A45' stroke-width='0.9' stroke-opacity='0.18'/%3E%3Ccircle cx='32' cy='32' r='11' fill='none' stroke='%238C341E' stroke-width='1.1' stroke-opacity='0.22'/%3E%3Ccircle cx='0' cy='0' r='11' fill='none' stroke='%238C341E' stroke-width='1.1' stroke-opacity='0.22'/%3E%3Ccircle cx='64' cy='0' r='11' fill='none' stroke='%238C341E' stroke-width='1.1' stroke-opacity='0.22'/%3E%3Ccircle cx='0' cy='64' r='11' fill='none' stroke='%238C341E' stroke-width='1.1' stroke-opacity='0.22'/%3E%3Ccircle cx='64' cy='64' r='11' fill='none' stroke='%238C341E' stroke-width='1.1' stroke-opacity='0.22'/%3E%3C/svg%3E"),
+                /* Trama señorial geométrica con estrellas de 4 puntas de herrería / bodegón (sin círculos) */
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M32 0 L64 32 L32 64 L0 32 Z' fill='none' stroke='%23C49A45' stroke-width='1.1' stroke-opacity='0.22'/%3E%3Cpath d='M0 0 L64 64 M64 0 L0 64' fill='none' stroke='%239B782D' stroke-width='0.7' stroke-opacity='0.16'/%3E%3Cpath d='M32 22 L34.5 29.5 L42 32 L34.5 34.5 L32 42 L29.5 34.5 L22 32 L29.5 29.5 Z' fill='%238C341E' fill-opacity='0.24' stroke='%239B782D' stroke-width='0.8' stroke-opacity='0.3'/%3E%3Cpath d='M0 0 L2.5 7 L5 0 M64 0 L61.5 7 L59 0 M0 64 L2.5 57 L5 64 M64 64 L61.5 57 L59 64' fill='none' stroke='%238C341E' stroke-width='0.9' stroke-opacity='0.22'/%3E%3C/svg%3E"),
                 /* Micro-tejido entelado de lino / papel de grabado */
                 repeating-linear-gradient(0deg, rgba(34, 28, 24, 0.04) 0px, rgba(34, 28, 24, 0.04) 1px, transparent 1px, transparent 3px),
                 repeating-linear-gradient(90deg, rgba(34, 28, 24, 0.04) 0px, rgba(34, 28, 24, 0.04) 1px, transparent 1px, transparent 3px);
@@ -97,15 +97,17 @@
         }
 
         /* ==========================================================================
-           3. PORTADA PANORÁMICA THEED (INSPIRACIÓN DEESSA MADRID)
+           3. PORTADA PANORÁMICA CON DIFUMINADO ORGÁNICO REAL HACIA ABAJO
            ========================================================================== */
         .palace-hero-cover {
             width: 100%;
-            height: clamp(220px, 30vw, 310px);
+            height: clamp(230px, 30vw, 310px);
             position: relative;
             z-index: 2;
-            overflow: hidden;
-            background-color: #D8CFBE;
+            background: transparent;
+            /* Máscara de desvanecimiento continuo y suave que se pierde sin corte abrupto */
+            -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, rgba(0, 0, 0, 0.80) 72%, rgba(0, 0, 0, 0.35) 88%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 0%, #000 55%, rgba(0, 0, 0, 0.80) 72%, rgba(0, 0, 0, 0.35) 88%, transparent 100%);
         }
 
         .cover-photo-element {
@@ -113,7 +115,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center 38%;
-            filter: brightness(1.04) saturate(1.15) contrast(1.04);
+            filter: brightness(1.03) saturate(1.15) contrast(1.04);
             display: block;
         }
 
@@ -123,37 +125,27 @@
             pointer-events: none;
             background: linear-gradient(
                 180deg, 
-                rgba(25, 20, 16, 0.25) 0%, 
-                rgba(247, 238, 225, 0.10) 50%, 
-                rgba(239, 231, 218, 0.95) 100%
+                rgba(20, 16, 12, 0.32) 0%, 
+                rgba(247, 238, 225, 0.05) 55%, 
+                transparent 100%
             );
         }
 
         /* ==========================================================================
-           4. SHELL PRINCIPAL CON ENCUADRE EDITORIAL
+           4. BARRA SUPERIOR (UBICADA SOBRE LA CORTEZA SUPERIOR DE LA IMAGEN)
            ========================================================================== */
-        .palace-hub-shell {
+        .top-pavilion-bar {
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 100%;
             max-width: 490px;
             display: flex;
-            flex-direction: column;
-            gap: 16px;
-            z-index: 2;
-            position: relative;
-            padding: 0 clamp(12px, 3vw, 18px);
-            margin-top: -64px; /* Eleva el hub para solapar el logo con la portada */
-        }
-
-        /* ==========================================================================
-           5. BARRA SUPERIOR: GUÍA Y REPRODUCTOR QUEEN AMIDALA
-           ========================================================================== */
-        .top-pavilion-bar {
-            width: 100%;
-            display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 4px 6px;
-            margin-bottom: 2px;
+            padding: 0 clamp(12px, 3vw, 18px);
+            z-index: 10;
         }
 
         .rating-porcelain-pill {
@@ -166,7 +158,7 @@
             border: 1px solid var(--border-card-delicate);
             padding: 6px 14px;
             border-radius: 999px;
-            box-shadow: 0 4px 14px rgba(45, 30, 20, 0.08);
+            box-shadow: 0 4px 14px rgba(45, 30, 20, 0.12);
             font-family: var(--font-telemetry);
             font-size: 0.68rem;
             font-weight: 800;
@@ -191,7 +183,7 @@
             padding: 6px 14px;
             border-radius: 999px;
             cursor: pointer;
-            box-shadow: 0 6px 18px rgba(196, 154, 69, 0.18);
+            box-shadow: 0 6px 18px rgba(196, 154, 69, 0.22);
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             color: var(--text-title);
             font-family: var(--font-telemetry);
@@ -210,15 +202,28 @@
         }
 
         /* ==========================================================================
-           6. MEDALLÓN ARISTOCRÁTICO + PABELLÓN DE MARCA (SOLAPADO ESTILO DEESSA)
+           5. SHELL PRINCIPAL CON EL LOGO EXACTAMENTE AL 50% EN EL ECUADOR
            ========================================================================== */
+        .palace-hub-shell {
+            width: 100%;
+            max-width: 490px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            z-index: 3;
+            position: relative;
+            padding: 0 clamp(12px, 3vw, 18px);
+            margin-top: -69px; /* Mitad exacta del medallón circular sobre la foto */
+        }
+
+        /* MEDALLÓN ARISTOCRÁTICO */
         .emblem-crested-anchor {
             width: 100%;
             display: flex;
             justify-content: center;
             position: relative;
             z-index: 10;
-            margin-bottom: -58px; /* Hace que el cuadro de abajo empiece en el ecuador del logo */
+            margin-bottom: -65px; /* Hace que el cuadro comience exactamente a la mitad del círculo */
         }
 
         .logo-circle-medallion {
@@ -279,7 +284,7 @@
             border: 1px solid rgba(255, 255, 255, 0.95);
             outline: 1px solid var(--border-card-delicate);
             border-radius: 36px 36px 22px 22px;
-            padding: 68px 22px 24px; /* Espacio superior para alojar el medio inferior del logo */
+            padding: 76px 22px 24px; /* Espacio para alojar la mitad inferior del logo */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -382,7 +387,7 @@
         }
 
         /* ==========================================================================
-           7. HERO CARD: RESERVAS DE SALÓN POR WHATSAPP (CONSERJERÍA REAL)
+           6. HERO CARD: RESERVAS DE SALÓN POR WHATSAPP
            ========================================================================== */
         .hero-booking-card {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(252, 248, 242, 0.94) 100%);
@@ -485,7 +490,7 @@
         }
 
         /* ==========================================================================
-           8. GRILLA BENTO: ARCOS Y DIVERSIDAD MORFOLÓGICA
+           7. GRILLA BENTO: ARCOS Y DIVERSIDAD MORFOLÓGICA
            ========================================================================== */
         .bento-porcelain-grid {
             display: grid;
@@ -608,7 +613,7 @@
         }
 
         /* ==========================================================================
-           9. SHOWCASE GASTRONÓMICO: CORTES DE PARRILLA Y ESPECIALIDADES
+           8. SHOWCASE GASTRONÓMICO
            ========================================================================== */
         .dish-strip-module {
             display: flex;
@@ -730,7 +735,7 @@
         }
 
         /* ==========================================================================
-           10. TELEMETRÍA EN VIVO: HORARIO DE RECOLETA (BUENOS AIRES UTC-3)
+           9. TELEMETRÍA EN VIVO: HORARIO DE RECOLETA (BUENOS AIRES UTC-3)
            ========================================================================== */
         .hours-schedule-box {
             background: var(--surface-porcelain);
@@ -798,7 +803,7 @@
         }
 
         /* ==========================================================================
-           11. MAPA ENMARCADO: PEÑA 2475
+           10. MAPA ENMARCADO: PEÑA 2475
            ========================================================================== */
         .map-enclosure-card {
             background: var(--surface-porcelain);
@@ -844,7 +849,7 @@
         }
 
         /* ==========================================================================
-           12. MODAL CARTA: MENÚ EN PORCELANA & PERGAMINO NOBLE
+           11. MODAL CARTA
            ========================================================================== */
         .modal-overlay-palace {
             position: fixed;
@@ -988,7 +993,7 @@
         }
 
         /* ==========================================================================
-           13. FOOTER NOBLE
+           12. FOOTER NOBLE
            ========================================================================== */
         .palace-footer-strip {
             margin-top: 10px;
@@ -1020,18 +1025,15 @@
 </head>
 <body>
 
-    <!-- FONDO QUIET LUXURY: CAPA INDEPENDIENTE (IMPOSIBLE DE TAPAR POR EL BODY) -->
+    <!-- FONDO QUIET LUXURY: CAPA INDEPENDIENTE (CON ESTRELLAS GASTRONÓMICAS DE HERRERÍA, SIN CÍRCULOS) -->
     <div class="palace-luxury-backdrop" aria-hidden="true"></div>
 
-    <!-- PORTADA PANORÁMICA THEED (HERO BANNER) -->
+    <!-- PORTADA PANORÁMICA THEED (CON DIFUMINADO NATURAL HACIA ABAJO Y BARRA SUPERIOR ELEVADA) -->
     <header class="palace-hero-cover" aria-label="Portada Theed Palace Recoleta">
         <img class="cover-photo-element" src="./Palace-Courtyard---original.webp" alt="Patio Don Hilario Recoleta">
         <div class="cover-bloom-veil" aria-hidden="true"></div>
-    </header>
 
-    <main class="palace-hub-shell">
-
-        <!-- BARRA SUPERIOR -->
+        <!-- BARRA SUPERIOR INTEGRADA EN LA CABECERA -->
         <div class="top-pavilion-bar">
             <div class="rating-porcelain-pill">
                 <span class="gold-star">★</span>
@@ -1040,13 +1042,16 @@
                 <span style="color: var(--accent-terracotta-fine); font-weight: 800;">Recoleta</span>
             </div>
 
-            <button class="audio-toggle-pill" id="bgMusicBtn" onclick="togglePalaceMusic()" aria-label="Música Queen Amidala">
+            <button class="audio-toggle-pill" id="bgMusicBtn" onclick="togglePalaceMusic()" aria-label="Música Cantina Band">
                 <span id="bgMusicIcon">🔈</span>
-                <span id="bgMusicLabel">Queen Amidala</span>
+                <span id="bgMusicLabel">Cantina Band</span>
             </button>
         </div>
+    </header>
 
-        <!-- MEDALLÓN CIRCULAR ARISTOCRÁTICO (SOLAPADO AL 50%) -->
+    <main class="palace-hub-shell">
+
+        <!-- MEDALLÓN CIRCULAR ARISTOCRÁTICO (50% SOBRE LA FOTO / 50% SOBRE LA TARJETA) -->
         <div class="emblem-crested-anchor">
             <div class="logo-circle-medallion">
                 <svg class="logo-hilario-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1156.4 1020.08" aria-label="Don Hilario Restaurante y Parrilla">
@@ -1061,7 +1066,7 @@
             </div>
         </div>
 
-        <!-- PABELLÓN DE MARCA (CONTINÚA DESDE EL MEDIO DEL LOGO) -->
+        <!-- PABELLÓN DE MARCA (COMIENZA EN EL ECUADOR DEL MEDALLÓN) -->
         <section class="brand-palace-monument">
 
             <div class="brand-subline-italic">Alta Parrilla Argentina & Cocina Árabe</div>
@@ -1355,74 +1360,105 @@
             } catch (e) {}
         }
 
-        const bgMusic = new Audio('./Queen%20Amidala%20and%20the%20Naboo%20Palace.mp3');
-        bgMusic.onerror = () => {
-            bgMusic.src = './Queen Amidala and the Naboo Palace.mp3';
-        };
+        /* ==========================================================================
+           SISTEMA DE MÚSICA CANTINA BAND CON FADE-IN PROGRESIVO Y FADE-OUT RÁPIDO
+           ========================================================================== */
+        const bgMusic = new Audio('./bgm-cantina.mp3');
         bgMusic.loop = true;
-        const BASE_MUSIC_VOL = 0.24;
-        bgMusic.volume = BASE_MUSIC_VOL;
+        const TARGET_MUSIC_VOL = 0.28;
+        bgMusic.volume = 0;
 
         let isMusicPlaying = false;
-        let fadeOutTimer = null;
+        let fadeTimer = null;
 
-        function togglePalaceMusic() {
-            playSfx('pause');
+        function updateMusicUI(isPlaying) {
             const btnLabel = document.getElementById('bgMusicLabel');
             const btnIcon = document.getElementById('bgMusicIcon');
-
-            if (!isMusicPlaying) {
-                if (fadeOutTimer) { clearInterval(fadeOutTimer); fadeOutTimer = null; }
-                bgMusic.volume = BASE_MUSIC_VOL;
-                bgMusic.play().then(() => {
-                    isMusicPlaying = true;
-                    btnLabel.innerText = "Amidala: ON";
-                    btnIcon.innerText = "🔊";
-                }).catch(() => {});
-            } else {
-                fadeOutPalaceMusic(500);
-            }
+            if (btnLabel) btnLabel.innerText = isPlaying ? "Cantina: ON" : "Cantina Band";
+            if (btnIcon) btnIcon.innerText = isPlaying ? "🔊" : "🔈";
         }
 
-        function fadeOutPalaceMusic(duration = 750) {
-            if (!isMusicPlaying || bgMusic.paused) return;
-            if (fadeOutTimer) clearInterval(fadeOutTimer);
+        // FADE IN PROGRESIVO AL ACTIVAR
+        function fadeInPalaceMusic(duration = 1000) {
+            if (fadeTimer) clearInterval(fadeTimer);
+            bgMusic.volume = 0;
+            bgMusic.play().then(() => {
+                isMusicPlaying = true;
+                updateMusicUI(true);
 
-            const steps = 15;
+                const steps = 20;
+                const stepTime = duration / steps;
+                const volStep = TARGET_MUSIC_VOL / steps;
+
+                fadeTimer = setInterval(() => {
+                    if (bgMusic.volume + volStep < TARGET_MUSIC_VOL) {
+                        bgMusic.volume += volStep;
+                    } else {
+                        bgMusic.volume = TARGET_MUSIC_VOL;
+                        clearInterval(fadeTimer);
+                        fadeTimer = null;
+                    }
+                }, stepTime);
+            }).catch(() => {});
+        }
+
+        // APAGADO INSTANTÁNEO AL TOCAR OFF
+        function stopMusicInstant() {
+            if (fadeTimer) {
+                clearInterval(fadeTimer);
+                fadeTimer = null;
+            }
+            bgMusic.pause();
+            bgMusic.volume = 0;
+            isMusicPlaying = false;
+            updateMusicUI(false);
+        }
+
+        // FADE OUT RÁPIDO (VELOZ, NO MOLESTO) SI SALE O CAMBIA DE PESTAÑA
+        function fastFadeOutMusic(duration = 320) {
+            if (!isMusicPlaying || bgMusic.paused) return;
+            if (fadeTimer) clearInterval(fadeTimer);
+
+            const steps = 10;
             const stepTime = duration / steps;
             const startVol = bgMusic.volume;
             const volStep = startVol / steps;
 
-            fadeOutTimer = setInterval(() => {
+            fadeTimer = setInterval(() => {
                 if (bgMusic.volume > volStep) {
                     bgMusic.volume -= volStep;
                 } else {
                     bgMusic.volume = 0;
                     bgMusic.pause();
-                    clearInterval(fadeOutTimer);
-                    fadeOutTimer = null;
+                    clearInterval(fadeTimer);
+                    fadeTimer = null;
                     isMusicPlaying = false;
-
-                    const btnLabel = document.getElementById('bgMusicLabel');
-                    const btnIcon = document.getElementById('bgMusicIcon');
-                    if (btnLabel) btnLabel.innerText = "Queen Amidala";
-                    if (btnIcon) btnIcon.innerText = "🔈";
-
-                    bgMusic.volume = BASE_MUSIC_VOL;
+                    updateMusicUI(false);
                 }
             }, stepTime);
         }
 
+        function togglePalaceMusic() {
+            playSfx('pause');
+            if (!isMusicPlaying) {
+                fadeInPalaceMusic(950);
+            } else {
+                stopMusicInstant();
+            }
+        }
+
+        // APAGADO RÁPIDO SI CLICKEA UN ENLACE QUE SALE DEL SITIO (WHATSAPP, TEL, MAPS, RAPPI, ETC.)
         document.addEventListener('click', (e) => {
             const link = e.target.closest('a');
-            if (link && (link.href.includes('wa.me') || link.href.includes('tel:') || link.href.includes('maps') || link.target === '_blank')) {
-                fadeOutPalaceMusic(700);
+            if (link && (link.target === '_blank' || link.href.includes('wa.me') || link.href.includes('tel:') || link.href.includes('maps') || link.href.includes('rappi') || link.href.includes('instagram'))) {
+                fastFadeOutMusic(320);
             }
         });
 
+        // APAGADO RÁPIDO SI CAMBIA DE PESTAÑA O MINIMIZA
         document.addEventListener('visibilitychange', () => {
             if (document.hidden && isMusicPlaying) {
-                fadeOutPalaceMusic(450);
+                fastFadeOutMusic(280);
             }
         });
 
@@ -1430,6 +1466,9 @@
             if (isMusicPlaying) bgMusic.pause();
         });
 
+        /* ==========================================================================
+           MODAL Y ESTADO DE HORARIOS
+           ========================================================================== */
         const menuModal = document.getElementById('menuModal');
 
         function openMenuModal() {

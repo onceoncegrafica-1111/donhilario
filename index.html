@@ -85,11 +85,8 @@
             pointer-events: none;
             background-color: #EFE7DA;
             background-image: 
-                /* Foco de iluminación de galería cenital */
                 radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.45) 0%, rgba(239, 231, 218, 0.15) 60%, rgba(215, 200, 180, 0.65) 100%),
-                /* Trama señorial geométrica con estrellas de 4 puntas de herrería / bodegón (sin círculos) */
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M32 0 L64 32 L32 64 L0 32 Z' fill='none' stroke='%23C49A45' stroke-width='1.1' stroke-opacity='0.22'/%3E%3Cpath d='M0 0 L64 64 M64 0 L0 64' fill='none' stroke='%239B782D' stroke-width='0.7' stroke-opacity='0.16'/%3E%3Cpath d='M32 22 L34.5 29.5 L42 32 L34.5 34.5 L32 42 L29.5 34.5 L22 32 L29.5 29.5 Z' fill='%238C341E' fill-opacity='0.24' stroke='%239B782D' stroke-width='0.8' stroke-opacity='0.3'/%3E%3Cpath d='M0 0 L2.5 7 L5 0 M64 0 L61.5 7 L59 0 M0 64 L2.5 57 L5 64 M64 64 L61.5 57 L59 64' fill='none' stroke='%238C341E' stroke-width='0.9' stroke-opacity='0.22'/%3E%3C/svg%3E"),
-                /* Micro-tejido entelado de lino / papel de grabado */
                 repeating-linear-gradient(0deg, rgba(34, 28, 24, 0.04) 0px, rgba(34, 28, 24, 0.04) 1px, transparent 1px, transparent 3px),
                 repeating-linear-gradient(90deg, rgba(34, 28, 24, 0.04) 0px, rgba(34, 28, 24, 0.04) 1px, transparent 1px, transparent 3px);
             background-size: cover, 56px 56px, 3px 3px, 3px 3px;
@@ -97,7 +94,7 @@
         }
 
         /* ==========================================================================
-           3. PORTADA PANORÁMICA CON DIFUMINADO ORGÁNICO REAL HACIA ABAJO
+           3. PORTADA PANORÁMICA CON DIFUMINADO ORGÁNICO Y RESPLANDOR DE FANTASÍA
            ========================================================================== */
         .palace-hero-cover {
             width: 100%;
@@ -105,7 +102,6 @@
             position: relative;
             z-index: 2;
             background: transparent;
-            /* Máscara de desvanecimiento continuo y suave que se pierde sin corte abrupto */
             -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 55%, rgba(0, 0, 0, 0.80) 72%, rgba(0, 0, 0, 0.35) 88%, transparent 100%);
             mask-image: linear-gradient(to bottom, #000 0%, #000 55%, rgba(0, 0, 0, 0.80) 72%, rgba(0, 0, 0, 0.35) 88%, transparent 100%);
         }
@@ -115,7 +111,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center 38%;
-            filter: brightness(1.03) saturate(1.15) contrast(1.04);
+            filter: brightness(1.10) saturate(1.30) contrast(1.02) drop-shadow(0 0 22px rgba(220, 180, 110, 0.40));
             display: block;
         }
 
@@ -123,16 +119,26 @@
             position: absolute;
             inset: 0;
             pointer-events: none;
-            background: linear-gradient(
-                180deg, 
-                rgba(20, 16, 12, 0.32) 0%, 
-                rgba(247, 238, 225, 0.05) 55%, 
-                transparent 100%
-            );
+            background: 
+                radial-gradient(circle at 50% 28%, rgba(255, 248, 225, 0.55) 0%, rgba(225, 185, 110, 0.28) 45%, transparent 75%),
+                linear-gradient(
+                    180deg, 
+                    rgba(20, 16, 12, 0.24) 0%, 
+                    rgba(247, 238, 225, 0.12) 50%, 
+                    transparent 100%
+                );
+            box-shadow: inset 0 0 55px rgba(215, 175, 95, 0.32);
+            animation: etherealBloomPulse 9s ease-in-out infinite alternate;
+        }
+
+        @keyframes etherealBloomPulse {
+            0% { opacity: 0.82; }
+            50% { opacity: 1; }
+            100% { opacity: 0.88; }
         }
 
         /* ==========================================================================
-           4. BARRA SUPERIOR (UBICADA SOBRE LA CORTEZA SUPERIOR DE LA IMAGEN)
+           4. BARRA SUPERIOR
            ========================================================================== */
         .top-pavilion-bar {
             position: absolute;
@@ -165,11 +171,6 @@
             color: var(--text-title);
             letter-spacing: 0.04em;
             text-transform: uppercase;
-        }
-
-        .rating-porcelain-pill .gold-star {
-            color: var(--gold-champagne);
-            font-size: 0.85rem;
         }
 
         .audio-toggle-pill {
@@ -213,17 +214,16 @@
             z-index: 3;
             position: relative;
             padding: 0 clamp(12px, 3vw, 18px);
-            margin-top: -69px; /* Mitad exacta del medallón circular sobre la foto */
+            margin-top: -69px;
         }
 
-        /* MEDALLÓN ARISTOCRÁTICO */
         .emblem-crested-anchor {
             width: 100%;
             display: flex;
             justify-content: center;
             position: relative;
             z-index: 10;
-            margin-bottom: -65px; /* Hace que el cuadro comience exactamente a la mitad del círculo */
+            margin-bottom: -65px;
         }
 
         .logo-circle-medallion {
@@ -284,7 +284,7 @@
             border: 1px solid rgba(255, 255, 255, 0.95);
             outline: 1px solid var(--border-card-delicate);
             border-radius: 36px 36px 22px 22px;
-            padding: 76px 22px 24px; /* Espacio para alojar la mitad inferior del logo */
+            padding: 76px 22px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1025,10 +1025,10 @@
 </head>
 <body>
 
-    <!-- FONDO QUIET LUXURY: CAPA INDEPENDIENTE (CON ESTRELLAS GASTRONÓMICAS DE HERRERÍA, SIN CÍRCULOS) -->
+    <!-- FONDO QUIET LUXURY: CAPA INDEPENDIENTE -->
     <div class="palace-luxury-backdrop" aria-hidden="true"></div>
 
-    <!-- PORTADA PANORÁMICA THEED (CON DIFUMINADO NATURAL HACIA ABAJO Y BARRA SUPERIOR ELEVADA) -->
+    <!-- PORTADA PANORÁMICA THEED (CON DIFUMINADO NATURAL HACIA ABAJO Y RESPLANDOR DE FANTASÍA) -->
     <header class="palace-hero-cover" aria-label="Portada Theed Palace Recoleta">
         <img class="cover-photo-element" src="./Palace-Courtyard---original.webp" alt="Patio Don Hilario Recoleta">
         <div class="cover-bloom-veil" aria-hidden="true"></div>
@@ -1036,15 +1036,14 @@
         <!-- BARRA SUPERIOR INTEGRADA EN LA CABECERA -->
         <div class="top-pavilion-bar">
             <div class="rating-porcelain-pill">
-                <span class="gold-star">★</span>
-                <span>4.7 (2.1K+ Opiniones)</span>
+                <span style="color: var(--accent-terracotta-fine); font-weight: 800;">RECOLETA</span>
                 <span style="opacity: 0.35;">|</span>
-                <span style="color: var(--accent-terracotta-fine); font-weight: 800;">Recoleta</span>
+                <span>Peña 2475</span>
             </div>
 
-            <button class="audio-toggle-pill" id="bgMusicBtn" onclick="togglePalaceMusic()" aria-label="Música Cantina Band">
+            <button class="audio-toggle-pill" id="bgMusicBtn" onclick="togglePalaceMusic()" aria-label="Música">
                 <span id="bgMusicIcon">🔈</span>
-                <span id="bgMusicLabel">Cantina Band</span>
+                <span id="bgMusicLabel">Música</span>
             </button>
         </div>
     </header>
@@ -1361,7 +1360,7 @@
         }
 
         /* ==========================================================================
-           SISTEMA DE MÚSICA CANTINA BAND CON FADE-IN PROGRESIVO Y FADE-OUT RÁPIDO
+           SISTEMA DE MÚSICA CON FADE-IN PROGRESIVO Y FADE-OUT RÁPIDO
            ========================================================================== */
         const bgMusic = new Audio('./bgm-cantina.mp3');
         bgMusic.loop = true;
@@ -1374,11 +1373,10 @@
         function updateMusicUI(isPlaying) {
             const btnLabel = document.getElementById('bgMusicLabel');
             const btnIcon = document.getElementById('bgMusicIcon');
-            if (btnLabel) btnLabel.innerText = isPlaying ? "Cantina: ON" : "Cantina Band";
+            if (btnLabel) btnLabel.innerText = isPlaying ? "Música: ON" : "Música";
             if (btnIcon) btnIcon.innerText = isPlaying ? "🔊" : "🔈";
         }
 
-        // FADE IN PROGRESIVO AL ACTIVAR
         function fadeInPalaceMusic(duration = 1000) {
             if (fadeTimer) clearInterval(fadeTimer);
             bgMusic.volume = 0;
@@ -1402,7 +1400,6 @@
             }).catch(() => {});
         }
 
-        // APAGADO INSTANTÁNEO AL TOCAR OFF
         function stopMusicInstant() {
             if (fadeTimer) {
                 clearInterval(fadeTimer);
@@ -1414,7 +1411,6 @@
             updateMusicUI(false);
         }
 
-        // FADE OUT RÁPIDO (VELOZ, NO MOLESTO) SI SALE O CAMBIA DE PESTAÑA
         function fastFadeOutMusic(duration = 320) {
             if (!isMusicPlaying || bgMusic.paused) return;
             if (fadeTimer) clearInterval(fadeTimer);
@@ -1447,7 +1443,6 @@
             }
         }
 
-        // APAGADO RÁPIDO SI CLICKEA UN ENLACE QUE SALE DEL SITIO (WHATSAPP, TEL, MAPS, RAPPI, ETC.)
         document.addEventListener('click', (e) => {
             const link = e.target.closest('a');
             if (link && (link.target === '_blank' || link.href.includes('wa.me') || link.href.includes('tel:') || link.href.includes('maps') || link.href.includes('rappi') || link.href.includes('instagram'))) {
@@ -1455,7 +1450,6 @@
             }
         });
 
-        // APAGADO RÁPIDO SI CAMBIA DE PESTAÑA O MINIMIZA
         document.addEventListener('visibilitychange', () => {
             if (document.hidden && isMusicPlaying) {
                 fastFadeOutMusic(280);

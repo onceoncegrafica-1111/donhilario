@@ -19,8 +19,8 @@
            1. SISTEMA CROMÁTICO: ALABASTRO TRASLÚCIDO + ORO CHAMPÁN CAPILAR
            ========================================================================== */
         :root {
-            --surface-porcelain: rgba(255, 255, 255, 0.88);
-            --surface-porcelain-subtle: rgba(253, 251, 247, 0.84);
+            --surface-porcelain: rgba(255, 255, 255, 0.92);
+            --surface-porcelain-subtle: rgba(253, 251, 247, 0.88);
             --surface-elevated: #FFFFFF;
 
             --gold-champagne: #C49A45;
@@ -44,8 +44,9 @@
             --font-sans: 'Space Grotesk', -apple-system, sans-serif;
             --font-telemetry: 'JetBrains Mono', monospace;
 
-            --shadow-porcelain: 0 16px 40px rgba(45, 30, 20, 0.09), 0 2px 6px rgba(0, 0, 0, 0.04);
-            --shadow-porcelain-hover: 0 22px 50px rgba(45, 30, 20, 0.16), 0 4px 14px rgba(196, 154, 69, 0.25);
+            --shadow-porcelain: 0 16px 40px rgba(45, 30, 20, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-porcelain-hover: 0 22px 50px rgba(45, 30, 20, 0.15), 0 4px 14px rgba(196, 154, 69, 0.25);
+            --shadow-medallion: 0 14px 34px rgba(45, 30, 20, 0.18), 0 3px 10px rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -56,68 +57,55 @@
         }
 
         html {
-            background-color: #EDE4D3;
+            background-color: #F5EFEB;
             scroll-behavior: smooth;
         }
 
         body {
             font-family: var(--font-sans);
-            background: transparent !important; /* CRÍTICO: Permite proyectar la escena trasera */
+            background: radial-gradient(circle at 50% 0%, #FAF6F0 0%, #F2ECE1 100%) !important;
             color: var(--text-body);
             min-height: 100vh;
             min-height: 100dvh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: clamp(14px, 3.5vw, 28px) clamp(12px, 3vw, 20px) 68px;
+            padding: 0 0 68px;
             overflow-x: hidden;
             position: relative;
         }
 
         /* ==========================================================================
-           2. FONDO PICTÓRICO (MATTE PAINTING THEED / BLOOM CINEMATOGRÁFICO)
+           2. PORTADA PANORÁMICA THEED (INSPIRACIÓN DEESSA MADRID)
            ========================================================================== */
-        .scenic-theed-backdrop {
-            position: fixed;
-            inset: 0;
-            z-index: -2;
-            background-image: url('./Palace-Courtyard---original.webp');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center 38%;
-            filter: brightness(1.08) saturate(1.22) contrast(1.05);
-            transform: scale(1.02);
-            pointer-events: none;
+        .palace-hero-cover {
+            width: 100%;
+            height: clamp(220px, 30vw, 310px);
+            position: relative;
+            overflow: hidden;
+            background-color: #D8CFBE;
         }
 
-        /* Difusión de luz cinematográfica cálida (Bloom suave sin tapar la arquitectura) */
-        .scenic-bloom-overlay {
-            position: fixed;
+        .cover-photo-element {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 38%;
+            filter: brightness(1.04) saturate(1.15) contrast(1.04);
+            display: block;
+        }
+
+        /* Filtro de luz ambiental sutil con degradé hacia el cuerpo */
+        .cover-bloom-veil {
+            position: absolute;
             inset: 0;
-            z-index: -1;
             pointer-events: none;
             background: linear-gradient(
                 180deg, 
-                rgba(255, 235, 195, 0.22) 0%, 
-                rgba(247, 238, 225, 0.45) 45%, 
-                rgba(242, 230, 215, 0.78) 100%
+                rgba(25, 20, 16, 0.25) 0%, 
+                rgba(247, 238, 225, 0.15) 50%, 
+                rgba(245, 239, 235, 0.95) 100%
             );
-        }
-
-        /* Calibración de recorte vertical para teléfonos móviles */
-        @media (max-width: 680px) {
-            .scenic-theed-backdrop {
-                background-position: 54% 42%;
-                background-size: cover;
-            }
-            .scenic-bloom-overlay {
-                background: linear-gradient(
-                    180deg, 
-                    rgba(255, 235, 195, 0.28) 0%, 
-                    rgba(247, 238, 225, 0.52) 40%, 
-                    rgba(242, 230, 215, 0.84) 100%
-                );
-            }
         }
 
         /* ==========================================================================
@@ -131,6 +119,8 @@
             gap: 16px;
             z-index: 2;
             position: relative;
+            padding: 0 clamp(12px, 3vw, 18px);
+            margin-top: -64px; /* Eleva el hub para que el logo solape la portada */
         }
 
         /* ==========================================================================
@@ -141,20 +131,21 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 2px 4px;
+            padding: 0 4px 6px;
+            margin-bottom: 2px;
         }
 
         .rating-porcelain-pill {
             display: inline-flex;
             align-items: center;
             gap: 7px;
-            background: var(--surface-porcelain);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--border-card-delicate);
             padding: 6px 14px;
             border-radius: 999px;
-            box-shadow: 0 4px 14px rgba(45, 30, 20, 0.05);
+            box-shadow: 0 4px 14px rgba(45, 30, 20, 0.08);
             font-family: var(--font-telemetry);
             font-size: 0.68rem;
             font-weight: 800;
@@ -172,7 +163,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--surface-porcelain);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1.5px solid var(--gold-champagne);
@@ -198,21 +189,84 @@
         }
 
         /* ==========================================================================
-           5. PABELLÓN DE MARCA: CRISTAL DE ALABASTRO + LOGO ARISTOCRÁTICO
+           5. MEDALLÓN ARISTOCRÁTICO + PABELLÓN DE MARCA (SOLAPADO ESTILO DEESSA)
            ========================================================================== */
+        .emblem-crested-anchor {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+            margin-bottom: -58px; /* Hace que el cuadro de abajo empiece en el ecuador del logo */
+        }
+
+        /* Medallón con reborde semicircular amplio y fino halo de oro champán */
+        .logo-circle-medallion {
+            width: 122px;
+            height: 122px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 2px solid var(--gold-champagne);
+            outline: 6px solid rgba(255, 255, 255, 0.96);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-medallion);
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 14px;
+        }
+
+        .logo-circle-medallion:hover {
+            transform: scale(1.04);
+            border-color: var(--gold-burnished);
+            box-shadow: 0 18px 42px rgba(196, 154, 69, 0.28);
+        }
+
+        /* LOGO SVG VECTORIAL EN CARBÓN CÁLIDO CON MOVIMIENTO DE RESPIRACIÓN SOFISTICADO */
+        .logo-hilario-svg {
+            width: 100%;
+            height: auto;
+            max-height: 82px;
+            filter: drop-shadow(0 3px 6px rgba(34, 28, 24, 0.12));
+            animation: slowAristocraticBreath 9.5s ease-in-out infinite;
+            transform-origin: center center;
+            transition: transform 0.35s ease;
+        }
+
+        .logo-hilario-svg path {
+            fill: var(--text-title) !important;
+            transition: fill 0.3s ease;
+        }
+
+        .logo-circle-medallion:hover .logo-hilario-svg {
+            transform: scale(1.03);
+        }
+
+        .logo-circle-medallion:hover .logo-hilario-svg path {
+            fill: var(--accent-terracotta-fine) !important;
+        }
+
+        @keyframes slowAristocraticBreath {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-2px) scale(1.02); filter: drop-shadow(0 6px 14px rgba(196, 154, 69, 0.24)); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+
+        /* Recuadro de porcelana que continúa visualmente desde el medio del logo */
         .brand-palace-monument {
             background: var(--surface-porcelain);
             backdrop-filter: blur(20px) saturate(130%);
             -webkit-backdrop-filter: blur(20px) saturate(130%);
             border: 1px solid rgba(255, 255, 255, 0.95);
             outline: 1px solid var(--border-card-delicate);
-            border-radius: 40px 40px 22px 22px;
-            padding: 28px 22px 24px;
+            border-radius: 36px 36px 22px 22px;
+            padding: 68px 22px 24px; /* Padding superior para alojar el medio inferior del logo */
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 11px;
+            gap: 10px;
             box-shadow: var(--shadow-porcelain);
             position: relative;
             overflow: hidden;
@@ -224,58 +278,20 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 130px;
-            height: 2.5px;
+            width: 140px;
+            height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold-champagne), transparent);
-        }
-
-        .logo-emblem-frame {
-            width: 100%;
-            max-width: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4px 0 2px;
-        }
-
-        /* LOGO SVG VECTORIAL EN CARBÓN CÁLIDO CON MOVIMIENTO DE RESPIRACIÓN SOFISTICADO */
-        .logo-hilario-svg {
-            width: 100%;
-            height: auto;
-            max-height: 104px;
-            filter: drop-shadow(0 4px 10px rgba(34, 28, 24, 0.12));
-            animation: slowAristocraticBreath 9.5s ease-in-out infinite;
-            transform-origin: center center;
-            transition: transform 0.35s ease;
-        }
-
-        .logo-hilario-svg path {
-            fill: var(--text-title) !important;
-            transition: fill 0.3s ease;
-        }
-
-        .brand-palace-monument:hover .logo-hilario-svg {
-            transform: scale(1.025);
-        }
-
-        .brand-palace-monument:hover .logo-hilario-svg path {
-            fill: var(--accent-terracotta-fine) !important;
-        }
-
-        @keyframes slowAristocraticBreath {
-            0% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-3.5px) scale(1.015); filter: drop-shadow(0 8px 18px rgba(196, 154, 69, 0.28)); }
-            100% { transform: translateY(0px) scale(1); }
         }
 
         .brand-subline-italic {
             font-family: var(--font-court);
-            font-size: 1.32rem;
+            font-size: 1.35rem;
             font-style: italic;
             font-weight: 700;
             color: var(--accent-terracotta-fine);
             letter-spacing: 0.02em;
-            line-height: 1.1;
+            line-height: 1.15;
+            margin-top: 2px;
         }
 
         .brand-telemetry-tag {
@@ -352,7 +368,7 @@
            6. HERO CARD: RESERVAS DE SALÓN POR WHATSAPP (CONSERJERÍA REAL)
            ========================================================================== */
         .hero-booking-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(252, 248, 242, 0.92) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(252, 248, 242, 0.92) 100%);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             border: 1.5px solid var(--gold-champagne);
@@ -992,16 +1008,20 @@
 </head>
 <body>
 
-    <!-- MATTE PAINTING NABOO + HALATION CINEMATOGRÁFICO DE FONDO -->
-    <div class="scenic-theed-backdrop" aria-hidden="true"></div>
-    <div class="scenic-bloom-overlay" aria-hidden="true"></div>
+    <!-- ==========================================================================
+         PORTADA PANORÁMICA ESTILO DEESSA MADRID (HERO BANNER)
+         ========================================================================== -->
+    <header class="palace-hero-cover" aria-label="Portada Theed Palace Recoleta">
+        <img class="cover-photo-element" src="./Palace-Courtyard---original.webp" alt="Patio Don Hilario Recoleta">
+        <div class="cover-bloom-veil" aria-hidden="true"></div>
+    </header>
 
     <main class="palace-hub-shell">
 
         <!-- ==========================================================================
-             BARRA SUPERIOR: GUÍA GOOGLE + REPRODUCTOR QUEEN AMIDALA
+             BARRA DE GUÍA GOOGLE + REPRODUCTOR QUEEN AMIDALA
              ========================================================================== -->
-        <header class="top-pavilion-bar">
+        <div class="top-pavilion-bar">
             <div class="rating-porcelain-pill">
                 <span class="gold-star">★</span>
                 <span>4.7 (2.1K+ Opiniones)</span>
@@ -1013,14 +1033,13 @@
                 <span id="bgMusicIcon">🔈</span>
                 <span id="bgMusicLabel">Queen Amidala</span>
             </button>
-        </header>
+        </div>
 
         <!-- ==========================================================================
-             MONUMENTO PRINCIPAL: PORCELANA TRASLÚCIDA + LOGO VECTORIAL
+             MEDALLÓN CIRCULAR CON REBORDE AMPLIO SOLAPADO
              ========================================================================== -->
-        <section class="brand-palace-monument">
-            
-            <div class="logo-emblem-frame">
+        <div class="emblem-crested-anchor">
+            <div class="logo-circle-medallion">
                 <!-- SVG OFICIAL VECTORIZADO EN CARBÓN CÁLIDO -->
                 <svg class="logo-hilario-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1156.4 1020.08" aria-label="Don Hilario Restaurante y Parrilla">
                     <path d="M764.25,467.26c0,3.12-.03,5.76,0,8.39.52,39.32.96,78.64,1.67,117.95.13,7.13,1.1,14.29,2.18,21.36,1.79,11.76,8.59,19.47,20.24,22.02,7.27,1.59,14.76,2.46,22.19,2.97,11.92.82,18.32,6.74,18.42,17.85.1,11.3-7.37,20.08-18.52,19.99-17.14-.14-34.31-.95-51.42-2.11-44.51-3.02-88.94-1.45-133.37,1.41-6.82.44-13.65.75-20.48.8-11.46.07-18.73-7.06-19.21-18.53-.46-11,5.9-17.71,17.35-19.02,6.59-.75,13.19-1.92,19.61-3.57,11.34-2.92,18.69-10.47,21.03-21.83,2.2-10.73,4.26-21.69,4.52-32.59.9-37.14.98-74.31,1.41-111.46.03-2.48-.32-4.1-3.45-4.09-33.49.13-66.99.17-100.48.24-.31,0-.62.19-1.37.44-.82,7.35-1.35,14.94-2.53,22.43-13.73,87.17-61.84,145.92-145.58,174.53-32.66,11.16-66.67,14.22-101.06,13.7-52.65-.79-105.3-1.86-157.95-2.08-25.98-.11-51.96,1.51-77.95,2.14-14.81.36-23.9-11.34-19.78-25.05,2.31-7.67,7.6-11.71,15.64-12.54,7.44-.77,14.92-1.57,22.24-3.06,13.72-2.79,22.99-10.95,25.26-25,2.23-13.78,4.21-27.72,4.55-41.64.82-33.48.62-66.98.81-100.47,0-.97-.22-1.94-.41-3.46h-51.7v-18.54h1042.56v18.39h-49.4c-.19,1.94-.4,3.08-.39,4.21.7,42.48,1.36,84.96,2.2,127.43.1,5.3.96,10.62,1.79,15.88,1.85,11.75,8.62,19.57,20.15,22.2,8.55,1.95,17.38,3.03,26.15,3.64,12.08.85,18.29,6.01,18.79,16.86.51,11.18-6.58,20.15-17.7,20.78-9.94.56-20,.27-29.94-.5-58.46-4.55-116.88-3.85-175.28.84-3.81.31-7.67.49-11.48.28-10.09-.55-16.82-8.46-16.75-19.35.07-10.7,6.74-17.56,16.82-18.73,8.7-1.01,17.44-2.59,25.85-5,8.33-2.38,14.3-8.5,16.3-16.92,2.57-10.8,5.27-21.86,5.54-32.87.96-38.64.92-77.3,1.24-115.96,0-.64-.18-1.29-.34-2.35h-167.99ZM224.68,467.07c-.15,1.75-.34,2.89-.33,4.03.32,36.16.45,72.32,1.14,108.46.21,10.95,1.65,21.93,3.22,32.79,1.65,11.42,8.82,18.58,19.88,21.23,6.92,1.66,14.09,2.96,21.18,3.08,48.74.82,85.8-21.03,113.14-60.22,22.37-32.06,29.87-68.6,29.95-107.06,0-.76-.37-1.51-.58-2.3h-187.6Z"/>
@@ -1032,6 +1051,12 @@
                     <path d="M95.29,124.55c7.89,4.58,10.28,12.94,14.45,20.02,2.82,4.8,4.44,10.66,11.49,11.28.68.06,1.74,2.4,1.57,3.53-.16,1.08-1.66,2.77-2.62,2.8-7.49.23-15,.33-22.48-.05-1.38-.07-3.14-2.27-3.88-3.87-3.7-8.02-7.09-16.17-10.63-24.26-2.12-4.84-5.38-7.91-11.51-7.14,0,8.21-.15,16.3.07,24.37.1,3.4,2.96,4.12,5.8,4.21,2.63.09,5.12.75,4.17,3.87-.42,1.38-2.93,2.96-4.52,3-10.66.26-21.33.25-31.99-.02-1.57-.04-4-1.65-4.44-3.04-.83-2.61,1.21-3.75,3.81-3.78,4.44-.06,6.25-2.8,6.27-6.8.09-17.66.12-35.32.04-52.98-.02-3.89-2.16-6.15-6.24-6.32-2.42-.1-4.73-1.09-3.81-3.82.47-1.4,2.9-3.01,4.46-3.03,13.83-.18,27.67-.31,41.48.18,5.04.18,10.4,1.26,14.95,3.36,14.02,6.47,15.39,24.49,2.79,33.45-2.68,1.91-5.81,3.19-9.24,5.03ZM71.58,118.72c7.08.64,13.58.14,17.55-6.12,3.46-5.45,3.16-11.56-.29-17.01-4.01-6.33-10.48-5.89-17.27-5.61v28.74Z"/>
                 </svg>
             </div>
+        </div>
+
+        <!-- ==========================================================================
+             PABELLÓN DE MARCA (CONTINÚA DESDE LA PARTE MEDIA DEL LOGO)
+             ========================================================================== -->
+        <section class="brand-palace-monument">
 
             <div class="brand-subline-italic">Alta Parrilla Argentina & Cocina Árabe</div>
             
@@ -1340,7 +1365,7 @@
     </div>
 
     <!-- ==========================================================================
-         CONTROLADOR JS: MÚSICA QUEEN AMIDALA + EFECTOS POLIFÓNICOS STAR WARS
+         CONTROLADOR JS: MÚSICA QUEEN AMIDALA + EFECTOS POLIFÓNICOS
          ========================================================================== -->
     <script>
         // POOL POLIFÓNICO DE AUDIO (LOCAL REPO GITHUB)

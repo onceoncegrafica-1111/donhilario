@@ -19,8 +19,8 @@
            1. SISTEMA CROMÁTICO: ALABASTRO TRASLÚCIDO + ORO CHAMPÁN CAPILAR
            ========================================================================== */
         :root {
-            --surface-porcelain: rgba(255, 255, 255, 0.92);
-            --surface-porcelain-subtle: rgba(253, 251, 247, 0.88);
+            --surface-porcelain: rgba(255, 255, 255, 0.94);
+            --surface-porcelain-subtle: rgba(253, 251, 247, 0.90);
             --surface-elevated: #FFFFFF;
 
             --gold-champagne: #C49A45;
@@ -36,7 +36,7 @@
             --accent-terracotta-fine: #8C341E;
             --accent-green-fine: #245A42;
 
-            --border-card-delicate: rgba(196, 154, 69, 0.32);
+            --border-card-delicate: rgba(196, 154, 69, 0.35);
             --border-card-hover: rgba(196, 154, 69, 0.85);
 
             --font-monument: 'Cinzel', Georgia, serif;
@@ -44,9 +44,9 @@
             --font-sans: 'Space Grotesk', -apple-system, sans-serif;
             --font-telemetry: 'JetBrains Mono', monospace;
 
-            --shadow-porcelain: 0 16px 40px rgba(45, 30, 20, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-            --shadow-porcelain-hover: 0 22px 50px rgba(45, 30, 20, 0.15), 0 4px 14px rgba(196, 154, 69, 0.25);
-            --shadow-medallion: 0 14px 34px rgba(45, 30, 20, 0.18), 0 3px 10px rgba(0, 0, 0, 0.08);
+            --shadow-porcelain: 0 16px 40px rgba(45, 30, 20, 0.10), 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-porcelain-hover: 0 22px 50px rgba(45, 30, 20, 0.18), 0 4px 14px rgba(196, 154, 69, 0.30);
+            --shadow-medallion: 0 14px 34px rgba(45, 30, 20, 0.22), 0 3px 10px rgba(0, 0, 0, 0.08);
         }
 
         * {
@@ -57,13 +57,13 @@
         }
 
         html {
-            background-color: #F5EFEB;
+            background-color: #ECE3D2;
             scroll-behavior: smooth;
         }
 
         body {
             font-family: var(--font-sans);
-            background: radial-gradient(circle at 50% 0%, #FAF6F0 0%, #F2ECE1 100%) !important;
+            background-color: #ECE3D2;
             color: var(--text-body);
             min-height: 100vh;
             min-height: 100dvh;
@@ -76,12 +76,34 @@
         }
 
         /* ==========================================================================
-           2. PORTADA PANORÁMICA THEED (INSPIRACIÓN DEESSA MADRID)
+           2. FONDO TEXTURADO ACTIVO: TRAMA ÁRABE/RECOLETA + LINO EDITORIAL
+           ========================================================================== */
+        .palace-luxury-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 0; /* Ubicado en plano neutro: imposible de tapar por el body */
+            pointer-events: none;
+            background-color: #EFE7DA;
+            background-image: 
+                /* Foco de iluminación de galería cenital */
+                radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.45) 0%, rgba(239, 231, 218, 0.15) 60%, rgba(215, 200, 180, 0.65) 100%),
+                /* Trama geométrica arabesco & herrería señorial en trazo noble visible */
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M32 0 L64 32 L32 64 L0 32 Z' fill='none' stroke='%239B782D' stroke-width='1.3' stroke-opacity='0.24'/%3E%3Cpath d='M0 0 L64 64 M64 0 L0 64' fill='none' stroke='%23C49A45' stroke-width='0.9' stroke-opacity='0.18'/%3E%3Ccircle cx='32' cy='32' r='11' fill='none' stroke='%238C341E' stroke-width='1.1' stroke-opacity='0.22'/%3E%3Ccircle cx='0' cy='0' r='11' fill='none' stroke='%238C341E' stroke-width='1.1' stroke-opacity='0.22'/%3E%3Ccircle cx='64' cy='0' r='11' fill='none' stroke='%238C341E' stroke-width='1.1' stroke-opacity='0.22'/%3E%3Ccircle cx='0' cy='64' r='11' fill='none' stroke='%238C341E' stroke-width='1.1' stroke-opacity='0.22'/%3E%3Ccircle cx='64' cy='64' r='11' fill='none' stroke='%238C341E' stroke-width='1.1' stroke-opacity='0.22'/%3E%3C/svg%3E"),
+                /* Micro-tejido entelado de lino / papel de grabado */
+                repeating-linear-gradient(0deg, rgba(34, 28, 24, 0.04) 0px, rgba(34, 28, 24, 0.04) 1px, transparent 1px, transparent 3px),
+                repeating-linear-gradient(90deg, rgba(34, 28, 24, 0.04) 0px, rgba(34, 28, 24, 0.04) 1px, transparent 1px, transparent 3px);
+            background-size: cover, 56px 56px, 3px 3px, 3px 3px;
+            background-repeat: no-repeat, repeat, repeat, repeat;
+        }
+
+        /* ==========================================================================
+           3. PORTADA PANORÁMICA THEED (INSPIRACIÓN DEESSA MADRID)
            ========================================================================== */
         .palace-hero-cover {
             width: 100%;
             height: clamp(220px, 30vw, 310px);
             position: relative;
+            z-index: 2;
             overflow: hidden;
             background-color: #D8CFBE;
         }
@@ -95,7 +117,6 @@
             display: block;
         }
 
-        /* Filtro de luz ambiental sutil con degradé hacia el cuerpo */
         .cover-bloom-veil {
             position: absolute;
             inset: 0;
@@ -103,13 +124,13 @@
             background: linear-gradient(
                 180deg, 
                 rgba(25, 20, 16, 0.25) 0%, 
-                rgba(247, 238, 225, 0.15) 50%, 
-                rgba(245, 239, 235, 0.95) 100%
+                rgba(247, 238, 225, 0.10) 50%, 
+                rgba(239, 231, 218, 0.95) 100%
             );
         }
 
         /* ==========================================================================
-           3. SHELL PRINCIPAL CON ENCUADRE EDITORIAL
+           4. SHELL PRINCIPAL CON ENCUADRE EDITORIAL
            ========================================================================== */
         .palace-hub-shell {
             width: 100%;
@@ -120,11 +141,11 @@
             z-index: 2;
             position: relative;
             padding: 0 clamp(12px, 3vw, 18px);
-            margin-top: -64px; /* Eleva el hub para que el logo solape la portada */
+            margin-top: -64px; /* Eleva el hub para solapar el logo con la portada */
         }
 
         /* ==========================================================================
-           4. BARRA SUPERIOR: GUÍA Y REPRODUCTOR QUEEN AMIDALA
+           5. BARRA SUPERIOR: GUÍA Y REPRODUCTOR QUEEN AMIDALA
            ========================================================================== */
         .top-pavilion-bar {
             width: 100%;
@@ -139,7 +160,7 @@
             display: inline-flex;
             align-items: center;
             gap: 7px;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.94);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--border-card-delicate);
@@ -163,7 +184,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.94);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1.5px solid var(--gold-champagne);
@@ -189,7 +210,7 @@
         }
 
         /* ==========================================================================
-           5. MEDALLÓN ARISTOCRÁTICO + PABELLÓN DE MARCA (SOLAPADO ESTILO DEESSA)
+           6. MEDALLÓN ARISTOCRÁTICO + PABELLÓN DE MARCA (SOLAPADO ESTILO DEESSA)
            ========================================================================== */
         .emblem-crested-anchor {
             width: 100%;
@@ -200,7 +221,6 @@
             margin-bottom: -58px; /* Hace que el cuadro de abajo empiece en el ecuador del logo */
         }
 
-        /* Medallón con reborde semicircular amplio y fino halo de oro champán */
         .logo-circle-medallion {
             width: 122px;
             height: 122px;
@@ -223,7 +243,6 @@
             box-shadow: 0 18px 42px rgba(196, 154, 69, 0.28);
         }
 
-        /* LOGO SVG VECTORIAL EN CARBÓN CÁLIDO CON MOVIMIENTO DE RESPIRACIÓN SOFISTICADO */
         .logo-hilario-svg {
             width: 100%;
             height: auto;
@@ -253,7 +272,6 @@
             100% { transform: translateY(0px) scale(1); }
         }
 
-        /* Recuadro de porcelana que continúa visualmente desde el medio del logo */
         .brand-palace-monument {
             background: var(--surface-porcelain);
             backdrop-filter: blur(20px) saturate(130%);
@@ -261,7 +279,7 @@
             border: 1px solid rgba(255, 255, 255, 0.95);
             outline: 1px solid var(--border-card-delicate);
             border-radius: 36px 36px 22px 22px;
-            padding: 68px 22px 24px; /* Padding superior para alojar el medio inferior del logo */
+            padding: 68px 22px 24px; /* Espacio superior para alojar el medio inferior del logo */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -326,7 +344,6 @@
             font-weight: 700;
         }
 
-        /* ACCESOS RÁPIDOS CIRCULARES EN PORCELANA */
         .palace-actions-strip {
             display: flex;
             align-items: center;
@@ -365,10 +382,10 @@
         }
 
         /* ==========================================================================
-           6. HERO CARD: RESERVAS DE SALÓN POR WHATSAPP (CONSERJERÍA REAL)
+           7. HERO CARD: RESERVAS DE SALÓN POR WHATSAPP (CONSERJERÍA REAL)
            ========================================================================== */
         .hero-booking-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(252, 248, 242, 0.92) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(252, 248, 242, 0.94) 100%);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             border: 1.5px solid var(--gold-champagne);
@@ -468,7 +485,7 @@
         }
 
         /* ==========================================================================
-           7. GRILLA BENTO: ARCOS Y DIVERSIDAD MORFOLÓGICA CON AIRE VISUAL
+           8. GRILLA BENTO: ARCOS Y DIVERSIDAD MORFOLÓGICA
            ========================================================================== */
         .bento-porcelain-grid {
             display: grid;
@@ -504,19 +521,16 @@
             box-shadow: var(--shadow-porcelain-hover);
         }
 
-        /* 1. LA CARTA: ARCO DE MEDIO PUNTO SEÑORIAL */
         .bento-plate.card-arch-left {
             border-radius: 38px 18px 18px 18px;
             border-top: 2.5px solid var(--gold-champagne);
         }
 
-        /* 2. COCINA ÁRABE: ARCO DERECHO EQUILIBRADO */
         .bento-plate.card-arch-right {
             border-radius: 18px 38px 18px 18px;
             border-top: 2.5px solid var(--accent-terracotta-fine);
         }
 
-        /* 3. RAPPI DELIVERY: FULL SPAN ELEGANTE */
         .bento-plate.card-full-span {
             grid-column: span 2;
             min-height: auto;
@@ -527,13 +541,11 @@
             border-left: 4px solid var(--gold-champagne);
         }
 
-        /* 4. INSTAGRAM: CORTE INFERIOR SUAVE */
         .bento-plate.card-arch-bottom-left {
             border-radius: 18px 18px 18px 38px;
             border-bottom: 2px solid rgba(225, 48, 108, 0.4);
         }
 
-        /* 5. CÓMO LLEGAR: CORTE INFERIOR DERECHO */
         .bento-plate.card-arch-bottom-right {
             border-radius: 18px 18px 38px 18px;
             border-bottom: 2px solid rgba(14, 61, 121, 0.4);
@@ -596,7 +608,7 @@
         }
 
         /* ==========================================================================
-           8. SHOWCASE GASTRONÓMICO: CORTES DE PARRILLA Y ESPECIALIDADES
+           9. SHOWCASE GASTRONÓMICO: CORTES DE PARRILLA Y ESPECIALIDADES
            ========================================================================== */
         .dish-strip-module {
             display: flex;
@@ -718,7 +730,7 @@
         }
 
         /* ==========================================================================
-           9. TELEMETRÍA EN VIVO: HORARIO DE RECOLETA (BUENOS AIRES UTC-3)
+           10. TELEMETRÍA EN VIVO: HORARIO DE RECOLETA (BUENOS AIRES UTC-3)
            ========================================================================== */
         .hours-schedule-box {
             background: var(--surface-porcelain);
@@ -786,7 +798,7 @@
         }
 
         /* ==========================================================================
-           10. MAPA ENMARCADO: PEÑA 2475
+           11. MAPA ENMARCADO: PEÑA 2475
            ========================================================================== */
         .map-enclosure-card {
             background: var(--surface-porcelain);
@@ -832,7 +844,7 @@
         }
 
         /* ==========================================================================
-           11. MODAL CARTA: MENÚ EN PORCELANA & PERGAMINO NOBLE
+           12. MODAL CARTA: MENÚ EN PORCELANA & PERGAMINO NOBLE
            ========================================================================== */
         .modal-overlay-palace {
             position: fixed;
@@ -976,7 +988,7 @@
         }
 
         /* ==========================================================================
-           12. FOOTER NOBLE
+           13. FOOTER NOBLE
            ========================================================================== */
         .palace-footer-strip {
             margin-top: 10px;
@@ -1008,9 +1020,10 @@
 </head>
 <body>
 
-    <!-- ==========================================================================
-         PORTADA PANORÁMICA ESTILO DEESSA MADRID (HERO BANNER)
-         ========================================================================== -->
+    <!-- FONDO QUIET LUXURY: CAPA INDEPENDIENTE (IMPOSIBLE DE TAPAR POR EL BODY) -->
+    <div class="palace-luxury-backdrop" aria-hidden="true"></div>
+
+    <!-- PORTADA PANORÁMICA THEED (HERO BANNER) -->
     <header class="palace-hero-cover" aria-label="Portada Theed Palace Recoleta">
         <img class="cover-photo-element" src="./Palace-Courtyard---original.webp" alt="Patio Don Hilario Recoleta">
         <div class="cover-bloom-veil" aria-hidden="true"></div>
@@ -1018,9 +1031,7 @@
 
     <main class="palace-hub-shell">
 
-        <!-- ==========================================================================
-             BARRA DE GUÍA GOOGLE + REPRODUCTOR QUEEN AMIDALA
-             ========================================================================== -->
+        <!-- BARRA SUPERIOR -->
         <div class="top-pavilion-bar">
             <div class="rating-porcelain-pill">
                 <span class="gold-star">★</span>
@@ -1035,12 +1046,9 @@
             </button>
         </div>
 
-        <!-- ==========================================================================
-             MEDALLÓN CIRCULAR CON REBORDE AMPLIO SOLAPADO
-             ========================================================================== -->
+        <!-- MEDALLÓN CIRCULAR ARISTOCRÁTICO (SOLAPADO AL 50%) -->
         <div class="emblem-crested-anchor">
             <div class="logo-circle-medallion">
-                <!-- SVG OFICIAL VECTORIZADO EN CARBÓN CÁLIDO -->
                 <svg class="logo-hilario-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1156.4 1020.08" aria-label="Don Hilario Restaurante y Parrilla">
                     <path d="M764.25,467.26c0,3.12-.03,5.76,0,8.39.52,39.32.96,78.64,1.67,117.95.13,7.13,1.1,14.29,2.18,21.36,1.79,11.76,8.59,19.47,20.24,22.02,7.27,1.59,14.76,2.46,22.19,2.97,11.92.82,18.32,6.74,18.42,17.85.1,11.3-7.37,20.08-18.52,19.99-17.14-.14-34.31-.95-51.42-2.11-44.51-3.02-88.94-1.45-133.37,1.41-6.82.44-13.65.75-20.48.8-11.46.07-18.73-7.06-19.21-18.53-.46-11,5.9-17.71,17.35-19.02,6.59-.75,13.19-1.92,19.61-3.57,11.34-2.92,18.69-10.47,21.03-21.83,2.2-10.73,4.26-21.69,4.52-32.59.9-37.14.98-74.31,1.41-111.46.03-2.48-.32-4.1-3.45-4.09-33.49.13-66.99.17-100.48.24-.31,0-.62.19-1.37.44-.82,7.35-1.35,14.94-2.53,22.43-13.73,87.17-61.84,145.92-145.58,174.53-32.66,11.16-66.67,14.22-101.06,13.7-52.65-.79-105.3-1.86-157.95-2.08-25.98-.11-51.96,1.51-77.95,2.14-14.81.36-23.9-11.34-19.78-25.05,2.31-7.67,7.6-11.71,15.64-12.54,7.44-.77,14.92-1.57,22.24-3.06,13.72-2.79,22.99-10.95,25.26-25,2.23-13.78,4.21-27.72,4.55-41.64.82-33.48.62-66.98.81-100.47,0-.97-.22-1.94-.41-3.46h-51.7v-18.54h1042.56v18.39h-49.4c-.19,1.94-.4,3.08-.39,4.21.7,42.48,1.36,84.96,2.2,127.43.1,5.3.96,10.62,1.79,15.88,1.85,11.75,8.62,19.57,20.15,22.2,8.55,1.95,17.38,3.03,26.15,3.64,12.08.85,18.29,6.01,18.79,16.86.51,11.18-6.58,20.15-17.7,20.78-9.94.56-20,.27-29.94-.5-58.46-4.55-116.88-3.85-175.28.84-3.81.31-7.67.49-11.48.28-10.09-.55-16.82-8.46-16.75-19.35.07-10.7,6.74-17.56,16.82-18.73,8.7-1.01,17.44-2.59,25.85-5,8.33-2.38,14.3-8.5,16.3-16.92,2.57-10.8,5.27-21.86,5.54-32.87.96-38.64.92-77.3,1.24-115.96,0-.64-.18-1.29-.34-2.35h-167.99ZM224.68,467.07c-.15,1.75-.34,2.89-.33,4.03.32,36.16.45,72.32,1.14,108.46.21,10.95,1.65,21.93,3.22,32.79,1.65,11.42,8.82,18.58,19.88,21.23,6.92,1.66,14.09,2.96,21.18,3.08,48.74.82,85.8-21.03,113.14-60.22,22.37-32.06,29.87-68.6,29.95-107.06,0-.76-.37-1.51-.58-2.3h-187.6Z"/>
                     <path d="M764.58,411.62h167.52c.22-.76.56-1.38.56-2-.24-40.32-.39-80.64-.88-120.96-.07-6.1-1.38-12.24-2.66-18.25-1.97-9.27-7.81-15.56-16.87-18-7.35-1.98-14.95-3.27-22.53-4.08-12.05-1.29-18.51-7.56-18.25-18.68.27-11.64,7.9-19.75,19.58-19.6,14.32.18,28.65.9,42.94,1.88,46.51,3.2,92.94,1.58,139.36-1.74,6.65-.48,13.32-.82,19.98-.85,11.32-.06,18.53,7.3,18.82,18.86.28,11.28-6.95,18.95-18.13,19.64-6.64.41-13.3.96-19.85,2.08-12.04,2.06-19.35,9.36-21.21,21.46-1.24,8.05-2.36,16.21-2.51,24.34-.71,37.82-1.07,75.65-1.55,113.48,0,.65.15,1.29.31,2.53,1.93.1,3.84.29,5.76.29,13.17-.01,26.33.04,39.5-.16,3.47-.05,4.77,1,4.56,4.54-.26,4.46-.06,8.94-.06,13.87H56.29v-18.26c2.02,0,3.97,0,5.92,0,14-.02,28-.09,42,0,2.9.02,4.17-.76,4.16-3.92-.14-42.81,1.76-85.67-2.33-128.4-.38-3.95-1.27-7.91-2.38-11.72-2.31-7.91-7.46-13.68-15.39-15.73-8.81-2.28-17.87-3.86-26.91-4.94-7.26-.86-13.51-2.73-16.68-9.84-3.24-7.28-2.21-14.36,2.23-20.89,3.88-5.72,9.66-7.33,16.18-6.96,18.47,1.04,36.93,2.16,55.4,3.19,40.66,2.27,81.3,1.4,121.93-.73,36.03-1.89,72.01-2.4,107.61,4.62,35.43,6.99,69.57,17.96,99.11,39.4,39.29,28.51,66.69,66.29,82.63,112.1,4.47,12.85,7.39,26.25,10.7,39.48.77,3.09,1.61,4.45,5.06,4.44,33.16-.15,66.33-.18,99.49-.09,3.62,0,4.94-.9,4.91-4.74-.32-35.99-.26-71.99-.79-107.98-.14-9.44-1.53-18.93-3.13-28.26-1.7-9.86-7.86-16.55-17.58-19.14-6.56-1.75-13.34-2.89-20.09-3.69-10.09-1.19-16.18-7.24-16.53-17.22-.37-10.62,6.11-19.71,15.78-20.42,8.59-.63,17.34-.28,25.94.47,48.48,4.22,96.91,2.25,145.35-.76,9.64-.6,19.32-.79,28.98-.83,11.44-.04,18.94,7.71,19.07,19.25.12,11-7.37,18.54-18.74,19.18-6.14.34-12.33.72-18.37,1.78-13.13,2.29-19.72,8.69-21.81,21.9-1.5,9.52-2.47,19.21-2.63,28.84-.62,36.16-.81,72.32-1.15,108.48,0,.8.19,1.6.34,2.75ZM226.39,255.4c-.15,1.6-.31,2.58-.32,3.57-.61,49.62-1.18,99.25-1.89,148.87-.05,3.84,1.68,4.25,4.81,4.24,58.12-.09,116.25-.1,174.37-.15,1.73,0,3.46-.21,5.39-.33-5.07-34.29-15.28-66.05-33.72-94.89-10.81-16.91-24.14-31.32-41.14-42.23-33.09-21.23-69.74-21.77-107.5-19.07Z"/>
@@ -1053,9 +1061,7 @@
             </div>
         </div>
 
-        <!-- ==========================================================================
-             PABELLÓN DE MARCA (CONTINÚA DESDE LA PARTE MEDIA DEL LOGO)
-             ========================================================================== -->
+        <!-- PABELLÓN DE MARCA (CONTINÚA DESDE EL MEDIO DEL LOGO) -->
         <section class="brand-palace-monument">
 
             <div class="brand-subline-italic">Alta Parrilla Argentina & Cocina Árabe</div>
@@ -1070,7 +1076,6 @@
                 Cortes de <strong>exportación al carbón de quebracho</strong>, pastas caseras y recetas árabes milenarias en el corazón señorial porteño.
             </p>
 
-            <!-- ACCESOS RÁPIDOS CIRCULARES EN PORCELANA -->
             <div class="palace-actions-strip">
                 <a href="https://wa.me/5491135051212?text=%C2%A1Buenas%20tardes%20Don%20Hilario!%20Quisiera%20hacer%20una%20reserva%20o%20consulta." target="_blank" rel="noopener noreferrer" class="action-circle-btn" aria-label="WhatsApp" onmouseenter="playSfx('hover')" onclick="playSfx('stud')">
                     <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
@@ -1087,9 +1092,7 @@
             </div>
         </section>
 
-        <!-- ==========================================================================
-             HERO: CONSERJERÍA WHATSAPP (ACCESO DIRECTO)
-             ========================================================================== -->
+        <!-- HERO CONSERJERÍA WHATSAPP -->
         <a href="https://wa.me/5491135051212?text=%C2%A1Hola%20Don%20Hilario!%20%F0%9F%A5%A9%20Quisiera%20reservar%20una%20mesa%20en%20el%20sal%C3%B3n." target="_blank" rel="noopener noreferrer" class="hero-booking-card" onmouseenter="playSfx('hover')" onclick="playSfx('stud')">
             <div class="hero-left-info">
                 <span class="hero-eyebrow">Conserjería de Salón & Pedidos</span>
@@ -1101,12 +1104,9 @@
             </div>
         </a>
 
-        <!-- ==========================================================================
-             BENTO DE PORCELANA TRASLÚCIDA Y ARCOS SEÑORIALES
-             ========================================================================== -->
+        <!-- GRILLA BENTO DE PORCELANA -->
         <section class="bento-porcelain-grid">
 
-            <!-- 1. LA CARTA: ARCO SUPERIOR IZQUIERDO -->
             <div class="bento-plate card-arch-left" onclick="openMenuModal()" onmouseenter="playSfx('hover')">
                 <div class="plate-top-row">
                     <span class="plate-index-tag">01 / MENÚ</span>
@@ -1119,7 +1119,6 @@
                 </div>
             </div>
 
-            <!-- 2. COCINA ÁRABE: ARCO SUPERIOR DERECHO -->
             <div class="bento-plate card-arch-right" onclick="openMenuModal()" onmouseenter="playSfx('hover')">
                 <div class="plate-top-row">
                     <span class="plate-index-tag">02 / HERENCIA</span>
@@ -1132,7 +1131,6 @@
                 </div>
             </div>
 
-            <!-- 3. RAPPI DELIVERY (FULL SPAN ELEGANTE) -->
             <a href="https://www.rappi.com.ar/restaurantes/214941-restaurante-don-hilario" target="_blank" rel="noopener noreferrer" class="bento-plate card-full-span" onmouseenter="playSfx('hover')" onclick="playSfx('select')">
                 <div style="flex:1;">
                     <div class="plate-top-row" style="margin-bottom: 4px;">
@@ -1144,7 +1142,6 @@
                 <span class="plate-arrow-icon" style="font-size: 1.35rem;">↗</span>
             </a>
 
-            <!-- 4. COMUNIDAD INSTAGRAM -->
             <a href="https://instagram.com/donhilariorestaurante" target="_blank" rel="noopener noreferrer" class="bento-plate card-arch-bottom-left" onmouseenter="playSfx('hover')" onclick="playSfx('select')">
                 <div class="plate-top-row">
                     <span class="plate-index-tag">03 / COMUNIDAD</span>
@@ -1157,7 +1154,6 @@
                 </div>
             </a>
 
-            <!-- 5. GPS CÓMO LLEGAR -->
             <a href="https://maps.google.com/?q=Peña+2475,+Recoleta,+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="bento-plate card-arch-bottom-right" onmouseenter="playSfx('hover')" onclick="playSfx('select')">
                 <div class="plate-top-row">
                     <span class="plate-index-tag">04 / GPS</span>
@@ -1172,9 +1168,7 @@
 
         </section>
 
-        <!-- ==========================================================================
-             SHOWCASE GASTRONÓMICO: CORTES DE PARRILLA Y ESPECIALIDADES
-             ========================================================================== -->
+        <!-- SHOWCASE GASTRONÓMICO -->
         <section class="dish-strip-module">
             <div class="module-head-row">
                 <span class="module-title-cinzel">Especialidades del Fuego</span>
@@ -1182,8 +1176,6 @@
             </div>
 
             <div class="dishes-horizontal-scroll">
-
-                <!-- 1. ENTRAÑA -->
                 <div class="dish-card-porcelain" onclick="openMenuModal()" onmouseenter="playSfx('hover')">
                     <div class="dish-frame-wrap">
                         <span class="dish-seal-pill">INSIGNIA</span>
@@ -1193,7 +1185,6 @@
                     <span class="dish-subtext-notes">Tierna, asada a punto</span>
                 </div>
 
-                <!-- 2. BIFE DE CHORIZO -->
                 <div class="dish-card-porcelain" onclick="openMenuModal()" onmouseenter="playSfx('hover')">
                     <div class="dish-frame-wrap">
                         <span class="dish-seal-pill">EXPORTACIÓN</span>
@@ -1203,7 +1194,6 @@
                     <span class="dish-subtext-notes">400 gramos con guarnición</span>
                 </div>
 
-                <!-- 3. COCINA ÁRABE -->
                 <div class="dish-card-porcelain" onclick="openMenuModal()" onmouseenter="playSfx('hover')">
                     <div class="dish-frame-wrap">
                         <span class="dish-seal-pill">ORIENTAL</span>
@@ -1213,7 +1203,6 @@
                     <span class="dish-subtext-notes">Con pan árabe tibio</span>
                 </div>
 
-                <!-- 4. MILANESA NAPOLITANA -->
                 <div class="dish-card-porcelain" onclick="openMenuModal()" onmouseenter="playSfx('hover')">
                     <div class="dish-frame-wrap">
                         <span class="dish-seal-pill">BODEGÓN</span>
@@ -1222,13 +1211,10 @@
                     <span class="dish-title-text">Milanesa Napolitana</span>
                     <span class="dish-subtext-notes">Gratinada y abundante</span>
                 </div>
-
             </div>
         </section>
 
-        <!-- ==========================================================================
-             TELEMETRÍA EN VIVO: HORARIO DE RECOLETA (BUENOS AIRES UTC-3)
-             ========================================================================== -->
+        <!-- HORARIOS -->
         <article class="hours-schedule-box" onmouseenter="playSfx('hover')">
             <div class="hours-box-head">
                 <span class="hours-box-title">Horarios de Salón</span>
@@ -1250,9 +1236,7 @@
             </div>
         </article>
 
-        <!-- ==========================================================================
-             MAPA ENMARCADO: PEÑA 2475
-             ========================================================================== -->
+        <!-- MAPA -->
         <section class="map-enclosure-card" onmouseenter="playSfx('hover')">
             <div class="map-head-bar">
                 <span class="map-head-title">Peña 2475, Recoleta</span>
@@ -1268,9 +1252,7 @@
             </div>
         </section>
 
-        <!-- ==========================================================================
-             FOOTER NOBLE
-             ========================================================================== -->
+        <!-- FOOTER -->
         <footer class="palace-footer-strip">
             <div class="footer-noble-title">DON HILARIO</div>
             <p class="footer-noble-sub">PEÑA 2475 · RECOLETA · BUENOS AIRES · PATRIMONIO GASTRONÓMICO</p>
@@ -1278,9 +1260,7 @@
 
     </main>
 
-    <!-- ==========================================================================
-         MODAL INTERACTIVO: CARTA DE DON HILARIO
-         ========================================================================== -->
+    <!-- MODAL CARTA -->
     <div class="modal-overlay-palace" id="menuModal" onclick="closeMenuModal(event)">
         <div class="modal-card-porcelain" onclick="event.stopPropagation()">
             <div class="modal-head-bar">
@@ -1288,11 +1268,8 @@
                 <button class="btn-close-modal" onclick="closeMenuModal(event)">✕</button>
             </div>
             <div class="modal-scroll-body">
-
-                <!-- 1. PARRILLA -->
                 <div class="menu-category-section">
                     <span class="category-frieze-title">Parrilla a la Leña de Quebracho</span>
-
                     <div class="dish-entry-item">
                         <div class="dish-entry-head">
                             <span class="dish-entry-name">Entraña Selección Don Hilario</span>
@@ -1300,7 +1277,6 @@
                         </div>
                         <p class="dish-entry-desc">El corte más aclamado. Tierno, jugoso y dorado con sal marina.</p>
                     </div>
-
                     <div class="dish-entry-item">
                         <div class="dish-entry-head">
                             <span class="dish-entry-name">Bife de Chorizo Ancho</span>
@@ -1308,7 +1284,6 @@
                         </div>
                         <p class="dish-entry-desc">Calidad de exportación acompañado con papas provenzal o mixta.</p>
                     </div>
-
                     <div class="dish-entry-item">
                         <div class="dish-entry-head">
                             <span class="dish-entry-name">Provoleta Especial a la Brasa</span>
@@ -1318,10 +1293,8 @@
                     </div>
                 </div>
 
-                <!-- 2. COCINA ÁRABE -->
                 <div class="menu-category-section">
                     <span class="category-frieze-title">Cocina Árabe Tradicional</span>
-
                     <div class="dish-entry-item">
                         <div class="dish-entry-head">
                             <span class="dish-entry-name">Hummus Casero con Pan Árabe</span>
@@ -1329,7 +1302,6 @@
                         </div>
                         <p class="dish-entry-desc">Crema de garbanzos elaborada en casa, sésamo tahini puro y pimentón.</p>
                     </div>
-
                     <div class="dish-entry-item">
                         <div class="dish-entry-head">
                             <span class="dish-entry-name">Berenjenas al Escabeche</span>
@@ -1339,10 +1311,8 @@
                     </div>
                 </div>
 
-                <!-- 3. BODEGÓN Y MINUTAS -->
                 <div class="menu-category-section">
                     <span class="category-frieze-title">Bodegón Porteño y Minutas</span>
-
                     <div class="dish-entry-item">
                         <div class="dish-entry-head">
                             <span class="dish-entry-name">Milanesa Napolitana de Ternera</span>
@@ -1350,7 +1320,6 @@
                         </div>
                         <p class="dish-entry-desc">Salsa pomodoro casera, jamón cocido seleccionado y mozzarella gratinada.</p>
                     </div>
-
                     <div class="dish-entry-item">
                         <div class="dish-entry-head">
                             <span class="dish-entry-name">Lomo a la Pimienta con Noisette</span>
@@ -1359,16 +1328,12 @@
                         <p class="dish-entry-desc">Medallones suaves con suave reducción de crema y pimienta negra en grano.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <!-- ==========================================================================
-         CONTROLADOR JS: MÚSICA QUEEN AMIDALA + EFECTOS POLIFÓNICOS
-         ========================================================================== -->
+    <!-- CONTROLADOR JS -->
     <script>
-        // POOL POLIFÓNICO DE AUDIO (LOCAL REPO GITHUB)
         const audioSfx = {
             hover: new Audio('./sfx-hover.wav'),
             select: new Audio('./sfx-select.wav'),
@@ -1378,7 +1343,6 @@
             pause: new Audio('./sfx-pause.wav')
         };
 
-        // Calibración de volumen táctil suave
         Object.values(audioSfx).forEach(s => s.volume = 0.40);
 
         function playSfx(type) {
@@ -1391,9 +1355,6 @@
             } catch (e) {}
         }
 
-        // ==========================================================================
-        // MOTOR DE MÚSICA: QUEEN AMIDALA AND THE NABOO PALACE
-        // ==========================================================================
         const bgMusic = new Audio('./Queen%20Amidala%20and%20the%20Naboo%20Palace.mp3');
         bgMusic.onerror = () => {
             bgMusic.src = './Queen Amidala and the Naboo Palace.mp3';
@@ -1423,7 +1384,6 @@
             }
         }
 
-        // FADE OUT SEMIRRÁPIDO AUTOMÁTICO (750 ms)
         function fadeOutPalaceMusic(duration = 750) {
             if (!isMusicPlaying || bgMusic.paused) return;
             if (fadeOutTimer) clearInterval(fadeOutTimer);
@@ -1453,7 +1413,6 @@
             }, stepTime);
         }
 
-        // DISPARADORES DE SALIDA (WHATSAPP, LLAMADA, MAPAS O PESTAÑA INACTIVA)
         document.addEventListener('click', (e) => {
             const link = e.target.closest('a');
             if (link && (link.href.includes('wa.me') || link.href.includes('tel:') || link.href.includes('maps') || link.target === '_blank')) {
@@ -1471,9 +1430,6 @@
             if (isMusicPlaying) bgMusic.pause();
         });
 
-        // ==========================================================================
-        // CONTROL DEL MODAL DE LA CARTA
-        // ==========================================================================
         const menuModal = document.getElementById('menuModal');
 
         function openMenuModal() {
@@ -1486,9 +1442,6 @@
             menuModal.classList.remove('active');
         }
 
-        // ==========================================================================
-        // TELEMETRÍA EN VIVO (HORARIO DE BUENOS AIRES UTC-3)
-        // ==========================================================================
         function updateLiveStatus() {
             const now = new Date();
             const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
@@ -1505,18 +1458,13 @@
 
             let isOpen = false;
 
-            // Almuerzo: 12:00 a 15:30
             if (timeVal >= 12.0 && timeVal < 15.5) {
                 isOpen = true;
                 slotAlmuerzo.classList.add('is-active-slot');
-            } 
-            // Cafetería: 16:00 a 19:15
-            else if (timeVal >= 16.0 && timeVal < 19.25) {
+            } else if (timeVal >= 16.0 && timeVal < 19.25) {
                 isOpen = true;
                 slotMerienda.classList.add('is-active-slot');
-            }
-            // Cena: 19:15 a 23.75
-            else if (timeVal >= 19.25 && timeVal < 23.75) {
+            } else if (timeVal >= 19.25 && timeVal < 23.75) {
                 isOpen = true;
                 slotCena.classList.add('is-active-slot');
             }
